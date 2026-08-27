@@ -1,12 +1,13 @@
 # Artifacts manifest — s3://fbctf-demo-artifacts-337058058699-use1
 
-Built 2026-08-27 (rev 3: patch 5 added after the Phase 6 human gate). Source
-pinned to fbctf commit `4ec9b6b` with the five validated patches (NodeSource
-`trusted=yes`, local grunt 1.0.4 pin, unison no-op, GLOBAL grunt 1.0.4 pin +
-flow-bin drop in provision.sh, non-Secure session cookie in SessionUtils.php —
-see `scripts/make-source-tarball.sh`). Prebuilt tarball and HHVM debs produced
-on a throwaway Xenial EC2 builder (`scripts/builder-userdata.sh`); build log at
-`build-status/builder.log` in the bucket.
+Built 2026-08-27. App source of truth: **CloudCraftersOrg/fbctf** —
+facebookarchive history with the five 2026 keep-alive patches as commits on
+top of upstream `4ec9b6b` (NodeSource key, grunt pins local+global, unison
+no-op, non-Secure session cookie, branding logo); pinned patched HEAD
+`eba438b`. S3 keys keep the upstream-base name for template stability.
+Prebuilt tarball and HHVM debs produced on a throwaway Xenial EC2 builder
+(`scripts/builder-userdata.sh`); build log at `build-status/builder.log` in
+the bucket.
 
 | Key | Size | SHA-256 |
 |---|---|---|
