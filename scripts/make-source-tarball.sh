@@ -97,6 +97,10 @@ sess.write_text(s.replace(old, new))
 print("[+] all 5 patches applied")
 EOF
 
+echo "[+] Injecting demo branding logo"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cp "$SCRIPT_DIR/../assets/custom-branding.png" "$WORK/src/src/static/img/custom-branding.png"
+
 echo "[+] Building tarball"
 TARBALL="fbctf-src-${COMMIT}-patched.tgz"
 tar czf "$WORK/$TARBALL" -C "$WORK/src" .

@@ -90,6 +90,19 @@ SQL
 else
   echo "DB already bootstrapped — skipping"
 fi
+
+# --- demo branding (idempotent, every boot): Spanish UI, EPAM org, custom
+# byline + logo. The logo file ships inside the app tarball at
+# src/static/img/custom-branding.png. Config is cached in memcached — flush
+# so changes take effect immediately.
+mysql -h "$DB_HOST" -u "$MASTER_USER" fbctf <<'SQL'
+UPDATE configuration SET value='es' WHERE field='language';
+UPDATE configuration SET value='EPAM' WHERE field='custom_org';
+UPDATE configuration SET value='Powered By CloudCrafters' WHERE field='custom_byline';
+UPDATE configuration SET value='1' WHERE field='custom_logo';
+UPDATE configuration SET value='static/img/custom-branding.png' WHERE field='custom_logo_image';
+SQL
+printf 'flush_all\r\nquit\r\n' | timeout 5 bash -c "cat > /dev/tcp/$MC_HOST/11211" || true
 unset MYSQL_PWD
 
 # --- restart HHVM with final settings and verify ---
