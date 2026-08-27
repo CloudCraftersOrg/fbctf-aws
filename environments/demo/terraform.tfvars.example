@@ -1,0 +1,7 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is gitignored.
+region = "us-east-1"
+env    = "demo"
+owner  = "davismar98"
+
+vpc_cidr = "10.20.0.0/16"
+az_count = 2
