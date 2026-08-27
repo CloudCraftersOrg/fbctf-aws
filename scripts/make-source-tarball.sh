@@ -82,7 +82,19 @@ new = '''        # fbctf-aws patch: pin global grunt (unpinned resolves to 1.6.x
         sudo npm install -g grunt@1.0.4'''
 assert old in s, "global npm install block not found"
 prov.write_text(s.replace(old, new))
-print("[+] all 4 patches applied")
+
+# Patch 5: the session cookie is hardcoded Secure — built for the original
+# HTTPS-only nginx. Served over the HTTP-only ALB, browsers drop the cookie
+# and every login silently bounces back to the login page.
+sess = root / "src/SessionUtils.php"
+s = sess.read_text()
+old = "private static bool $s_secure = true;"
+new = ("// fbctf-aws patch: TLS terminates at the ALB and the app is served\n"
+       "  // over plain HTTP — a Secure cookie would never be sent back.\n"
+       "  private static bool $s_secure = false;")
+assert old in s, "s_secure not found"
+sess.write_text(s.replace(old, new))
+print("[+] all 5 patches applied")
 EOF
 
 echo "[+] Building tarball"
