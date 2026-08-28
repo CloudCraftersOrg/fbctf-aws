@@ -6,6 +6,11 @@ Requirements, architecture, validated findings, and the phased implementation pl
 
 ## Architecture
 
+![fbctf on AWS — architecture](assets/fbctf-aws-architecture.png)
+
+<details>
+<summary>Text summary</summary>
+
 ```
 Internet → ALB (HTTP:80, public subnets)
   → nginx ASG (private-app subnets)
@@ -13,6 +18,8 @@ Internet → ALB (HTTP:80, public subnets)
       → HHVM ASG (private-app subnets)
         → RDS MySQL 8.0 + ElastiCache memcached (private-data subnets)
 ```
+
+</details>
 
 - Account `337058058699` (Sandbox, `cloudcrafters-sandbox` profile with the `AWSTransformAccess` permission set), region `us-east-1` — colocated with the AWS Transform workspace.
 - All resource names carry the `fbctf-` prefix — the deploy permission set scopes IAM, S3, and Secrets Manager writes to `fbctf-*`.
