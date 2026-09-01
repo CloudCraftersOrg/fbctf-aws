@@ -6,20 +6,25 @@ output, not this repo's.
 
 | Part | What it is | Deployed? | Cost |
 |---|---|---|---|
-| **The assessment inventory** (`inventory/`) | A 14-server portfolio as data → `generate.py` → one assessment ZIP | No — data | `$0` |
+| **The assessment inventory** (`inventory/`) | A server portfolio as data → `generate.py` → one assessment ZIP | No — data | `$0` |
 | **The modernization fixtures** (`modernization/`) | Real .NET Framework, Java 8, COBOL and T-SQL code for Transform's transformation agents | No — source only | `$0` |
-| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS | On demand | ~$5/day up, `$0` destroyed |
-| **The SQL modernization target** (`environments/sqlmod`) | RDS SQL Server Express in a 2-AZ VPC — for the full agentic SQL Server → Aurora job | On demand | RDS SQL Express + DMS + Aurora while running |
+| **The SQL Server estate** (`environments/sqlmod`) | One EC2 SQL Server 2022 + two live apps against it — **Contoso Scoreboard** (.NET Framework 4.8 / IIS) and **Project Nami** (WordPress-on-SQL-Server / PHP) — in a 2-AZ VPC | On demand | ~$0.20/hr up, `$0` destroyed |
+| **The discovery collector** (`environments/discovery-collector`) | The real AWS Transform discovery tool + a synthetic fleet; peers to the sqlmod VPC | On demand | ~$0.30/hr up |
 
 Feature-by-feature coverage: [`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
 End-to-end run order: [`docs/demo-runbook.md`](docs/demo-runbook.md).
-Scope decisions: [ADR 004](docs/decisions/004-demo-scope-expansion.md), [ADR 005](docs/decisions/005-drop-the-estate.md).
+Scope decisions: [ADR 004](docs/decisions/004-demo-scope-expansion.md), [ADR 005](docs/decisions/005-drop-the-estate.md), [ADR 006](docs/decisions/006-retire-fbctf.md).
 
-Requirements, architecture, validated findings, and the phased implementation plan for the live app live in [`fbctf-aws-requirements.md`](fbctf-aws-requirements.md). Decisions are recorded in [`docs/decisions/`](docs/decisions/); the S3 artifact inventory in [`docs/artifacts-manifest.md`](docs/artifacts-manifest.md).
+Decisions are recorded in [`docs/decisions/`](docs/decisions/); the S3 artifact inventory in [`docs/artifacts-manifest.md`](docs/artifacts-manifest.md).
 
 ---
 
-## The live app
+## The retired fbctf live app
+
+> **Retired 2026-09-01 ([ADR 006](docs/decisions/006-retire-fbctf.md)).** `environments/demo`
+> and its state are gone; `fbctf-aws-requirements.md` and the sections below are
+> history. fbctf had no Transform code path and was MySQL-locked — the
+> `environments/sqlmod` estate replaced it as the live app.
 
 ### Architecture
 
