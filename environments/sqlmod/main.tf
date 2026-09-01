@@ -453,7 +453,7 @@ resource "aws_instance" "wordpress" {
     region              = var.region
     sa_secret_arn       = aws_secretsmanager_secret.sa.arn
     wp_secret_arn       = aws_secretsmanager_secret.wp[0].arn
-    wp_admin_password   = random_password.wp_admin[0].result
+    wp_admin_secret_arn = aws_secretsmanager_secret.wp_admin[0].arn
     sql_host            = aws_instance.sqlserver.private_ip
     projectnami_zip_url = var.projectnami_zip_url
   })
