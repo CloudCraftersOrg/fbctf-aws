@@ -49,6 +49,29 @@ variable "windows_instance_type" {
   default = "t3.medium"
 }
 
+variable "deploy_wordpress" {
+  description = "Deploy Project Nami (WordPress fork for SQL Server) as a second app against this SQL Server"
+  type        = bool
+  default     = true
+}
+
+variable "wordpress_allow_cidr" {
+  description = "CIDR allowed to reach the Project Nami site on :80"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+variable "wordpress_instance_type" {
+  type    = string
+  default = "t3.small"
+}
+
+variable "projectnami_zip_url" {
+  description = "Project Nami source archive (WordPress + the SQL Server db.php drop-in)"
+  type        = string
+  default     = "https://github.com/ProjectNami/projectnami/archive/refs/heads/master.zip"
+}
+
 variable "transform_ro_password" {
   description = "Password for the transform_ro SQL login (VIEW DEFINITION + VIEW DATABASE STATE). Printable ASCII only."
   type        = string

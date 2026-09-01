@@ -319,3 +319,153 @@ resource "aws_eip" "app" {
   domain   = "vpc"
   tags     = { Name = "fbctf-sqlmod-app" }
 }
+
+# ---- Project Nami: a second app on this SQL Server - WordPress's SQL Server
+# fork, on Ubuntu + Apache + PHP with the Microsoft pdo_sqlsrv driver. A
+# legacy-PHP-on-a-commercial-DB workload for the assessment; its wordpress
+# database is a second feature-10a target.
+
+data "aws_ssm_parameter" "ubuntu2204" {
+  count = var.deploy_wordpress ? 1 : 0
+  name  = "/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id"
+}
+
+resource "random_password" "wp" {
+  count            = var.deploy_wordpress ? 1 : 0
+  length           = 24
+  override_special = "_-+=."
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "random_password" "wp_admin" {
+  count            = var.deploy_wordpress ? 1 : 0
+  length           = 20
+  override_special = "_-+=."
+}
+
+resource "aws_secretsmanager_secret" "wp" {
+  count                   = var.deploy_wordpress ? 1 : 0
+  name                    = "fbctf-sqlmod/wordpress-db"
+  description             = "wp_app SQL login used by Project Nami"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "wp" {
+  count         = var.deploy_wordpress ? 1 : 0
+  secret_id     = aws_secretsmanager_secret.wp[0].id
+  secret_string = jsonencode({ username = "wp_app", password = random_password.wp[0].result, database = "wordpress" })
+}
+
+resource "aws_secretsmanager_secret" "wp_admin" {
+  count                   = var.deploy_wordpress ? 1 : 0
+  name                    = "fbctf-sqlmod/wordpress-admin"
+  description             = "Project Nami wp-admin login"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "wp_admin" {
+  count         = var.deploy_wordpress ? 1 : 0
+  secret_id     = aws_secretsmanager_secret.wp_admin[0].id
+  secret_string = jsonencode({ username = "admin", password = random_password.wp_admin[0].result })
+}
+
+resource "aws_security_group" "wordpress" {
+  count       = var.deploy_wordpress ? 1 : 0
+  name        = "fbctf-sqlmod-wordpress"
+  description = "Project Nami: HTTP in, egress to SQL Server and package repos"
+  vpc_id      = module.network.vpc_id
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.wordpress_allow_cidr]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = { Name = "fbctf-sqlmod-wordpress" }
+}
+
+resource "aws_iam_role" "wordpress" {
+  count = var.deploy_wordpress ? 1 : 0
+  name  = "fbctf-sqlmod-wordpress"
+  assume_role_policy = jsonencode({
+    Version   = "2012-10-17"
+    Statement = [{ Effect = "Allow", Principal = { Service = "ec2.amazonaws.com" }, Action = "sts:AssumeRole" }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "wordpress_ssm" {
+  count      = var.deploy_wordpress ? 1 : 0
+  role       = aws_iam_role.wordpress[0].name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_role_policy" "wordpress_access" {
+  count = var.deploy_wordpress ? 1 : 0
+  name  = "read-secrets"
+  role  = aws_iam_role.wordpress[0].id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = "secretsmanager:GetSecretValue"
+      Resource = [aws_secretsmanager_secret.sa.arn, aws_secretsmanager_secret.wp[0].arn, aws_secretsmanager_secret.wp_admin[0].arn]
+    }]
+  })
+}
+
+resource "aws_iam_instance_profile" "wordpress" {
+  count = var.deploy_wordpress ? 1 : 0
+  name  = "fbctf-sqlmod-wordpress"
+  role  = aws_iam_role.wordpress[0].name
+}
+
+resource "aws_instance" "wordpress" {
+  count = var.deploy_wordpress ? 1 : 0
+
+  ami                    = data.aws_ssm_parameter.ubuntu2204[0].value
+  instance_type          = var.wordpress_instance_type
+  subnet_id              = module.network.public_subnet_ids[0]
+  vpc_security_group_ids = [aws_security_group.wordpress[0].id]
+  iam_instance_profile   = aws_iam_instance_profile.wordpress[0].name
+
+  instance_initiated_shutdown_behavior = "stop"
+  metadata_options {
+    http_tokens   = "required"
+    http_endpoint = "enabled"
+  }
+  root_block_device {
+    volume_type = "gp3"
+    volume_size = 40
+    encrypted   = true
+  }
+
+  user_data = templatefile("${path.module}/templates/wordpress-user-data.sh.tpl", {
+    region              = var.region
+    sa_secret_arn       = aws_secretsmanager_secret.sa.arn
+    wp_secret_arn       = aws_secretsmanager_secret.wp[0].arn
+    wp_admin_password   = random_password.wp_admin[0].result
+    sql_host            = aws_instance.sqlserver.private_ip
+    projectnami_zip_url = var.projectnami_zip_url
+  })
+
+  tags = { Name = "fbctf-sqlmod-wordpress" }
+
+  depends_on = [aws_secretsmanager_secret_version.wp, aws_secretsmanager_secret_version.wp_admin, aws_instance.sqlserver]
+}
+
+resource "aws_eip" "wordpress" {
+  count    = var.deploy_wordpress ? 1 : 0
+  instance = aws_instance.wordpress[0].id
+  domain   = "vpc"
+  tags     = { Name = "fbctf-sqlmod-wordpress" }
+}

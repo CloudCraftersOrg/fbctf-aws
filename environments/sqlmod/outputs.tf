@@ -48,3 +48,13 @@ output "app_instance_id" {
   description = "SSM target - C:\\app-setup.log has the IIS + login bootstrap result"
   value       = var.deploy_app ? aws_instance.app[0].id : null
 }
+
+output "wordpress_url" {
+  description = "Project Nami (WordPress on SQL Server). Admin login in fbctf-sqlmod/wordpress-admin."
+  value       = var.deploy_wordpress ? "http://${aws_eip.wordpress[0].public_ip}/" : null
+}
+
+output "wordpress_instance_id" {
+  description = "SSM target - /var/log/user-data.log has the pdo_sqlsrv + Project Nami install result"
+  value       = var.deploy_wordpress ? aws_instance.wordpress[0].id : null
+}
