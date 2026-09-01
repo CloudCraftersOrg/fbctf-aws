@@ -1,0 +1,121 @@
+{
+  "_comment": "Managed-service dependencies of the fbctf application. These are NOT servers and are NOT discoverable by the AWS Transform discovery tool (no OS to reach via SSH/WinRM; the tool's database modules cover SQL Server and Oracle only, not MySQL). Captured here from the AWS control plane (describe-* APIs) and CloudWatch so a Transform assessment has the full dependency picture. Utilization window: 2026-08-27 ~16:00Z -> 22:37Z (boot + idle; not representative of a load test or a real event).",
+  "discovered_at": "2026-08-27T22:37:00Z",
+  "region": "us-east-1",
+  "account": "337058058699",
+  "vpc": "vpc-04e129cdd512a5ffd",
+  "cidr": "10.20.0.0/16",
+  "database": {
+    "identifier": "fbctf-demo",
+    "type": "Amazon RDS",
+    "engine": "mysql",
+    "engine_version": "8.0.46",
+    "endpoint": "fbctf-demo.calscauowkvr.us-east-1.rds.amazonaws.com:3306",
+    "resolved_private_ip": "10.20.20.100",
+    "instance_class": "db.t3.small",
+    "vcpu": 2,
+    "memory_gb": 2,
+    "multi_az": false,
+    "storage": { "type": "gp3", "allocated_gb": 20, "iops": 3000, "throughput_mbps": 125, "encrypted": true },
+    "publicly_accessible": false,
+    "parameter_group": "fbctf-demo-mysql80",
+    "non_default_parameters": { "sql_mode": "NO_ENGINE_SUBSTITUTION" },
+    "ca_certificate": "rds-ca-rsa2048-g1",
+    "backup_retention_days": 0,
+    "deletion_protection": false,
+    "performance_insights": false,
+    "created": "2026-08-27T17:50:45Z",
+    "app_auth": "application DB user created IDENTIFIED WITH mysql_native_password (HHVM 3.21 client cannot speak caching_sha2_password)",
+    "consumed_by": ["i-0d6b944117ba6302b (app tier, HHVM)"],
+    "estimated_dataset_size_gb": 1.6,
+    "estimated_dataset_note": "FreeStorageSpace ~18.4 GiB of 20 GiB. Dataset is fbctf schema + seed data (countries.sql 146 KiB, logos.sql 23 KiB) plus scoreboard rows.",
+    "utilization": {
+      "cpu_avg_pct": 5.02, "cpu_peak_pct": 55.52,
+      "db_connections_avg": 0.07, "db_connections_peak": 3,
+      "freeable_memory_avg_gb": 0.97, "freeable_memory_min_gb": 0.91,
+      "read_iops_avg": 0.89, "read_iops_peak": 29.4,
+      "write_iops_avg": 5.11, "write_iops_peak": 258.3,
+      "note": "CPU + write-IOPS peaks are the one-time boot schema import. Steady state is near-zero."
+    }
+  },
+  "cache": {
+    "identifier": "fbctf-demo",
+    "type": "Amazon ElastiCache",
+    "engine": "memcached",
+    "engine_version": "1.6.22",
+    "node_endpoint": "fbctf-demo.esollg.0001.use1.cache.amazonaws.com:11211",
+    "config_endpoint": "fbctf-demo.esollg.cfg.use1.cache.amazonaws.com:11211",
+    "resolved_private_ip": "10.20.20.105",
+    "node_type": "cache.t3.micro",
+    "vcpu": 2,
+    "memory_gb": 0.5,
+    "num_nodes": 1,
+    "availability_zone": "us-east-1a",
+    "consumed_by": ["i-0d6b944117ba6302b (app tier, HHVM - session store + config cache)"],
+    "utilization": {
+      "cpu_avg_pct": 1.40, "cpu_peak_pct": 11.12,
+      "curr_connections_avg": 6.8,
+      "bytes_used_for_cache_items_avg": 54558, "bytes_used_for_cache_items_peak": 166211,
+      "curr_items_avg": 8, "curr_items_peak": 30,
+      "get_hits_per_min_avg": 10.9, "get_misses_per_min_avg": 10.7,
+      "note": "Effectively unused. ~54 KB of cache content, ~8 items. A db.t3.micro RDS handles this working set with no cache at all."
+    }
+  },
+  "load_balancers": [
+    {
+      "name": "fbctf-demo-web",
+      "type": "application",
+      "scheme": "internet-facing",
+      "dns": "fbctf-demo-web-262410260.us-east-1.elb.amazonaws.com",
+      "listeners": [{ "port": 80, "protocol": "HTTP", "tls": false }],
+      "target_group": { "protocol": "HTTP", "port": 80, "health_check_path": "/static/css/fb-ctf.css", "targets_healthy": 1 },
+      "azs": ["us-east-1a", "us-east-1b"],
+      "utilization": { "request_count_per_5min_avg": 0.24, "target_response_time_avg_s": 0.15, "target_response_time_peak_s": 5.08, "elb_5xx": "present during app-tier cold start" },
+      "note": "One target. No TLS. For a single-instance demo this is $16/mo of load balancer for one backend."
+    },
+    {
+      "name": "fbctf-demo-app",
+      "type": "network",
+      "scheme": "internal",
+      "dns": "fbctf-demo-app-5d9d411e72e99ed4.elb.us-east-1.amazonaws.com",
+      "resolved_private_ips": ["10.20.10.49", "10.20.11.155"],
+      "listeners": [{ "port": 9000, "protocol": "TCP" }],
+      "target_group": { "protocol": "TCP", "port": 9000, "health_check": "TCP", "preserve_client_ip": false, "cross_zone": true, "targets_healthy": 1 },
+      "azs": ["us-east-1a", "us-east-1b"],
+      "utilization": { "active_flow_count_avg": 0.12, "new_flow_count_peak": 897, "tcp_target_reset_count_peak": 37 },
+      "note": "Exists only because FastCGI is not HTTP so an ALB cannot front HHVM (ADR 002). Disappears if nginx + HHVM run in one unit (container or single host)."
+    }
+  ],
+  "nat_gateway": {
+    "id": "nat-0732400cd89878961",
+    "type": "public",
+    "subnet": "subnet-0c06968ff454e66d4 (us-east-1a public)",
+    "single": true,
+    "utilization": {
+      "bytes_from_vpc_per_5min_avg": 126221,
+      "bytes_from_internet_per_5min_avg": 2304425,
+      "bytes_from_internet_per_5min_peak": 252510018,
+      "active_connections_avg": 5,
+      "packets_dropped": 0
+    },
+    "note": "The 252 MB / 5-min peak is boot-time provisioning: apt, AWS CLI v2 (~60 MB), CloudWatch agent .deb, HHVM debs (31 MB), and the prebuilt app tarball (36.5 MB) from S3. S3 traffic traverses NAT at $0.045/GB because there is no S3 gateway VPC endpoint (which is free). Steady state is near-idle."
+  },
+  "vpc_endpoints": [],
+  "secrets": [
+    { "name": "fbctf-demo/db-app-user", "purpose": "application DB user credentials", "consumed_by": "app tier bootstrap" },
+    { "name": "fbctf-demo/admin-password", "purpose": "scoreboard admin login", "consumed_by": "app tier bootstrap" },
+    { "name": "rds!<managed>", "purpose": "RDS-managed master password", "consumed_by": "app tier (secretsmanager:GetSecretValue on rds!*)" }
+  ],
+  "observability": {
+    "log_groups": ["/fbctf/nginx", "/fbctf/hhvm", "/fbctf/user-data"],
+    "retention_days": 7,
+    "alarms": ["alb-5xx", "web-unhealthy-hosts", "app-unhealthy-hosts", "rds-cpu", "rds-free-storage"],
+    "alarm_actions": "none (console-visible only; no SNS in demo scope)"
+  },
+  "artifacts_bucket": {
+    "name": "fbctf-demo-artifacts-337058058699-use1",
+    "purpose": "vendored packages + prebuilt app tarball; survives terraform destroy of the demo stack",
+    "contents": ["prebuilt/fbctf-prebuilt-4ec9b6b.tgz (36.5 MiB)", "vendored/hhvm-debs-xenial-3.21.tgz (31.4 MiB)", "vendored/node-v6.17.1 (9 MiB)", "vendored/composer-2.2.29.phar", "sql/{schema,countries,logos}.sql", "source/fbctf-src-4ec9b6b-patched.tgz"],
+    "public_access": "fully blocked"
+  }
+}

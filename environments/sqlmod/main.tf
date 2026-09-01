@@ -22,7 +22,7 @@ data "aws_ssm_parameter" "al2023" {
 
 resource "aws_security_group" "rds" {
   name        = "fbctf-sqlmod-rds"
-  description = "SQL Server: 1433 from within the VPC (the schema loader and Transform's DMS instance)"
+  description = "SQL Server 1433 from within the VPC (schema loader + the Transform DMS instance)"
   vpc_id      = module.network.vpc_id
 
   ingress {

@@ -1,0 +1,75 @@
+{
+  "_comment": "AWS-native equivalent of the discovery tool's nested vCenter JSON. Describes the environment the two discovered servers live in: network, routing, the security-group chain, load-balancing, and compute grouping. Sourced from ec2/elbv2/autoscaling/rds/elasticache describe-* on 2026-08-27T22:37Z under profile personal-transform.",
+  "environment": {
+    "provider": "AWS",
+    "account": "337058058699",
+    "region": "us-east-1",
+    "organization": "CloudCraftersOrg (Sandbox account)",
+    "iac": "Terraform - github.com/CloudCraftersOrg/fbctf-aws (roots: environments/demo, environments/artifacts)",
+    "tag_defaults": { "Project": "fbctf-demo", "Env": "demo", "Owner": "davismar98", "ManagedBy": "terraform" },
+    "tag_gap": "provider default_tags do NOT propagate to ASG-launched EC2 instances or their EBS volumes - those carry only Name. ~$50/mo of EC2+EBS spend is invisible to cost-allocation-tag reports."
+  },
+  "network": {
+    "vpc": { "id": "vpc-04e129cdd512a5ffd", "cidr": "10.20.0.0/16", "dns_support": true, "dns_hostnames": true, "resolver": "10.20.0.2" },
+    "azs_in_layout": ["us-east-1a", "us-east-1b"],
+    "azs_in_use": ["us-east-1a"],
+    "single_az_note": "Both EC2 instances, the single NAT gateway, the RDS instance, and the memcached node are all in us-east-1a. The 1b subnets exist for RDS/ElastiCache subnet-group requirements and ALB/NLB AZ spread only. An us-east-1a failure is a full outage.",
+    "subnets": [
+      { "id": "subnet-0c06968ff454e66d4", "name": "fbctf-demo-public-us-east-1a", "cidr": "10.20.0.0/24", "az": "us-east-1a", "tier": "public", "hosts": ["NAT gateway", "ALB ENI"] },
+      { "id": "subnet-0095f6e64a301d0ae", "name": "fbctf-demo-public-us-east-1b", "cidr": "10.20.1.0/24", "az": "us-east-1b", "tier": "public", "hosts": ["ALB ENI"] },
+      { "id": "subnet-0221778590c48c4fa", "name": "fbctf-demo-app-us-east-1a", "cidr": "10.20.10.0/24", "az": "us-east-1a", "tier": "private-app", "hosts": ["i-0422e26203cb709b2 web", "i-0d6b944117ba6302b app", "NLB ENI 10.20.10.49"] },
+      { "id": "subnet-0e77f5ea46a255fb1", "name": "fbctf-demo-app-us-east-1b", "cidr": "10.20.11.0/24", "az": "us-east-1b", "tier": "private-app", "hosts": ["NLB ENI 10.20.11.155"] },
+      { "id": "subnet-0695b846a532fcb7a", "name": "fbctf-demo-data-us-east-1a", "cidr": "10.20.20.0/24", "az": "us-east-1a", "tier": "private-data", "hosts": ["RDS 10.20.20.100", "memcached 10.20.20.105"] },
+      { "id": "subnet-0deaacb7f128773e3", "name": "fbctf-demo-data-us-east-1b", "cidr": "10.20.21.0/24", "az": "us-east-1b", "tier": "private-data", "hosts": [] }
+    ],
+    "internet_gateway": 1,
+    "nat_gateways": 1,
+    "vpc_endpoints": [],
+    "routing": {
+      "public_rt": "0.0.0.0/0 -> igw",
+      "private_rt": "0.0.0.0/0 -> nat-0732400cd89878961 (shared by all private subnets - single NAT)"
+    }
+  },
+  "security_group_chain": [
+    { "sg": "fbctf-demo-alb", "ingress": "TCP 80 from 0.0.0.0/0", "egress": "all" },
+    { "sg": "fbctf-demo-web-nginx", "ingress": "TCP 80 from fbctf-demo-alb", "egress": "all" },
+    { "sg": "fbctf-demo-app-hhvm", "ingress": ["TCP 9000 from fbctf-demo-web-nginx (inert - NLB does not preserve client SG)", "TCP 9000 from 10.20.10.0/24 + 10.20.11.0/24 (NLB ENIs - this is the effective rule)"], "egress": "all" },
+    { "sg": "fbctf-demo-rds", "ingress": "TCP 3306 from fbctf-demo-app-hhvm", "egress": "default" },
+    { "sg": "fbctf-demo-memcached", "ingress": "TCP 11211 from fbctf-demo-app-hhvm", "egress": "default" }
+  ],
+  "compute_groups": [
+    {
+      "name": "fbctf-demo-web",
+      "type": "EC2 Auto Scaling group",
+      "min": 1, "max": 2, "desired": 1, "running": 1,
+      "instance_type": "t3.small", "cpu_credits": "unlimited",
+      "launch_template": "fbctf-demo-web",
+      "ami": "ami-0b0ea68c435eb488d (ubuntu-xenial-16.04-amd64-server-20210928, created 2021-09-29, DEPRECATED 2023-09-29)",
+      "health_check": "ELB", "grace_period_s": 900,
+      "scaling_policies": "none (static capacity)",
+      "imds": "v2 required", "ebs_optimized": false,
+      "role": "nginx 1.10.3 reverse proxy; terminates ALB HTTP, forwards FastCGI to the NLB",
+      "provisioning": "boot-time from S3 prebuilt tarball + app provision.sh; ~5 min to healthy"
+    },
+    {
+      "name": "fbctf-demo-app",
+      "type": "EC2 Auto Scaling group",
+      "min": 1, "max": 2, "desired": 1, "running": 1,
+      "instance_type": "t3.medium", "cpu_credits": "unlimited",
+      "launch_template": "fbctf-demo-app",
+      "ami": "ami-0b0ea68c435eb488d (same deprecated Xenial AMI)",
+      "health_check": "ELB", "grace_period_s": 900,
+      "scaling_policies": "none (static capacity)",
+      "imds": "v2 required", "ebs_optimized": false,
+      "role": "HHVM 3.21.11 FastCGI app server on :9000; runs fbctf (Hack/PHP)",
+      "provisioning": "boot-time from S3 prebuilt tarball + provision.sh + guarded one-shot DB bootstrap (schema import, app user, admin row); ~4 min to NLB-healthy"
+    }
+  ],
+  "traffic_path": "internet -> ALB(:80 HTTP) -> web/nginx(:80) -> NLB(:9000 TCP) -> app/HHVM(:9000 FastCGI) -> {RDS MySQL :3306, ElastiCache memcached :11211}",
+  "recovery_characteristics": {
+    "instance_replacement": "ASG relaunch + ~4-5 min boot-time provisioning (depends on S3 + dl.hhvm.com / NodeSource / npm reachability; S3-vendored fallbacks exist)",
+    "az_failure": "full outage (all stateful + compute in us-east-1a)",
+    "rds": "no automated backups (retention 0), no deletion protection, single-AZ - no recovery path",
+    "data_loss_on_destroy": "terraform destroy removes RDS with skip_final_snapshot=true; scoreboard data is not preserved"
+  }
+}

@@ -36,6 +36,15 @@ HERE = Path(__file__).parent
 OUT = HERE / "out"
 INTENT = "ASSESSMENT_INTENT.md"
 ZIP_NAME = "fbctf-assessment.zip"
+VMWARE_ZIP_NAME = "fbctf-vmware-import.zip"
+
+# --vmware: re-tag every host as VMware-sourced so it feeds the VMware migration
+# job's "import independently collected discovery data" step. Assessment-import
+# hypervisor tags do not invoke the VMware migration path; the dedicated job's
+# import step does.
+VMWARE_HYPERVISOR = "VMware ESXi 7.0"
+VMWARE_DATACENTER = "vcenter-dc-01"
+VMWARE_HOST_COLUMNS = ["Server ID", "ESXi Host", "Cluster", "Datastore"]
 
 SERVER_COLUMNS = [
     "Server ID",
@@ -156,9 +165,33 @@ def _csv_bytes(columns: list[str], rows: list[dict]) -> str:
     return buf.getvalue()
 
 
+def vmware_view(servers: list[dict]) -> tuple[list[dict], list[dict]]:
+    tagged = []
+    hosts = []
+    for i, r in enumerate(servers):
+        row = dict(r)
+        row["Hypervisor"] = VMWARE_HYPERVISOR
+        row["Datacenter ID"] = VMWARE_DATACENTER
+        tagged.append(row)
+        hosts.append(
+            {
+                "Server ID": r["Server ID"],
+                "ESXi Host": f"esx{(i // 4) + 1:02d}.vcenter.local",
+                "Cluster": "prod-cluster-01",
+                "Datastore": f"ds-{'ssd' if i % 2 else 'sas'}-0{(i % 3) + 1}",
+            }
+        )
+    return tagged, hosts
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true", help="validate only, write nothing")
+    ap.add_argument(
+        "--vmware",
+        action="store_true",
+        help="also emit fbctf-vmware-import.zip for the VMware migration job",
+    )
     args = ap.parse_args()
 
     fleet = load("fleet.yaml")
@@ -192,6 +225,17 @@ def main() -> int:
     print(f"  mpa_servers.csv          {len(servers)} rows")
     print(f"  network_connections.csv  {len(connections)} rows")
     print(f"  {INTENT}")
+
+    if args.vmware:
+        vm_servers, vm_hosts = vmware_view(servers)
+        vm_servers_csv = _csv_bytes(SERVER_COLUMNS, vm_servers)
+        vm_hosts_csv = _csv_bytes(VMWARE_HOST_COLUMNS, vm_hosts)
+        with zipfile.ZipFile(OUT / VMWARE_ZIP_NAME, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("mpa_servers.csv", vm_servers_csv)
+            z.writestr("network_connections.csv", conns_csv)
+            z.writestr("vmware_hosts.csv", vm_hosts_csv)
+        print(f"wrote {OUT / VMWARE_ZIP_NAME} (hypervisor -> {VMWARE_HYPERVISOR})")
+
     print("\nUpload the ZIP to the assessment; paste ASSESSMENT_INTENT.md into the chat.")
     return 0
 

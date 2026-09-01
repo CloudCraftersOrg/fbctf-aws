@@ -1,0 +1,4 @@
+Source Server Id,Source Server Name,Source IP,Destination Server Id,Destination Server Name,Destination IP,Destination Port,Protocol,Connection Count,Evidence
+i-0422e26203cb709b2,fbctf-demo-web,10.20.10.205,i-0d6b944117ba6302b,fbctf-demo-app,10.20.10.138,9000,TCP,1,"inferred: nginx fastcgi_pass via internal NLB; client IP not preserved"
+i-0d6b944117ba6302b,fbctf-demo-app,10.20.10.138,,RDS MySQL fbctf-demo,10.20.20.100,3306,TCP,1,"inferred: security-group chain plus boot write activity; connection pool idle at probe time"
+i-0d6b944117ba6302b,fbctf-demo-app,10.20.10.138,,ElastiCache memcached fbctf-demo,10.20.20.105,11211,TCP,1,"observed: established connection via ss"
