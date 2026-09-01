@@ -23,6 +23,16 @@ output "targets" {
   value = { for t in local.all_targets : t.name => t.ip }
 }
 
+output "windows_target" {
+  description = "WinRM credential for the discovery tool: username 'discovery', NTLM over HTTPS (5986)"
+  value = var.enable_windows ? {
+    ip       = local.windows_ip
+    username = "discovery"
+    password = random_password.windows[0].result
+  } : null
+  sensitive = true
+}
+
 output "next_steps" {
   value = <<-EOT
     1. Port-forward the UI:

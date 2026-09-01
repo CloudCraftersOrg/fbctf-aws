@@ -43,3 +43,14 @@ variable "discover_fbctf" {
   type        = bool
   default     = true
 }
+
+variable "enable_windows" {
+  description = "Add a Windows Server + SQL Server Express host so the discovery tool exercises WinRM, the SQL Server module, and Windows OS discovery"
+  type        = bool
+  default     = true
+}
+
+variable "windows_instance_type" {
+  type    = string
+  default = "t3.small"
+}

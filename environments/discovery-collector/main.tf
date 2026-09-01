@@ -97,14 +97,92 @@ locals {
     "ci-01"            = { ip = "10.70.1.41", role = "jenkins", type = "t3.small" }
   }
 
-  fleet_ips = [for h in local.fleet : h.ip]
+  fleet_ips  = [for h in local.fleet : h.ip]
+  windows_ip = "10.70.1.51"
   all_targets = concat(
     [for name, h in local.fleet : { name = name, ip = h.ip }],
+    var.enable_windows ? [{ name = "contoso-sql-01", ip = local.windows_ip }] : [],
     var.discover_fbctf ? [
       { name = "fbctf-demo-app", ip = "10.20.10.104" },
       { name = "fbctf-demo-web", ip = "10.20.11.55" },
     ] : []
   )
+}
+
+resource "random_password" "windows" {
+  count            = var.enable_windows ? 1 : 0
+  length           = 20
+  special          = true
+  override_special = "!@#$%^*-_=+"
+}
+
+data "aws_ami" "windows_sql" {
+  count       = var.enable_windows ? 1 : 0
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["Windows_Server-2022-English-Full-SQL_2022_Express-*"]
+  }
+}
+
+resource "aws_security_group" "windows" {
+  count       = var.enable_windows ? 1 : 0
+  name        = "fbctf-discovery-windows"
+  description = "Windows target: WinRM from the collector, intra-VPC for netstat"
+  vpc_id      = aws_vpc.this.id
+
+  ingress {
+    description     = "WinRM HTTP + HTTPS from the collector"
+    from_port       = 5985
+    to_port         = 5986
+    protocol        = "tcp"
+    security_groups = [aws_security_group.collector.id]
+  }
+  ingress {
+    description = "intra-VPC (netstat edges + SQL 1433)"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.vpc_cidr]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = { Name = "fbctf-discovery-windows" }
+}
+
+resource "aws_instance" "windows" {
+  count = var.enable_windows ? 1 : 0
+
+  ami                    = data.aws_ami.windows_sql[0].id
+  instance_type          = var.windows_instance_type
+  subnet_id              = aws_subnet.public.id
+  private_ip             = local.windows_ip
+  vpc_security_group_ids = [aws_security_group.windows[0].id]
+  iam_instance_profile   = aws_iam_instance_profile.host.name
+
+  instance_initiated_shutdown_behavior = "terminate"
+  metadata_options {
+    http_tokens   = "required"
+    http_endpoint = "enabled"
+  }
+  root_block_device {
+    volume_type = "gp3"
+    volume_size = 80
+    encrypted   = true
+  }
+
+  user_data = templatefile("${path.module}/templates/windows-user-data.ps1.tpl", {
+    max_minutes    = var.max_lifetime_minutes
+    admin_password = random_password.windows[0].result
+    peer_ips       = join(",", concat(local.fleet_ips, var.discover_fbctf ? ["10.20.10.104"] : []))
+  })
+
+  tags = { Name = "fbctf-discovery-contoso-sql-01" }
 }
 
 resource "aws_security_group" "fleet" {
@@ -220,6 +298,11 @@ resource "aws_instance" "collector" {
   })
 
   tags = { Name = "fbctf-discovery-collector" }
+
+  # Disposable host; adding a target must not recycle a running collector.
+  lifecycle {
+    ignore_changes = [user_data]
+  }
 }
 
 
