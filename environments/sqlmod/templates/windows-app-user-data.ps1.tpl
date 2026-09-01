@@ -1,7 +1,7 @@
 <powershell>
 Start-Transcript -Path C:\app-setup.log -Append
 $ErrorActionPreference = 'Stop'
-$aws = "$env:ProgramFiles\Amazon\AWSCLIV2\aws.exe"
+Import-Module AWSPowerShell
 
 %{ if max_minutes > 0 ~}
 shutdown.exe /s /t ${max_minutes * 60} /c "contoso app max lifetime"
@@ -10,7 +10,7 @@ shutdown.exe /s /t ${max_minutes * 60} /c "contoso app max lifetime"
 Install-WindowsFeature -Name Web-Server,Web-Asp-Net45,Web-Mgmt-Console -IncludeManagementTools
 
 function Get-SecretJson($id) {
-  (& $aws secretsmanager get-secret-value --region ${region} --secret-id $id --query SecretString --output text) | ConvertFrom-Json
+  (Get-SECSecretValue -SecretId $id -Region ${region}).SecretString | ConvertFrom-Json
 }
 $sa  = Get-SecretJson '${sa_secret_arn}'
 $app = Get-SecretJson '${app_secret_arn}'
@@ -41,7 +41,8 @@ GRANT SELECT, EXECUTE TO scoreboard_app;
 "@
 
 Remove-Item C:\inetpub\wwwroot\* -Recurse -Force -ErrorAction SilentlyContinue
-& $aws s3 cp s3://${schema_bucket}/app/ C:\inetpub\wwwroot\ --recursive --region ${region}
+Read-S3Object -BucketName '${schema_bucket}' -Key 'app/Default.aspx' -File 'C:\inetpub\wwwroot\Default.aspx' -Region ${region}
+Read-S3Object -BucketName '${schema_bucket}' -Key 'app/web.config'   -File 'C:\inetpub\wwwroot\web.config'   -Region ${region}
 
 $conn = "Server=$sqlHost,1433;Database=Scoreboard;User Id=scoreboard_app;Password=$($app.password);TrustServerCertificate=True"
 (Get-Content C:\inetpub\wwwroot\web.config) -replace '__CONNSTRING__', $conn | Set-Content C:\inetpub\wwwroot\web.config
