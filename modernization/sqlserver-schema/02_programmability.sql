@@ -76,6 +76,7 @@ END;
 GO
 
 CREATE OR ALTER PROCEDURE dbo.usp_RecalculateRanks
+WITH EXECUTE AS OWNER   -- CREATE/TRUNCATE dbo.TeamRank need owner rights; callers only have EXECUTE
 AS
 BEGIN
     SET NOCOUNT ON;
