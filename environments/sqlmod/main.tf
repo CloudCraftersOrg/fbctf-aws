@@ -88,6 +88,15 @@ resource "aws_s3_object" "schema" {
   etag   = filemd5("${path.module}/../../modernization/sqlserver-schema/${each.value}")
 }
 
+resource "aws_s3_object" "app" {
+  for_each = var.deploy_app ? fileset("${path.module}/app", "*") : []
+
+  bucket = aws_s3_bucket.schema.id
+  key    = "app/${each.value}"
+  source = "${path.module}/app/${each.value}"
+  etag   = filemd5("${path.module}/app/${each.value}")
+}
+
 # ---- the SQL Server host: runs the container, then loads the schema and creates
 # the read-only login Transform connects with.
 
@@ -171,4 +180,142 @@ resource "aws_instance" "sqlserver" {
   }
 
   depends_on = [aws_secretsmanager_secret_version.sa, aws_s3_object.schema]
+}
+
+# ---- Contoso Scoreboard: the legacy .NET Framework app that consumes this
+# SQL Server. Deployed live so the assessment sees a real Windows + IIS +
+# .NET Framework + SQL Server workload and feature 10a has an app data layer
+# to rewrite, not just a schema.
+
+data "aws_ssm_parameter" "windows2022" {
+  count = var.deploy_app ? 1 : 0
+  name  = "/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base"
+}
+
+resource "random_password" "app" {
+  count            = var.deploy_app ? 1 : 0
+  length           = 24
+  override_special = "_-+=."
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "aws_secretsmanager_secret" "app" {
+  count                   = var.deploy_app ? 1 : 0
+  name                    = "fbctf-sqlmod/scoreboard-app"
+  description             = "scoreboard_app SQL login used by the Contoso Scoreboard web app"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "app" {
+  count         = var.deploy_app ? 1 : 0
+  secret_id     = aws_secretsmanager_secret.app[0].id
+  secret_string = jsonencode({ username = "scoreboard_app", password = random_password.app[0].result })
+}
+
+resource "aws_security_group" "app" {
+  count       = var.deploy_app ? 1 : 0
+  name        = "fbctf-sqlmod-app"
+  description = "Contoso Scoreboard: HTTP in, egress to SQL Server and AWS APIs"
+  vpc_id      = module.network.vpc_id
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.app_allow_cidr]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = { Name = "fbctf-sqlmod-app" }
+}
+
+resource "aws_iam_role" "app" {
+  count = var.deploy_app ? 1 : 0
+  name  = "fbctf-sqlmod-app"
+  assume_role_policy = jsonencode({
+    Version   = "2012-10-17"
+    Statement = [{ Effect = "Allow", Principal = { Service = "ec2.amazonaws.com" }, Action = "sts:AssumeRole" }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "app_ssm" {
+  count      = var.deploy_app ? 1 : 0
+  role       = aws_iam_role.app[0].name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_role_policy" "app_access" {
+  count = var.deploy_app ? 1 : 0
+  name  = "read-secrets-and-app"
+  role  = aws_iam_role.app[0].id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = "secretsmanager:GetSecretValue"
+        Resource = [aws_secretsmanager_secret.sa.arn, aws_secretsmanager_secret.app[0].arn]
+      },
+      {
+        Effect   = "Allow"
+        Action   = ["s3:GetObject", "s3:ListBucket"]
+        Resource = [aws_s3_bucket.schema.arn, "${aws_s3_bucket.schema.arn}/*"]
+      },
+    ]
+  })
+}
+
+resource "aws_iam_instance_profile" "app" {
+  count = var.deploy_app ? 1 : 0
+  name  = "fbctf-sqlmod-app"
+  role  = aws_iam_role.app[0].name
+}
+
+resource "aws_instance" "app" {
+  count = var.deploy_app ? 1 : 0
+
+  ami                    = data.aws_ssm_parameter.windows2022[0].value
+  instance_type          = var.windows_instance_type
+  subnet_id              = module.network.public_subnet_ids[0]
+  vpc_security_group_ids = [aws_security_group.app[0].id]
+  iam_instance_profile   = aws_iam_instance_profile.app[0].name
+
+  instance_initiated_shutdown_behavior = "stop"
+  metadata_options {
+    http_tokens   = "required"
+    http_endpoint = "enabled"
+  }
+  root_block_device {
+    volume_type = "gp3"
+    volume_size = 60
+    encrypted   = true
+  }
+
+  user_data = templatefile("${path.module}/templates/windows-app-user-data.ps1.tpl", {
+    region         = var.region
+    sa_secret_arn  = aws_secretsmanager_secret.sa.arn
+    app_secret_arn = aws_secretsmanager_secret.app[0].arn
+    schema_bucket  = aws_s3_bucket.schema.id
+    sql_host       = aws_instance.sqlserver.private_ip
+    max_minutes    = 0
+  })
+
+  tags = { Name = "fbctf-sqlmod-app" }
+
+  depends_on = [aws_s3_object.app, aws_secretsmanager_secret_version.app, aws_instance.sqlserver]
+}
+
+resource "aws_eip" "app" {
+  count    = var.deploy_app ? 1 : 0
+  instance = aws_instance.app[0].id
+  domain   = "vpc"
+  tags     = { Name = "fbctf-sqlmod-app" }
 }

@@ -32,6 +32,23 @@ variable "mssql_image" {
   default     = "mcr.microsoft.com/mssql/server:2022-latest"
 }
 
+variable "deploy_app" {
+  description = "Deploy the Contoso Scoreboard app (Windows + IIS, ASP.NET Web Forms) against this SQL Server"
+  type        = bool
+  default     = true
+}
+
+variable "app_allow_cidr" {
+  description = "CIDR allowed to reach the Contoso Scoreboard app on :80"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
+variable "windows_instance_type" {
+  type    = string
+  default = "t3.medium"
+}
+
 variable "transform_ro_password" {
   description = "Password for the transform_ro SQL login (VIEW DEFINITION + VIEW DATABASE STATE). Printable ASCII only."
   type        = string

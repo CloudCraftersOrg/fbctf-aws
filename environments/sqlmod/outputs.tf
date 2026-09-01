@@ -38,3 +38,13 @@ output "sqlserver_instance_id" {
   description = "SSM target - /var/log/user-data.log has the container start + schema-load result"
   value       = aws_instance.sqlserver.id
 }
+
+output "app_url" {
+  description = "Contoso Scoreboard (ASP.NET Web Forms on .NET Framework 4.8)"
+  value       = var.deploy_app ? "http://${aws_eip.app[0].public_ip}/" : null
+}
+
+output "app_instance_id" {
+  description = "SSM target - C:\\app-setup.log has the IIS + login bootstrap result"
+  value       = var.deploy_app ? aws_instance.app[0].id : null
+}
