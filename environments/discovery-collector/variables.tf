@@ -44,6 +44,12 @@ variable "discover_fbctf" {
   default     = true
 }
 
+variable "discover_sqlmod" {
+  description = "Also peer to the fbctf-sqlmod VPC and add its 3 hosts (SQL Server, Contoso .NET app, Project Nami) to the import list"
+  type        = bool
+  default     = true
+}
+
 variable "enable_windows" {
   description = "Add a Windows Server + SQL Server Express host so the discovery tool exercises WinRM, the SQL Server module, and Windows OS discovery"
   type        = bool

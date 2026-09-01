@@ -109,6 +109,11 @@ locals {
     var.discover_fbctf ? [
       { name = "fbctf-demo-app", ip = "10.20.10.104" },
       { name = "fbctf-demo-web", ip = "10.20.11.55" },
+    ] : [],
+    var.discover_sqlmod ? [
+      { name = "sqlmod-sqlserver", ip = data.aws_instance.sqlmod_sqlserver[0].private_ip },
+      { name = "sqlmod-app", ip = data.aws_instance.sqlmod_app[0].private_ip },
+      { name = "sqlmod-wordpress", ip = data.aws_instance.sqlmod_wordpress[0].private_ip },
     ] : []
   )
 }
@@ -386,6 +391,8 @@ resource "aws_security_group_rule" "fbctf_app_ssh" {
   security_group_id        = data.aws_security_group.fbctf_app[0].id
   source_security_group_id = aws_security_group.collector.id
   description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.sqlmod]
 }
 
 resource "aws_security_group_rule" "fbctf_web_ssh" {
@@ -397,4 +404,160 @@ resource "aws_security_group_rule" "fbctf_web_ssh" {
   security_group_id        = data.aws_security_group.fbctf_web[0].id
   source_security_group_id = aws_security_group.collector.id
   description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.sqlmod]
+}
+
+
+data "aws_vpc" "sqlmod" {
+  count = var.discover_sqlmod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod"]
+  }
+}
+
+data "aws_route_table" "sqlmod_public" {
+  count  = var.discover_sqlmod ? 1 : 0
+  vpc_id = data.aws_vpc.sqlmod[0].id
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod-public"]
+  }
+}
+
+data "aws_route_table" "sqlmod_app" {
+  count  = var.discover_sqlmod ? 1 : 0
+  vpc_id = data.aws_vpc.sqlmod[0].id
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod-app"]
+  }
+}
+
+data "aws_instance" "sqlmod_sqlserver" {
+  count = var.discover_sqlmod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod-sqlserver"]
+  }
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+}
+
+data "aws_instance" "sqlmod_app" {
+  count = var.discover_sqlmod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod-app"]
+  }
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+}
+
+data "aws_instance" "sqlmod_wordpress" {
+  count = var.discover_sqlmod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-sqlmod-wordpress"]
+  }
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+}
+
+data "aws_security_group" "sqlmod_sqlserver" {
+  count  = var.discover_sqlmod ? 1 : 0
+  vpc_id = data.aws_vpc.sqlmod[0].id
+  filter {
+    name   = "group-name"
+    values = ["fbctf-sqlmod-sqlserver"]
+  }
+}
+
+data "aws_security_group" "sqlmod_app" {
+  count  = var.discover_sqlmod ? 1 : 0
+  vpc_id = data.aws_vpc.sqlmod[0].id
+  filter {
+    name   = "group-name"
+    values = ["fbctf-sqlmod-app"]
+  }
+}
+
+data "aws_security_group" "sqlmod_wordpress" {
+  count  = var.discover_sqlmod ? 1 : 0
+  vpc_id = data.aws_vpc.sqlmod[0].id
+  filter {
+    name   = "group-name"
+    values = ["fbctf-sqlmod-wordpress"]
+  }
+}
+
+resource "aws_vpc_peering_connection" "sqlmod" {
+  count       = var.discover_sqlmod ? 1 : 0
+  vpc_id      = aws_vpc.this.id
+  peer_vpc_id = data.aws_vpc.sqlmod[0].id
+  auto_accept = true
+  tags        = { Name = "fbctf-discovery-to-sqlmod" }
+}
+
+resource "aws_route" "collector_to_sqlmod" {
+  count                     = var.discover_sqlmod ? 1 : 0
+  route_table_id            = aws_route_table.public.id
+  destination_cidr_block    = data.aws_vpc.sqlmod[0].cidr_block
+  vpc_peering_connection_id = aws_vpc_peering_connection.sqlmod[0].id
+}
+
+resource "aws_route" "sqlmod_public_to_collector" {
+  count                     = var.discover_sqlmod ? 1 : 0
+  route_table_id            = data.aws_route_table.sqlmod_public[0].id
+  destination_cidr_block    = var.vpc_cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.sqlmod[0].id
+}
+
+resource "aws_route" "sqlmod_app_to_collector" {
+  count                     = var.discover_sqlmod ? 1 : 0
+  route_table_id            = data.aws_route_table.sqlmod_app[0].id
+  destination_cidr_block    = var.vpc_cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.sqlmod[0].id
+}
+
+resource "aws_security_group_rule" "sqlmod_sqlserver_ssh" {
+  count                    = var.discover_sqlmod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.sqlmod_sqlserver[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+}
+
+resource "aws_security_group_rule" "sqlmod_wordpress_ssh" {
+  count                    = var.discover_sqlmod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.sqlmod_wordpress[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+}
+
+resource "aws_security_group_rule" "sqlmod_app_winrm" {
+  count                    = var.discover_sqlmod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 5985
+  to_port                  = 5986
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.sqlmod_app[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector WinRM for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.sqlmod]
 }
