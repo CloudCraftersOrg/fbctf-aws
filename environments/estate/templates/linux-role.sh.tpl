@@ -72,8 +72,8 @@ C
     ;;
   redis)
     amazon-linux-extras install -y redis6 || $PKG redis || $PKG redis-server || true
-    systemctl enable --now redis || systemctl enable --now redis-server || \
-      nohup redis-server --port 6379 &
+    systemctl enable --now redis6 || systemctl enable --now redis \
+      || systemctl enable --now redis-server || nohup redis-server --port 6379 &
     ;;
   rabbitmq)
     $PKG rabbitmq-server || true
@@ -94,8 +94,11 @@ C
 esac
 
 # ---- inbound listeners for the edges that terminate here ------------------
+# Only where the role service isn't already bound (redis/rabbitmq/nfs/sqlservr
+# own their port; the rest get a stub so the connection establishes).
+sleep 5
 %{ for p in listen_ports ~}
-nohup socat TCP-LISTEN:${p},fork,reuseaddr SYSTEM:'cat' >/dev/null 2>&1 &
+ss -ltn 2>/dev/null | grep -q ":${p} " || nohup socat TCP-LISTEN:${p},fork,reuseaddr SYSTEM:'cat' >/dev/null 2>&1 &
 %{ endfor ~}
 
 # ---- chatter: generate the outbound edges from this host -----------------
