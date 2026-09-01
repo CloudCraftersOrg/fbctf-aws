@@ -1,5 +1,5 @@
 # ENV selects the root under environments/: demo (the live app, default),
-# artifacts (the persistent bucket), or estate (the disposable 12-host portfolio).
+# artifacts (the persistent bucket), or sqlmod (SQL Server for the Aurora job).
 ENV ?= demo
 AWS_PROFILE ?= cloudcrafters-sandbox
 TF_DIR = environments/$(ENV)

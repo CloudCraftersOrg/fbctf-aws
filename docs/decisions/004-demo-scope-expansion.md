@@ -1,6 +1,9 @@
 # ADR 004 — Expand the demo from one app to an estate, without adding spend
 
-**Status:** Accepted (2026-09-01)
+**Status:** Accepted (2026-09-01). **Point 3 (`environments/estate`) superseded by
+[ADR 005](005-drop-the-estate.md)** — Transform cannot discover a running AWS
+account, so the estate was destroyed and removed. Points 1 (`inventory/`) and 2
+(`modernization/`) stand.
 
 ## Context
 

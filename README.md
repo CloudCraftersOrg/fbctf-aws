@@ -6,14 +6,14 @@ output, not this repo's.
 
 | Part | What it is | Deployed? | Cost |
 |---|---|---|---|
-| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS | Yes, on demand | ~$5/day up, `$0` destroyed |
-| **The simulated estate** (`inventory/`) | A 14-server portfolio as CSV data for the Migration Portfolio Assessment import — the variety a single app can't provide | No — it's data | `$0` |
+| **The assessment inventory** (`inventory/`) | A 14-server portfolio as data → `generate.py` → one assessment ZIP | No — data | `$0` |
 | **The modernization fixtures** (`modernization/`) | Real .NET Framework, Java 8, COBOL and T-SQL code for Transform's transformation agents | No — source only | `$0` |
-| **The estate** (`environments/estate/`) | 12 of those hosts deployed as real, self-terminating EC2 — for pointing Transform at a live account | On demand | ~$4–14/day, self-terminating |
+| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS | On demand | ~$5/day up, `$0` destroyed |
+| **The SQL modernization target** (`environments/sqlmod`) | RDS SQL Server Express in a 2-AZ VPC — for the full agentic SQL Server → Aurora job | On demand | RDS SQL Express + DMS + Aurora while running |
 
-Feature-by-feature coverage and the order to run a full demo:
-[`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
-Why the demo grew beyond one app: [ADR 004](docs/decisions/004-demo-scope-expansion.md).
+Feature-by-feature coverage: [`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
+End-to-end run order: [`docs/demo-runbook.md`](docs/demo-runbook.md).
+Scope decisions: [ADR 004](docs/decisions/004-demo-scope-expansion.md), [ADR 005](docs/decisions/005-drop-the-estate.md).
 
 Requirements, architecture, validated findings, and the phased implementation plan for the live app live in [`fbctf-aws-requirements.md`](fbctf-aws-requirements.md). Decisions are recorded in [`docs/decisions/`](docs/decisions/); the S3 artifact inventory in [`docs/artifacts-manifest.md`](docs/artifacts-manifest.md).
 
@@ -51,7 +51,7 @@ Independent roots, each with its own state key in bucket `fbctf-demo-tfstate-337
 |---|---|---|
 | `environments/demo` | `fbctf-demo/terraform.tfstate` | The live app: network, SGs, IAM, RDS, ElastiCache, NLB/ALB, both ASGs, alarms |
 | `environments/artifacts` | `fbctf-artifacts/terraform.tfstate` | The artifacts bucket only — **survives demo destroy cycles** (it holds the insurance against dead upstream repos) |
-| `environments/estate` | `fbctf-estate/terraform.tfstate` | The 12-host legacy estate — fully disposable, self-terminating (see [its README](environments/estate/README.md)) |
+| `environments/sqlmod` | `fbctf-sqlmod/terraform.tfstate` | RDS SQL Server Express + 2-AZ VPC for the SQL Server → Aurora job (see [its README](environments/sqlmod/README.md)) |
 
 ### Runbook
 
@@ -83,16 +83,15 @@ The instances run Ubuntu 16.04 (EOL, unpatched) by design — that's the point o
 
 ---
 
-## The simulated estate
+## The assessment inventory
 
 `inventory/` is a 14-server portfolio — Windows/.NET, SQL Server, Java, COBOL,
-self-managed services, an idle box — expressed as YAML and turned into the two
-CSVs the Migration Portfolio Assessment imports. It costs nothing and is never
-deployed.
+self-managed services, an idle box — expressed as YAML and turned into one
+assessment ZIP. It costs nothing and is never deployed.
 
 ```sh
 python3 -m pip install -r inventory/requirements.txt
-python3 inventory/generate.py          # -> inventory/out/*.csv
+python3 inventory/generate.py          # -> inventory/out/fbctf-assessment.zip
 ```
 
 Details, and what each server is there to trigger: [`inventory/README.md`](inventory/README.md).
@@ -116,21 +115,19 @@ Source only — nothing here is deployed. See [`modernization/README.md`](modern
 
 ---
 
-## The estate
+## The SQL modernization target
 
-`environments/estate/` deploys 12 of the `inventory/` hosts as **real EC2** —
-6 Linux (RHEL 7/8, Ubuntu 16.04, Amazon Linux 2), 6 Windows (Server 2016/2019/
-2012 R2, SQL Server Express). Each runs its role process under the name the
-assessment keys on and chatters to its dependencies. Point Transform at the
-account, or import `inventory/out/*.csv`.
-
-Everything is disposable — one destroyable root, nothing that survives destroy,
-and every host self-terminates after `max_lifetime_minutes`.
+`environments/sqlmod/` deploys **RDS SQL Server Express** in a 2-AZ VPC, with the
+`modernization/sqlserver-schema` DDL loaded. It exists for the one Transform
+capability that needs a live database — the full agentic **SQL Server → Aurora**
+job, which reads the schema through a DMS instance, converts the stored procs,
+and rewrites the .NET data-access layer.
 
 ```sh
-cp environments/estate/terraform.tfvars.example environments/estate/terraform.tfvars
-make apply   ENV=estate                      # enable_windows_tier=false for a ~$4/day Linux-only run
-make destroy ENV=estate                      # or let it self-terminate
+cp environments/sqlmod/terraform.tfvars.example environments/sqlmod/terraform.tfvars
+make apply   ENV=sqlmod
+make destroy ENV=sqlmod                       # after the demo
 ```
 
-See [`environments/estate/README.md`](environments/estate/README.md).
+Everything else — the assessment, .NET / Java / COBOL agents, offline schema
+conversion — needs no infrastructure. See [`environments/sqlmod/README.md`](environments/sqlmod/README.md).

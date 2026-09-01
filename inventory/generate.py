@@ -1,20 +1,30 @@
 #!/usr/bin/env python3
-"""Turn fleet.yaml + connections.yaml into the two CSVs AWS Transform's
-Migration Portfolio Assessment ingests.
+"""Turn fleet.yaml + connections.yaml into the upload AWS Transform's migration
+assessment ingests.
 
-    python3 generate.py            # writes out/mpa_servers.csv + out/network_connections.csv
-    python3 generate.py --check    # validate only, write nothing (used by CI/pre-commit)
+    python3 generate.py            # writes out/fbctf-assessment.zip (+ the loose files)
+    python3 generate.py --check    # validate only, write nothing (CI / pre-commit)
 
-Column names and order are fixed by the MPA import template and were verified
-against a live upload on 2026-08-27 (see docs/decisions/004-demo-scope-expansion.md).
-Do not rename or reorder them.
+The assessment importer only processes a network-connections file when it is
+**zipped together with the servers file** (verified against a live upload
+2026-08-27, and in docs/demo-runbook.md). So the deliverable is one ZIP:
+
+    fbctf-assessment.zip
+      mpa_servers.csv          MPA "Server" import columns, fixed order
+      network_connections.csv  source/target host + IP + process name
+      ASSESSMENT_INTENT.md     the modernization brief, pasted into the chat
+
+Column names and order in the CSVs are fixed by the MPA template. Do not rename
+or reorder them.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import io
 import sys
+import zipfile
 from pathlib import Path
 
 try:
@@ -24,6 +34,8 @@ except ModuleNotFoundError:
 
 HERE = Path(__file__).parent
 OUT = HERE / "out"
+INTENT = "ASSESSMENT_INTENT.md"
+ZIP_NAME = "fbctf-assessment.zip"
 
 SERVER_COLUMNS = [
     "Server ID",
@@ -131,7 +143,17 @@ def check(fleet: dict, servers: list[dict], conns_rows: list[dict]) -> list[str]
             errors.append(f"{r['Server ID']}: Storage-Utilization out of range")
         if not 0 <= float(r["CPU-Peak Utilization"]) <= 100:
             errors.append(f"{r['Server ID']}: CPU-Peak Utilization out of range")
+    if not (HERE / INTENT).exists():
+        errors.append(f"{INTENT} missing next to generate.py")
     return errors
+
+
+def _csv_bytes(columns: list[str], rows: list[dict]) -> str:
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=columns)
+    w.writeheader()
+    w.writerows(rows)
+    return buf.getvalue()
 
 
 def main() -> int:
@@ -154,18 +176,24 @@ def main() -> int:
         return 0
 
     OUT.mkdir(exist_ok=True)
-    _write(OUT / "mpa_servers.csv", SERVER_COLUMNS, servers)
-    _write(OUT / "network_connections.csv", CONNECTION_COLUMNS, connections)
-    print(f"wrote {OUT}/mpa_servers.csv ({len(servers)} rows)")
-    print(f"wrote {OUT}/network_connections.csv ({len(connections)} rows)")
+    servers_csv = _csv_bytes(SERVER_COLUMNS, servers)
+    conns_csv = _csv_bytes(CONNECTION_COLUMNS, connections)
+    intent_md = (HERE / INTENT).read_text()
+
+    (OUT / "mpa_servers.csv").write_text(servers_csv)
+    (OUT / "network_connections.csv").write_text(conns_csv)
+
+    with zipfile.ZipFile(OUT / ZIP_NAME, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("mpa_servers.csv", servers_csv)
+        z.writestr("network_connections.csv", conns_csv)
+        z.writestr(INTENT, intent_md)
+
+    print(f"wrote {OUT / ZIP_NAME}")
+    print(f"  mpa_servers.csv          {len(servers)} rows")
+    print(f"  network_connections.csv  {len(connections)} rows")
+    print(f"  {INTENT}")
+    print("\nUpload the ZIP to the assessment; paste ASSESSMENT_INTENT.md into the chat.")
     return 0
-
-
-def _write(path: Path, columns: list[str], rows: list[dict]) -> None:
-    with open(path, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=columns)
-        w.writeheader()
-        w.writerows(rows)
 
 
 if __name__ == "__main__":

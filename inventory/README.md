@@ -6,16 +6,17 @@ right-sizing, move groups, wave planning and TCO have something to chew on, and
 enough variety that every assessment finding shows up at least once.
 
 This directory is that estate, expressed as **data, not infrastructure** — it
-costs nothing and is never deployed. `generate.py` turns it into the two CSVs
-AWS Transform's Migration Portfolio Assessment (MPA) imports.
+costs nothing and is never deployed. `generate.py` turns it into a single ZIP
+that AWS Transform's migration assessment imports.
 
 ## Files
 
 | File | Purpose |
 |---|---|
 | `fleet.yaml` | 14 servers. The two `i-*` hosts mirror the live app (same IDs/OS/utilisation as the validated upload); the rest are synthetic. Each carries a `signal:` line naming the finding it exercises. |
-| `connections.yaml` | Server-to-server dependency edges. Every synthetic host has at least one edge, so nothing lands in a trivial one-host wave. |
-| `generate.py` | Emits `out/mpa_servers.csv` + `out/network_connections.csv`. `--check` validates without writing. |
+| `connections.yaml` | Server-to-server dependency edges with process names. Every synthetic host has at least one edge, so nothing lands in a trivial one-host wave. |
+| `ASSESSMENT_INTENT.md` | The modernization brief — pasted into the assessment chat. |
+| `generate.py` | Emits `out/fbctf-assessment.zip` (+ the loose CSVs for inspection). `--check` validates without writing. |
 | `requirements.txt` | `PyYAML` — the only dependency. |
 
 ## Generate the import
@@ -23,21 +24,19 @@ AWS Transform's Migration Portfolio Assessment (MPA) imports.
 ```sh
 python3 -m pip install -r inventory/requirements.txt
 python3 inventory/generate.py
-# -> inventory/out/mpa_servers.csv        (14 rows)
-# -> inventory/out/network_connections.csv (18 rows)
+# -> inventory/out/fbctf-assessment.zip  (mpa_servers.csv + network_connections.csv + ASSESSMENT_INTENT.md)
 ```
 
 `out/` is gitignored — regenerate it, don't commit it.
 
 ## Feed it to Transform
 
-1. AWS Transform console → **Migrate** → new **assessment** → data source
-   **Migration Portfolio Assessment (import)**.
-2. Upload `mpa_servers.csv` to the **Servers** slot and
-   `network_connections.csv` to the **Network connections** slot.
-3. Paste `ASSESSMENT_INTENT.md` (kept with the validated upload in
-   `~/aws-personal/workdir`, or write a fresh one) into the assessment chat as
-   the modernization brief.
+1. AWS Transform (us-east-1) → workspace → chat "assess workloads for migration
+   readiness".
+2. Upload **`fbctf-assessment.zip`**. The connections file is only processed
+   when it is zipped together with the servers file, which is why `generate.py`
+   produces one ZIP.
+3. Paste `ASSESSMENT_INTENT.md` into the chat as the brief.
 
 Column names and order in the CSVs are fixed by the MPA template and were
 verified against a live upload on 2026-08-27. `generate.py` will not let you

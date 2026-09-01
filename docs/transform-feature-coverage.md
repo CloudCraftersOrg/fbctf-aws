@@ -1,49 +1,50 @@
 # AWS Transform feature coverage
 
-What each part of this repo demonstrates, and what it costs to run. Everything
-here is the **legacy "before" state** — Transform produces the "after".
+What each part of this repo demonstrates and what it costs. Everything here is
+the **legacy "before" state** — Transform produces the "after". Region:
+**us-east-1** covers every capability below.
 
 ## The parts
 
 | Part | What it is | Deployed? | Cost |
 |---|---|---|---|
-| `environments/demo` | The live fbctf app — one real legacy workload (Hack/HHVM, nginx, MySQL 8, memcached on Ubuntu 16.04 EOL) | Yes, on demand | ~$5/day while up, `$0` destroyed |
-| `inventory/` | A 14-server simulated estate as CSV data for the MPA assessment import | No | `$0` |
-| `modernization/` | Four code fixtures — .NET Framework, Java 8, COBOL, T-SQL | No | `$0` |
-| `environments/estate` | 12 of the inventory hosts as real, self-terminating EC2 | On demand | ~$4/day Linux-only, ~$14/day full |
+| `inventory/` | 14-server portfolio → `generate.py` → one assessment ZIP | No — data | `$0` |
+| `modernization/` | 4 code fixtures — .NET Framework / Java 8 / GnuCOBOL / T-SQL — + `atx-task.md` | No — source | `$0` (+ paid agents, below) |
+| `environments/demo` | the real fbctf app (nginx + HHVM 3.21 + RDS MySQL + memcached on EOL Ubuntu 16.04) | On demand | ~$5/day up, `$0` destroyed |
+| `environments/sqlmod` | RDS SQL Server Express in a 2-AZ VPC, for the full agentic SQL Server → Aurora job | On demand | RDS SQL Express + Transform's DMS instance + Aurora while running |
+| `environments/artifacts` | persistent S3 bucket of vendored fbctf packages | Deployed, persists | ~$0 |
 
 ## Coverage matrix
 
-| Transform capability | Demonstrated by | Cost |
-|---|---|---|
-| Discovery — MPA import | `inventory/` → `generate.py` → two CSVs | `$0` |
-| Discovery — live account / agent | `environments/estate` (+ `enable_discovery_agent = true`) | ~$4–14/day |
-| Dependency mapping, move groups, wave planning | `inventory/connections.yaml` (18 edges); the estate's live chatter reproduces them | `$0` |
-| EC2 / EBS right-sizing | over-provisioned + idle specs in `fleet.yaml` (`contoso-web-01`, `sql-rpt-01`, `nfs-01`, `sql-01`) — from the CSV, not the live estate | `$0` |
-| OS end-of-support findings | Ubuntu 16.04, Win 2012 R2, RHEL 7 — in `fleet.yaml` and deployed for real by the estate | `$0` |
-| Rehost / replatform / refactor / retire dispositions | one of each is the right call for some host (`ci-01` retire, `cache-01` replatform, web tier refactor) | `$0` |
-| TCO / business case | Transform computes it from the imported inventory + `Environment Type = Production` | `$0` |
-| .NET Framework → cross-platform .NET | `modernization/dotnet-scoreboard` | `$0` |
-| Java 8 → 17 | `modernization/java-catalog` | `$0` |
-| Mainframe / COBOL modernization | `modernization/cobol-rollup` | `$0` |
-| SQL Server → Aurora + schema conversion | `modernization/sqlserver-schema` + `contoso-sql-01` (SQL Server Express, deployed by the estate) | `$0` |
-| Self-managed → managed service | `cache-01` → ElastiCache, `mq-01` → Amazon MQ, `nfs-01` → EFS (recommended from process names) | `$0` |
-| Transform Custom (`atx`) | `modernization/atx-task.md` — generate the target Terraform | ~$1–3 per job |
-| VMware migration | **not covered** — requires VMware Cloud on AWS | — |
+| Transform capability | Demo path | Deploy | Cost |
+|---|---|---|---|
+| Assessment discovery (MPA import) | `inventory/generate.py` → upload `out/fbctf-assessment.zip` | no | `$0` |
+| Discovery of a live AWS account | **no AWS-native scan exists** — read the account with read-only APIs + CloudWatch + SSM and format as a discovery-tool export (`inventory/discovery-export/`), then upload | no | `$0` |
+| Dependency map / move groups / wave planning | `network_connections.csv` **inside the same ZIP** as the servers file | no | `$0` |
+| EC2 / EBS right-sizing | over-provisioned + idle rows + utilisation columns in `fleet.yaml` | no | `$0` |
+| OS end-of-support | EOL OS strings (Ubuntu 16.04, Win 2012 R2, RHEL 7) in `fleet.yaml` | no | `$0` |
+| TCO / business case | assessment scenario + baseline in chat → PDF / PPTX / XLSX | no | `$0` |
+| Rehost / replatform / refactor / retire | process names in `connections.yaml` + chat steering | no | `$0` |
+| .NET Framework → .NET 8 | `modernization/dotnet-scoreboard` → .NET code job | no | `$0` |
+| Java 8 → 17 | `modernization/java-catalog` → `atx AWS/java-version-upgrade` | no | **paid** — $0.035/agent-min (~$2.50); needs the `transform-custom:*` grant |
+| Mainframe / COBOL → Java | `modernization/cobol-rollup` → S3 → mainframe job | no | `$0` |
+| SQL Server → Aurora — full agentic | `environments/sqlmod` live SQL + the .NET 8 output of the .NET job → SQL Server modernization job | **yes** | RDS SQL Express + DMS instance + Aurora |
+| SQL Server → Aurora — schema conversion only | `modernization/sqlserver-schema/*.sql` → AWS SCT desktop, offline | no | `$0` |
+| Transform Custom (`atx`) | `modernization/atx-task.md` custom definition | no | **paid** — $0.035/agent-min (~$1–3); needs the `transform-custom:*` grant |
+| VMware migration — planning | `inventory/vmware/` VMware-flavoured export → VMware migration job + a discovery account connector | no (S3 bucket) | ~`$0` |
+| VMware migration — replication/cutover | **not demoable** — MGN needs running source VMs and a staging VPC | — | — |
+| The "un-modernizable" story | `environments/demo` — assess fbctf; Transform recommends Fargate/Aurora for the infra but flags **Hack/HHVM** as no code path | **yes** | ~$5/day |
 
-**Exercise every covered feature once: well under $20**, most of it the estate
-or the live app if left up a full day, plus one `atx` job.
+**Free:** migration assessments, discovery tool, .NET, mainframe, VMware agents.
+**Paid:** Transform Custom and the AWS-managed language upgrades it runs (Java) —
+$0.035/agent-minute of server-side work.
 
-## Order to run a full demo
+## Grants still needed
 
-1. `python3 inventory/generate.py` → upload both CSVs to a new Transform
-   assessment. Walk the inventory, dependencies, right-sizing, TCO, wave plan.
-2. *(optional)* `make apply ENV=estate` → point Transform at the live account
-   and show the same portfolio discovered for real. `make destroy ENV=estate`.
-3. `make apply` (root env) → show the live "before" app, then the assessment's
-   view of its two servers and the "code Transform cannot modernize" call-out
-   (Hack/HHVM). `make destroy`.
-4. Point the standard code agents at `modernization/dotnet-scoreboard`,
-   `java-catalog`, `cobol-rollup`; run schema conversion on `sqlserver-schema`.
-5. Run the `atx` custom job from `modernization/atx-task.md` for the target
-   Terraform.
+`transform-custom:*` on `AWSTransformAccess` — drafted as an `aws-access` PR.
+Unblocks Java 8→17 and Transform Custom. Without it, .NET / COBOL / assessment /
+schema conversion are still fully covered.
+
+## Run order
+
+See [`demo-runbook.md`](demo-runbook.md).
