@@ -14,7 +14,12 @@ metrics, running processes, and netstat dependencies, then export
 | VPC `10.70.0.0/16` + public subnet | peered to the fbctf demo VPC when `discover_fbctf = true` |
 | Collector | `t3.xlarge` (4 vCPU / 16 GB — the tool's minimum), Amazon Linux 2023; user-data installs `AWS-Transform-discovery-tool.sh` and stages the import CSV + SSH key |
 | Fleet | 6 × `t3.small` — `catalog-svc-01` (Java 8), `finance-batch-01` (COBOL), `cache-01` (Redis), `mq-01` (RabbitMQ), `nfs-01` (NFS), `ci-01` (Jenkins) — real role processes + inter-node chatter for the dependency graph |
+| Windows | 1 × `t3.small`, **Windows Server 2022 + SQL Server 2022 Express** (`enable_windows`, default on) — WinRM HTTPS + a `discovery` local admin, IIS (`w3wp`), SQL on 1433. Exercises the tool's WinRM path, **SQL Server module**, and Windows OS discovery. Creds in `terraform output -json windows_target`. |
 | fbctf peering | VPC peering + routes + a `:22` ingress rule on the fbctf app/web SGs from the collector (removed on destroy) |
+
+The Linux fleet uses the SSH credential; the Windows box needs a **WinRM
+credential** added in the tool UI — `Set up access → Credentials → WinRM`,
+username `discovery`, NTLM, the password from `terraform output`.
 
 The discovery is **real** even though the fleet hosts are synthetic: real SSH,
 real `ps`/`ss`/`dmidecode`, real 10-minute metric samples.
