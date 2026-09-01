@@ -28,13 +28,13 @@ variable "vpc_cidr" {
 }
 
 variable "max_lifetime_minutes" {
-  description = "Every host runs `shutdown +N` at boot and terminates on shutdown"
+  description = "Hosts run `shutdown +N` at boot and terminate on shutdown. 0 disables auto-shutdown (hosts stay up until `make destroy`)."
   type        = number
   default     = 300
 
   validation {
-    condition     = var.max_lifetime_minutes >= 60 && var.max_lifetime_minutes <= 1440
-    error_message = "max_lifetime_minutes must be 60-1440 (discovery needs time to sample metrics)."
+    condition     = var.max_lifetime_minutes == 0 || (var.max_lifetime_minutes >= 60 && var.max_lifetime_minutes <= 1440)
+    error_message = "max_lifetime_minutes must be 0 (disabled) or 60-1440."
   }
 }
 

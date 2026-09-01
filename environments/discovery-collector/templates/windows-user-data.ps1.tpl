@@ -1,8 +1,9 @@
 <powershell>
 Start-Transcript -Path C:\discovery-setup.log -Append
 
-# self-terminate (instance_initiated_shutdown_behavior = terminate)
+%{ if max_minutes > 0 ~}
 shutdown.exe /s /t ${max_minutes * 60} /c "discovery windows max lifetime"
+%{ endif ~}
 
 $pw = ConvertTo-SecureString '${admin_password}' -AsPlainText -Force
 

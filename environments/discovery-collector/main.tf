@@ -169,7 +169,7 @@ resource "aws_instance" "windows" {
   vpc_security_group_ids = [aws_security_group.windows[0].id]
   iam_instance_profile   = aws_iam_instance_profile.host.name
 
-  instance_initiated_shutdown_behavior = "terminate"
+  instance_initiated_shutdown_behavior = var.max_lifetime_minutes > 0 ? "terminate" : "stop"
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"
@@ -187,6 +187,12 @@ resource "aws_instance" "windows" {
   })
 
   tags = { Name = "fbctf-discovery-contoso-sql-01" }
+
+  # A running discovery must not be recycled when a target is added or the
+  # lifetime toggled - same as the collector.
+  lifecycle {
+    ignore_changes = [user_data, ami]
+  }
 }
 
 resource "aws_security_group" "fleet" {
@@ -228,7 +234,7 @@ resource "aws_instance" "fleet" {
   vpc_security_group_ids = [aws_security_group.fleet.id]
   iam_instance_profile   = aws_iam_instance_profile.host.name
 
-  instance_initiated_shutdown_behavior = "terminate"
+  instance_initiated_shutdown_behavior = var.max_lifetime_minutes > 0 ? "terminate" : "stop"
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"
@@ -247,6 +253,10 @@ resource "aws_instance" "fleet" {
   })
 
   tags = { Name = "fbctf-discovery-${each.key}", Role = each.value.role }
+
+  lifecycle {
+    ignore_changes = [user_data]
+  }
 }
 
 
@@ -281,7 +291,7 @@ resource "aws_instance" "collector" {
   vpc_security_group_ids = [aws_security_group.collector.id]
   iam_instance_profile   = aws_iam_instance_profile.host.name
 
-  instance_initiated_shutdown_behavior = "terminate"
+  instance_initiated_shutdown_behavior = var.max_lifetime_minutes > 0 ? "terminate" : "stop"
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"

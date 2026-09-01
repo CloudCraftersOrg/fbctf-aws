@@ -6,7 +6,9 @@
 set -uxo pipefail
 exec > >(tee -a /var/log/user-data.log | logger -t user-data -s 2>/dev/console) 2>&1
 
+%{ if max_minutes > 0 ~}
 shutdown -h +${max_minutes} "discovery collector max lifetime"
+%{ endif ~}
 
 mkdir -p /opt/discovery
 cat >/opt/discovery/fbctf-discovery.pem <<'PEM'

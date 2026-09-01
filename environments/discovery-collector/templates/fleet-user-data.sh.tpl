@@ -5,7 +5,9 @@
 set -uxo pipefail
 exec > >(tee -a /var/log/user-data.log | logger -t user-data -s 2>/dev/console) 2>&1
 
+%{ if max_minutes > 0 ~}
 shutdown -h +${max_minutes} "discovery target max lifetime"
+%{ endif ~}
 hostnamectl set-hostname ${hostname} || true
 
 dnf install -y socat cronie || yum install -y socat cronie || true
