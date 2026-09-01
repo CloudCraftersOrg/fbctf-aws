@@ -1,0 +1,3 @@
+owner = "davismar98"
+# printable ASCII, no whitespace, 12-64 chars
+transform_ro_password = "CHANGE-me-transform-ro-2026"
