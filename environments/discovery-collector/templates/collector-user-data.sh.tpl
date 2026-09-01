@@ -21,10 +21,16 @@ CSV
 cd /opt/discovery
 curl -fsSL -O https://s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/AWS-Transform-discovery-tool.sh
 chmod +x AWS-Transform-discovery-tool.sh
-./AWS-Transform-discovery-tool.sh check || true
-./AWS-Transform-discovery-tool.sh install --install-deps
-./AWS-Transform-discovery-tool.sh start
-./AWS-Transform-discovery-tool.sh status || true
+chown -R ec2-user:ec2-user /opt/discovery
+
+# The installer resolves its data dir from the invoking user's home and refuses
+# to run for root. user-data is root, so run it as ec2-user via sudo (sets
+# SUDO_USER); ec2-user has passwordless sudo on AL2023.
+runuser -l ec2-user -c 'cd /opt/discovery && sudo ./AWS-Transform-discovery-tool.sh check' || true
+runuser -l ec2-user -c 'cd /opt/discovery && sudo ./AWS-Transform-discovery-tool.sh install --install-deps'
+runuser -l ec2-user -c 'cd /opt/discovery && sudo ./AWS-Transform-discovery-tool.sh start'
+sleep 5
+systemctl is-active discovery-tool || true
 
 IP=$(curl -fsS -H "X-aws-ec2-metadata-token: $(curl -fsS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')" http://169.254.169.254/latest/meta-data/local-ipv4)
 echo "discovery tool ready — UI at https://$IP:5000"

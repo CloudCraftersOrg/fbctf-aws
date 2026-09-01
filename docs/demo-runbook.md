@@ -50,7 +50,14 @@ Feature coverage + costs: [`transform-feature-coverage.md`](transform-feature-co
 6. Set scenario assumptions: target **us-east-1**, **On-Demand**, EBS **gp3** → **Run**.
 7. TCO in chat: `compare as-is 24/7 vs rehost-right-sized vs modernize, with On-Demand / 1-yr Savings Plan / RI pricing, using a $500/server/month on-prem baseline for the contoso-* hosts`.
 8. **Artifacts** → generate the **PDF**, **PPTX**, and **XLSX**.
-9. *(optional — the "discovered live" angle)* Add a second data source: upload the files in `inventory/discovery-export/` (the fbctf AWS account read via read-only APIs + CloudWatch + SSM, in discovery-tool-export format). Shows real discovery of the 2 fbctf servers.
+9. *(optional — the real discovery-tool angle)* Run the **actual AWS Transform discovery tool** against live servers:
+   ```sh
+   cp environments/discovery-collector/terraform.tfvars.example environments/discovery-collector/terraform.tfvars
+   make apply ENV=discovery-collector
+   terraform -chdir=environments/discovery-collector output next_steps
+   ```
+   Follow `next_steps`: SSM-port-forward the tool UI (`:5000`), key the 2 fbctf hosts, add the SSH credentials + the `import.csv` source, let it SSH-collect for 1–2 h, then **Discovered inventory → Download inventory → `discovery_tool_export.zip`** and upload that ZIP here. It genuinely inventories 8 servers (6-host Linux fleet + the 2 live fbctf app servers). `make destroy ENV=discovery-collector` after.
+   *(The lower-effort stand-in is uploading `inventory/discovery-export/` — the fbctf account read via read-only APIs in the same export format.)*
 10. **The close:** `Can AWS Transform modernize this application's code? It is PHP/Hack on HHVM 3.21.` → capture the answer: **no supported code path** (only .NET, Java, mainframe/COBOL). Infra gets a Fargate + Aurora recommendation; the runtime needs a rewrite, flagged as a follow-on.
 
 ---
