@@ -52,21 +52,16 @@ switch ("${role}") {
 }
 
 # Chatter: outbound edges from this host.
-$targets = @(
-%{ for t in chatter_targets ~}
-  @{ ip = "${t.ip}"; port = ${t.port} },
-%{ endfor ~}
-)
 $chat = @'
+$targets = @(__TARGETS__)
 while ($true) {
-  foreach ($t in __TARGETS__) {
-    try { $c = New-Object Net.Sockets.TcpClient; $c.Connect($t.ip, $t.port); $c.Close() } catch {}
+  foreach ($t in $targets) {
+    try { (New-Object Net.Sockets.TcpClient).Connect($t.ip, $t.port) } catch {}
   }
   Start-Sleep 20
 }
 '@
-$targetLiteral = ($targets | ForEach-Object { "@{ip='$($_.ip)';port=$($_.port)}" }) -join ','
-$chat = $chat -replace '__TARGETS__', "@($targetLiteral)"
+$chat = $chat.Replace('__TARGETS__', '${chatter_literal}')
 Set-Content C:\estate-chatter.ps1 $chat
 schtasks /create /tn estate-chatter /tr "powershell -NoProfile -File C:\estate-chatter.ps1" /sc onstart /ru SYSTEM /f
 Start-Process powershell -ArgumentList "-NoProfile -File C:\estate-chatter.ps1" -WindowStyle Hidden
