@@ -30,25 +30,33 @@ Add three things, structured so cost stays near zero:
    GnuCOBOL, T-SQL). Source only. Each contains the specific constructs that
    force a non-trivial transformation, so the agents produce a real plan and PR.
 
-3. **`environments/discovery-fleet/`** — a throwaway spot fleet
-   (`t4g.nano`, no NAT, self-terminating via `shutdown -h +N` +
-   terminate-on-shutdown) that proves the *live agent* discovery path.
-   ~$0.10/run.
+3. **`environments/estate/`** — 12 of the 14 hosts deployed for real (the fbctf
+   pair stays in `environments/demo`). Small instance sizes, SQL Server Express
+   (licence-free), one destroyable root, every host self-terminating via
+   `shutdown +N` + terminate-on-shutdown. For pointing Transform at a live
+   account; the CSV import still drives right-sizing and TCO. An earlier
+   iteration had a separate 4-node `discovery-fleet` — dropped, the estate with
+   `enable_discovery_agent` covers it and one throwaway env is enough.
 
 The live `environments/demo` app and `environments/artifacts` are unchanged.
 
 ## Consequences
 
 - Full Transform feature coverage (except VMware, which needs VMware Cloud on
-  AWS) for **under $10 total** to run once — see
+  AWS) for **under $20 total** to run once — see
   `transform-feature-coverage.md`.
 - The MPA CSV column names are pinned by `generate.py` and were verified against
   a live upload on 2026-08-27; the `i-*` rows must stay byte-identical to that
   upload.
-- `discovery-fleet` uses IAM/VPC/EC2 the `AWSTransformAccess` set already
-  grants; instance-profile names carry the `fbctf-` prefix the set scopes to.
-- Runtime validation of a *transformed* artifact (Fargate + Aurora) is
-  deliberately out of scope — it needs `ecs:*` the set does not grant, and it
-  tests the migration output, not a Transform feature.
+- `environments/estate` uses only IAM/VPC/EC2/Route53 the `AWSTransformAccess`
+  set already grants; role and instance-profile names carry the `fbctf-` prefix
+  the set scopes to.
+- Deploying the estate at `fleet.yaml`'s deliberately-oversized specs would cost
+  $200+/day. It deploys at small sizes instead; a live discovery agent then
+  reports the true small specs, so right-sizing and TCO findings come from the
+  CSV import, not the estate.
+- Modernizing the transformed output (Fargate + Aurora) is out of scope — it
+  needs `ecs:*` the set does not grant, and it is Transform's job, not the
+  "before" state's.
 - `atx` (Transform Custom) still needs a `transform-custom:*` grant that is not
   in place; `modernization/atx-task.md` carries the one-statement PR.

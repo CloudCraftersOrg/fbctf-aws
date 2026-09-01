@@ -1,4 +1,0 @@
-owner                = "davismar98"
-node_count           = 4
-max_lifetime_minutes = 180
-# spot_max_price     = "0.0030"

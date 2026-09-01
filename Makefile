@@ -1,5 +1,5 @@
 # ENV selects the root under environments/: demo (the live app, default),
-# artifacts (the persistent bucket), or discovery-fleet (throwaway agent fleet).
+# artifacts (the persistent bucket), or estate (the disposable 12-host portfolio).
 ENV ?= demo
 AWS_PROFILE ?= cloudcrafters-sandbox
 TF_DIR = environments/$(ENV)

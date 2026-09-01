@@ -4,7 +4,7 @@ provider "aws" {
   default_tags {
     tags = {
       Project   = "fbctf-demo"
-      Env       = "discovery-fleet"
+      Env       = "estate"
       Owner     = var.owner
       ManagedBy = "terraform"
     }

@@ -8,9 +8,8 @@ transformation, so the agent produces a meaningful plan and pull request rather
 than a one-line diff.
 
 They are **source only** — nothing here is deployed, so nothing here costs
-money. The optional runtime check (deploy the transformed output to Fargate +
-Aurora) is described in
-[`../docs/transform-feature-coverage.md`](../docs/transform-feature-coverage.md).
+money. Deploying the *transformed* output is Transform's job, not this repo's.
+Full feature coverage: [`../docs/transform-feature-coverage.md`](../docs/transform-feature-coverage.md).
 
 | Fixture | Stack | Transform capability | Built-in friction |
 |---|---|---|---|

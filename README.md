@@ -1,13 +1,15 @@
 # fbctf-aws
 
-An **AWS Transform demo kit**. Three parts, one clone:
+An **AWS Transform demo kit** for the **legacy "before" state** — the estate
+Transform migrates. The modernized target (Fargate, Aurora) is Transform's
+output, not this repo's.
 
 | Part | What it is | Deployed? | Cost |
 |---|---|---|---|
-| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS as a real legacy "before" state | Yes, on demand | ~$5/day up, `$0` destroyed |
+| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS | Yes, on demand | ~$5/day up, `$0` destroyed |
 | **The simulated estate** (`inventory/`) | A 14-server portfolio as CSV data for the Migration Portfolio Assessment import — the variety a single app can't provide | No — it's data | `$0` |
 | **The modernization fixtures** (`modernization/`) | Real .NET Framework, Java 8, COBOL and T-SQL code for Transform's transformation agents | No — source only | `$0` |
-| **The discovery fleet** (`environments/discovery-fleet/`) | A throwaway spot fleet that proves the live discovery-agent path | On demand | ~$0.10/run, self-terminating |
+| **The estate** (`environments/estate/`) | 12 of those hosts deployed as real, self-terminating EC2 — for pointing Transform at a live account | On demand | ~$4–14/day, self-terminating |
 
 Feature-by-feature coverage and the order to run a full demo:
 [`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
@@ -49,7 +51,7 @@ Independent roots, each with its own state key in bucket `fbctf-demo-tfstate-337
 |---|---|---|
 | `environments/demo` | `fbctf-demo/terraform.tfstate` | The live app: network, SGs, IAM, RDS, ElastiCache, NLB/ALB, both ASGs, alarms |
 | `environments/artifacts` | `fbctf-artifacts/terraform.tfstate` | The artifacts bucket only — **survives demo destroy cycles** (it holds the insurance against dead upstream repos) |
-| `environments/discovery-fleet` | `fbctf-discovery-fleet/terraform.tfstate` | The throwaway discovery fleet (see [its README](environments/discovery-fleet/README.md)) |
+| `environments/estate` | `fbctf-estate/terraform.tfstate` | The 12-host legacy estate — fully disposable, self-terminating (see [its README](environments/estate/README.md)) |
 
 ### Runbook
 
@@ -114,15 +116,21 @@ Source only — nothing here is deployed. See [`modernization/README.md`](modern
 
 ---
 
-## The discovery fleet
+## The estate
 
-`environments/discovery-fleet/` stands up 4 self-terminating `t4g.nano` spot
-nodes running the AWS Application Discovery Agent, to demo the live agent path
-alongside the CSV import. ~$0.10 per run.
+`environments/estate/` deploys 12 of the `inventory/` hosts as **real EC2** —
+6 Linux (RHEL 7/8, Ubuntu 16.04, Amazon Linux 2), 6 Windows (Server 2016/2019/
+2012 R2, SQL Server Express). Each runs its role process under the name the
+assessment keys on and chatters to its dependencies. Point Transform at the
+account, or import `inventory/out/*.csv`.
+
+Everything is disposable — one destroyable root, nothing that survives destroy,
+and every host self-terminates after `max_lifetime_minutes`.
 
 ```sh
-make apply   ENV=discovery-fleet
-make destroy ENV=discovery-fleet     # optional — nodes self-terminate in 3h
+cp environments/estate/terraform.tfvars.example environments/estate/terraform.tfvars
+make apply   ENV=estate                      # enable_windows_tier=false for a ~$4/day Linux-only run
+make destroy ENV=estate                      # or let it self-terminate
 ```
 
-See [`environments/discovery-fleet/README.md`](environments/discovery-fleet/README.md).
+See [`environments/estate/README.md`](environments/estate/README.md).
