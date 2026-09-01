@@ -23,7 +23,28 @@ elif command -v dnf >/dev/null; then
 else
   PKG="yum install -y"
 fi
+
+# EPEL / extras for packages missing from the base repos (socat on RHEL,
+# redis on Amazon Linux 2, gnucobol).
+if command -v amazon-linux-extras >/dev/null; then
+  amazon-linux-extras install -y epel || true
+elif [ -f /etc/redhat-release ]; then
+  $PKG "https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm" || true
+fi
 $PKG socat curl || $PKG socat || true
+
+# SSM agent is not preinstalled on RHEL or Ubuntu 16.04.
+if ! pgrep -f amazon-ssm-agent >/dev/null; then
+  if [ -f /etc/redhat-release ]; then
+    $PKG "https://s3.${region}.amazonaws.com/amazon-ssm-${region}/latest/linux_amd64/amazon-ssm-agent.rpm" || true
+  elif command -v snap >/dev/null; then
+    snap install amazon-ssm-agent --classic || true
+  else
+    curl -fsSL -o /tmp/ssm.deb "https://s3.${region}.amazonaws.com/amazon-ssm-${region}/latest/debian_amd64/amazon-ssm-agent.deb" && dpkg -i /tmp/ssm.deb || true
+  fi
+  systemctl enable --now amazon-ssm-agent 2>/dev/null \
+    || systemctl enable --now snap.amazon-ssm-agent.amazon-ssm-agent 2>/dev/null || true
+fi
 
 # ---- role runtime --------------------------------------------------------
 case "${role}" in
@@ -52,7 +73,7 @@ C
       (cd /tmp && cobc -x -free -o loopx loop.cob 2>/dev/null && nohup ./loopx &) || true
     ;;
   redis)
-    $PKG redis || $PKG redis-server || true
+    amazon-linux-extras install -y redis6 || $PKG redis || $PKG redis-server || true
     systemctl enable --now redis || systemctl enable --now redis-server || \
       nohup redis-server --port 6379 &
     ;;
