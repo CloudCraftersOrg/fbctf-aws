@@ -215,6 +215,25 @@ resource "aws_secretsmanager_secret_version" "app" {
   secret_string = jsonencode({ username = "scoreboard_app", password = random_password.app[0].result })
 }
 
+resource "random_password" "app_winrm" {
+  count            = var.deploy_app ? 1 : 0
+  length           = 20
+  override_special = "_-+=."
+}
+
+resource "aws_secretsmanager_secret" "app_winrm" {
+  count                   = var.deploy_app ? 1 : 0
+  name                    = "fbctf-sqlmod/app-winrm"
+  description             = "discovery local admin on the Contoso app host (WinRM, for the AWS Transform discovery tool)"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "app_winrm" {
+  count         = var.deploy_app ? 1 : 0
+  secret_id     = aws_secretsmanager_secret.app_winrm[0].id
+  secret_string = jsonencode({ username = "discovery", password = random_password.app_winrm[0].result })
+}
+
 resource "aws_security_group" "app" {
   count       = var.deploy_app ? 1 : 0
   name        = "fbctf-sqlmod-app"
@@ -262,7 +281,7 @@ resource "aws_iam_role_policy" "app_access" {
       {
         Effect   = "Allow"
         Action   = "secretsmanager:GetSecretValue"
-        Resource = [aws_secretsmanager_secret.sa.arn, aws_secretsmanager_secret.app[0].arn]
+        Resource = [aws_secretsmanager_secret.sa.arn, aws_secretsmanager_secret.app[0].arn, aws_secretsmanager_secret.app_winrm[0].arn]
       },
       {
         Effect   = "Allow"
@@ -300,17 +319,18 @@ resource "aws_instance" "app" {
   }
 
   user_data = templatefile("${path.module}/templates/windows-app-user-data.ps1.tpl", {
-    region         = var.region
-    sa_secret_arn  = aws_secretsmanager_secret.sa.arn
-    app_secret_arn = aws_secretsmanager_secret.app[0].arn
-    schema_bucket  = aws_s3_bucket.schema.id
-    sql_host       = aws_instance.sqlserver.private_ip
-    max_minutes    = 0
+    region           = var.region
+    sa_secret_arn    = aws_secretsmanager_secret.sa.arn
+    app_secret_arn   = aws_secretsmanager_secret.app[0].arn
+    winrm_secret_arn = aws_secretsmanager_secret.app_winrm[0].arn
+    schema_bucket    = aws_s3_bucket.schema.id
+    sql_host         = aws_instance.sqlserver.private_ip
+    max_minutes      = 0
   })
 
   tags = { Name = "fbctf-sqlmod-app" }
 
-  depends_on = [aws_s3_object.app, aws_secretsmanager_secret_version.app, aws_instance.sqlserver]
+  depends_on = [aws_s3_object.app, aws_secretsmanager_secret_version.app, aws_secretsmanager_secret_version.app_winrm, aws_instance.sqlserver]
 }
 
 resource "aws_eip" "app" {

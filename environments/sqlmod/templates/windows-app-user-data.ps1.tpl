@@ -12,9 +12,25 @@ Install-WindowsFeature -Name Web-Server,Web-Asp-Net45,Web-Mgmt-Console -IncludeM
 function Get-SecretJson($id) {
   (Get-SECSecretValue -SecretId $id -Region ${region}).SecretString | ConvertFrom-Json
 }
-$sa  = Get-SecretJson '${sa_secret_arn}'
-$app = Get-SecretJson '${app_secret_arn}'
+$sa    = Get-SecretJson '${sa_secret_arn}'
+$app   = Get-SecretJson '${app_secret_arn}'
+$winrm = Get-SecretJson '${winrm_secret_arn}'
 $sqlHost = '${sql_host}'
+
+# A local admin + WinRM HTTPS so the AWS Transform discovery tool can collect
+# this Windows / IIS / .NET Framework host.
+$wp = ConvertTo-SecureString $winrm.password -AsPlainText -Force
+New-LocalUser -Name discovery -Password $wp -PasswordNeverExpires -AccountNeverExpires -ErrorAction SilentlyContinue
+Add-LocalGroupMember -Group Administrators -Member discovery -ErrorAction SilentlyContinue
+winrm quickconfig -quiet
+$cert = New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My
+if (-not (Get-ChildItem WSMan:\localhost\Listener | Where-Object { $_.Keys -match 'Transport=HTTPS' })) {
+  New-Item -Path WSMan:\localhost\Listener -Transport HTTPS -Address * -Hostname $env:COMPUTERNAME -CertificateThumbPrint $cert.Thumbprint -Force
+}
+Set-Item WSMan:\localhost\Service\Auth\Basic $true
+New-NetFirewallRule -DisplayName "WinRM-HTTP"  -Direction Inbound -LocalPort 5985 -Protocol TCP -Action Allow -ErrorAction SilentlyContinue
+New-NetFirewallRule -DisplayName "WinRM-HTTPS" -Direction Inbound -LocalPort 5986 -Protocol TCP -Action Allow -ErrorAction SilentlyContinue
+Restart-Service WinRM
 
 # App-scoped SQL login (the app never connects as sa). Done here because the SQL
 # Server host's user-data is not re-run on template edits.
