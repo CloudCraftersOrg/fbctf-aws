@@ -1,4 +1,0 @@
-owner                  = "davismar98"
-enable_windows_tier    = true
-enable_discovery_agent = false
-max_lifetime_minutes   = 240
