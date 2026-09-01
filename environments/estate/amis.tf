@@ -73,17 +73,6 @@ data "aws_ami" "windows_2019" {
   }
 }
 
-data "aws_ami" "windows_2012r2" {
-  most_recent        = true
-  owners             = ["amazon"]
-  include_deprecated = true
-
-  filter {
-    name   = "name"
-    values = ["Windows_Server-2012-R2_RTM-English-64Bit-Base-*"]
-  }
-}
-
 # SQL Server Express is licence-free, so the two database hosts cost the same
 # as a plain Windows box. The sqlservr process and SQL Server -> Aurora
 # assessment routing are identical to Standard.

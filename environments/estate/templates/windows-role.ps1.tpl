@@ -9,6 +9,10 @@ shutdown.exe /s /t ${max_minutes * 60} /c "estate host max lifetime"
 
 try { Rename-Computer -NewName "${hostname}" -Force -ErrorAction SilentlyContinue } catch {}
 
+%{ for name, ip in hosts_map ~}
+Add-Content C:\Windows\System32\drivers\etc\hosts "`r`n${ip} ${name}.corp.local ${name}"
+%{ endfor ~}
+
 switch ("${role}") {
   "iis-dotnet" {
     Install-WindowsFeature -Name Web-Server,Web-Asp-Net45,Web-Net-Ext45,Web-Mgmt-Console -IncludeManagementTools

@@ -28,6 +28,8 @@ resource "aws_instance" "this" {
   tags = merge(var.tags, { Name = var.name })
 
   lifecycle {
-    ignore_changes = [ami] # frozen/deprecated AMIs get replaced by newer lookups otherwise
+    # disposable hosts: don't recycle a running one for an AMI-lookup drift or a
+    # bootstrap-script tweak. Destroy + apply to change user_data.
+    ignore_changes = [ami, user_data]
   }
 }

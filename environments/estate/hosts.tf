@@ -16,12 +16,14 @@ locals {
   }
 
   windows_hosts = {
-    "contoso-web-01"     = { ip = "10.30.10.11", ami = data.aws_ami.windows_2016.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
-    "contoso-app-01"     = { ip = "10.30.10.21", ami = data.aws_ami.windows_2019.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
-    "contoso-app-02"     = { ip = "10.30.10.22", ami = data.aws_ami.windows_2019.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
-    "contoso-worker-01"  = { ip = "10.30.10.23", ami = data.aws_ami.windows_2012r2.id, type = "t3.small", role = "worker", root_gb = 40 }
-    "contoso-sql-01"     = { ip = "10.30.10.31", ami = data.aws_ami.windows_2019_sql_express.id, type = "t3.medium", role = "sqlserver", root_gb = 60 }
-    "contoso-sql-rpt-01" = { ip = "10.30.10.32", ami = data.aws_ami.windows_2019_sql_express.id, type = "t3.small", role = "sqlserver", root_gb = 50 }
+    "contoso-web-01" = { ip = "10.30.10.11", ami = data.aws_ami.windows_2016.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
+    "contoso-app-01" = { ip = "10.30.10.21", ami = data.aws_ami.windows_2019.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
+    "contoso-app-02" = { ip = "10.30.10.22", ami = data.aws_ami.windows_2019.id, type = "t3.small", role = "iis-dotnet", root_gb = 40 }
+    # 2016, not fleet.yaml's 2012 R2: AWS no longer publishes the 2012 R2 base AMI.
+    "contoso-worker-01" = { ip = "10.30.10.23", ami = data.aws_ami.windows_2016.id, type = "t3.small", role = "worker", root_gb = 40 }
+    # SQL Express AMI ships a 75 GB root snapshot - can't go below that.
+    "contoso-sql-01"     = { ip = "10.30.10.31", ami = data.aws_ami.windows_2019_sql_express.id, type = "t3.medium", role = "sqlserver", root_gb = 80 }
+    "contoso-sql-rpt-01" = { ip = "10.30.10.32", ami = data.aws_ami.windows_2019_sql_express.id, type = "t3.small", role = "sqlserver", root_gb = 80 }
   }
 
   hosts = merge(local.linux_hosts, var.enable_windows_tier ? local.windows_hosts : {})
@@ -63,16 +65,6 @@ locals {
   }
 }
 
-resource "aws_route53_record" "host" {
-  for_each = local.hosts
-
-  zone_id = aws_route53_zone.corp.zone_id
-  name    = "${each.key}.corp.local"
-  type    = "A"
-  ttl     = 60
-  records = [each.value.ip]
-}
-
 module "linux_host" {
   source   = "../../modules/estate-host"
   for_each = var.enable_windows_tier ? local.linux_hosts : local.hosts
@@ -94,6 +86,7 @@ module "linux_host" {
     region          = var.region
     listen_ports    = local.listen_ports[each.key]
     chatter_targets = local.targets[each.key]
+    hosts_map       = local.host_ip
   })
 
   tags = { Role = each.value.role, Tier = "linux" }
@@ -119,6 +112,7 @@ module "windows_host" {
     install_agent   = var.enable_discovery_agent
     region          = var.region
     chatter_targets = local.targets[each.key]
+    hosts_map       = local.host_ip
   })
 
   tags = { Role = each.value.role, Tier = "windows" }

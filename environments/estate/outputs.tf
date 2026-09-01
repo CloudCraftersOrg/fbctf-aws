@@ -7,10 +7,6 @@ output "windows_hosts" {
   value = { for k, m in module.windows_host : k => { id = m.id, ip = m.private_ip } }
 }
 
-output "private_zone" {
-  value = aws_route53_zone.corp.name
-}
-
 output "self_terminates_after_minutes" {
   value = var.max_lifetime_minutes
 }

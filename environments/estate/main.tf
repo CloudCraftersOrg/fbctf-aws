@@ -14,15 +14,8 @@ module "network" {
   az_count = 2
 }
 
-resource "aws_route53_zone" "corp" {
-  name = "corp.local"
-
-  vpc {
-    vpc_id = module.network.vpc_id
-  }
-
-  force_destroy = true
-}
+# corp.local names are injected into each host's /etc/hosts by user-data - the
+# deploy permission set has no route53:CreateHostedZone.
 
 resource "aws_security_group" "estate" {
   name        = "fbctf-estate-host"

@@ -9,6 +9,10 @@ shutdown -h +${max_minutes} "estate host max lifetime reached"
 
 hostnamectl set-hostname ${hostname}.corp.local || hostname ${hostname}
 
+%{ for name, ip in hosts_map ~}
+grep -q " ${name}$" /etc/hosts || echo "${ip} ${name}.corp.local ${name}" >> /etc/hosts
+%{ endfor ~}
+
 # ---- package manager shim (apt on Xenial, yum/dnf elsewhere) --------------
 if command -v apt-get >/dev/null; then
   export DEBIAN_FRONTEND=noninteractive
