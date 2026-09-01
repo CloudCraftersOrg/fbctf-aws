@@ -26,11 +26,11 @@ the **legacy "before" state** — Transform produces the "after". Region:
 | TCO / business case | assessment scenario + baseline in chat → PDF / PPTX / XLSX | no | `$0` |
 | Rehost / replatform / refactor / retire | process names in `connections.yaml` + chat steering | no | `$0` |
 | .NET Framework → .NET 8 | `modernization/dotnet-scoreboard` → .NET code job | no | `$0` |
-| Java 8 → 17 | `modernization/java-catalog` → `atx AWS/java-version-upgrade` | no | **paid** — $0.035/agent-min (~$2.50); needs the `transform-custom:*` grant |
+| Java 8 → 17 | `modernization/java-catalog` → `atx AWS/java-version-upgrade` | no | **paid** — $0.035/agent-min (~$2.50) |
 | Mainframe / COBOL → Java | `modernization/cobol-rollup` → S3 → mainframe job | no | `$0` |
 | SQL Server → Aurora — full agentic | `environments/sqlmod` live SQL + the .NET 8 output of the .NET job → SQL Server modernization job | **yes** | RDS SQL Express + DMS instance + Aurora |
 | SQL Server → Aurora — schema conversion only | `modernization/sqlserver-schema/*.sql` → AWS SCT desktop, offline | no | `$0` |
-| Transform Custom (`atx`) | `modernization/atx-task.md` custom definition | no | **paid** — $0.035/agent-min (~$1–3); needs the `transform-custom:*` grant |
+| Transform Custom (`atx`) | `modernization/atx-task.md` custom definition | no | **paid** — $0.035/agent-min (~$1–3) |
 | VMware migration — planning | `inventory/vmware/` VMware-flavoured export → VMware migration job + a discovery account connector | no (S3 bucket) | ~`$0` |
 | VMware migration — replication/cutover | **not demoable** — MGN needs running source VMs and a staging VPC | — | — |
 | The "un-modernizable" story | `environments/demo` — assess fbctf; Transform recommends Fargate/Aurora for the infra but flags **Hack/HHVM** as no code path | **yes** | ~$5/day |
@@ -39,11 +39,15 @@ the **legacy "before" state** — Transform produces the "after". Region:
 **Paid:** Transform Custom and the AWS-managed language upgrades it runs (Java) —
 $0.035/agent-minute of server-side work.
 
-## Grants still needed
+## Access
 
-`transform-custom:*` on `AWSTransformAccess` — drafted as an `aws-access` PR.
-Unblocks Java 8→17 and Transform Custom. Without it, .NET / COBOL / assessment /
-schema conversion are still fully covered.
+`AWSTransformAccess` already carries `transform:*` (the web app) **and**
+`transform-custom:*` (the `atx` CLI, for Java 8→17 and Transform Custom) —
+merged to `aws-access` main as commit `7d8af6b`. No further grant needed. The
+`atx` CLI is installed on this machine.
+
+The full agentic SQL Server job additionally needs Transform in **IAM Identity
+Center** access mode — see `environments/sqlmod/README.md`.
 
 ## Run order
 

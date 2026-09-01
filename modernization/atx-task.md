@@ -13,19 +13,11 @@ request.
 
 ## Prerequisite
 
-`atx` needs `transform-custom:*`, which the `AWSTransformAccess` permission set
-does **not** grant today (it has `transform:*` for the web app — a different
-service). Add it with an `aws-access` PR before running:
-
-```hcl
-# in the AWSTransformAccess inline policy document
-statement {
-  sid       = "TransformCustomCli"
-  effect    = "Allow"
-  actions   = ["transform-custom:*"]
-  resources = ["*"]
-}
-```
+`atx` needs `transform-custom:*` (a different service from the `transform:*`
+verbs the web app uses). `AWSTransformAccess` **already carries it** — merged to
+`aws-access` main as commit `7d8af6b` (`AWSTransformCustomAgent` +
+`AWSTransformCustomServiceLinkedRole` on `partner_demo_access`). The `atx` CLI
+is installed. Region: `atx` is offered in us-east-1, which the set allows.
 
 ## Task definition
 
