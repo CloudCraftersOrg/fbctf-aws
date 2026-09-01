@@ -49,28 +49,26 @@ fi
 # ---- role runtime --------------------------------------------------------
 case "${role}" in
   java8)
-    $PKG java-1.8.0-openjdk || $PKG openjdk-8-jdk || $PKG java-1.8.0-openjdk-headless || true
-    nohup java -version 2>/dev/null; nohup sleep infinity &
-    # a long-lived JVM so the process shows as 'java'
+    $PKG java-1.8.0-openjdk-devel || $PKG openjdk-8-jdk || $PKG java-1.8.0-openjdk || true
     cat >/tmp/Svc.java <<'J'
 public class Svc { public static void main(String[] a) throws Exception {
   while (true) { Thread.sleep(60000); } } }
 J
-    (cd /tmp && javac Svc.java && nohup java Svc &) || true
+    (cd /tmp && javac Svc.java && nohup java Svc >/dev/null 2>&1 &) || true
     ;;
   cobol)
     $PKG gnucobol || $PKG gnucobol4 || $PKG open-cobol || true
-    cat >/tmp/loop.cob <<'C'
+    cat >/tmp/rollup.cob <<'C'
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. LOOP.
+       PROGRAM-ID. rollup.
        PROCEDURE DIVISION.
-       MAIN.
            PERFORM UNTIL 1 = 2
                CALL "C$SLEEP" USING 30
            END-PERFORM.
+           STOP RUN.
 C
-    (cd /tmp && cobc -m -free loop.cob 2>/dev/null && nohup cobcrun loop &) || \
-      (cd /tmp && cobc -x -free -o loopx loop.cob 2>/dev/null && nohup ./loopx &) || true
+    (cd /tmp && cobc -x -free -o rollup rollup.cob && nohup cobcrun ./rollup >/dev/null 2>&1 &) \
+      || (cd /tmp && cobc -x -free -o rollup rollup.cob && nohup ./rollup >/dev/null 2>&1 &) || true
     ;;
   redis)
     amazon-linux-extras install -y redis6 || $PKG redis || $PKG redis-server || true
@@ -89,8 +87,9 @@ C
     ;;
   jenkins)
     $PKG java-11-amazon-corretto || $PKG java-11-openjdk || $PKG openjdk-11-jdk || true
-    curl -fsSL -o /opt/jenkins.war https://get.jenkins.io/war-stable/latest/jenkins.war || true
-    nohup java -jar /opt/jenkins.war --httpPort=8080 &
+    # 2.462.3 is the last line that still runs on Java 11.
+    curl -fsSL -o /opt/jenkins.war https://get.jenkins.io/war-stable/2.462.3/jenkins.war || true
+    nohup java -jar /opt/jenkins.war --httpPort=8080 >/dev/null 2>&1 &
     ;;
 esac
 
