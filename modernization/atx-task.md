@@ -34,22 +34,32 @@ Goal         : Produce a Terraform module `environments/after/` that deploys the
 Constraints  : match this repo's module style (thin wrappers over
                terraform-aws-modules/*), pin every version, no hardcoded account
                IDs, `terraform fmt` + `validate` clean.
-Deliverable  : a branch + PR against fbctf-aws with the module and a short
-               README diffing before/after cost.
+Deliverable  : the Terraform written into an environments/after/ directory of
+               the working copy, terraform fmt + validate clean.
 ```
 
 ## Run
 
-```sh
-atx custom job create \
-  --name fbctf-after-terraform \
-  --repo <clone-url> \
-  --instructions atx-task.md \
-  --branch modernize/dotnet-8
+`atx` operates on a **local git working directory** (`-p`), not a clone URL, and
+writes changes as **in-place git commits** (committer `ATX Bot`) — it does not
+push or open a PR.
 
-atx custom job status <job-id>
+```sh
+cp -r <modernized .NET 8 output> /tmp/dotnet8
+cd /tmp/dotnet8 && git init -q && git add -A && git commit -qm init
+
+# 1. author the definition interactively, pointing atx at this file as reference
+AWS_PROFILE=personal-transform AWS_REGION=us-east-1 atx
+#   > "create a transformation definition to generate the target Terraform
+#   >  described in /…/modernization/atx-task.md; reference that file"
+atx custom def save-draft -n fbctf-after-terraform \
+  --description "target IaC for the modernized scoreboard" --sd <definition-dir>
+
+# 2. run it
+atx custom def exec -n fbctf-after-terraform -p /tmp/dotnet8 -x -t --limit 30
+git -C /tmp/dotnet8 diff <first-commit>       # review
 ```
 
-This is the one paid step in the demo. Everything else — the assessment, the
-standard code agents, the schema conversion — is covered by the assessment
-subscription or is free.
+This is a paid step ($0.035/agent-minute; `--limit` caps it). The assessment and
+the standard .NET / mainframe agents and offline schema conversion are all free;
+the Java upgrade is the other paid `atx` step.

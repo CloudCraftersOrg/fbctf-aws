@@ -46,8 +46,13 @@ $0.035/agent-minute of server-side work.
 merged to `aws-access` main as commit `7d8af6b`. No further grant needed. The
 `atx` CLI is installed on this machine.
 
-The full agentic SQL Server job additionally needs Transform in **IAM Identity
-Center** access mode — see `environments/sqlmod/README.md`.
+The AWS Transform **web application** (assessment, .NET, mainframe, SQL Server,
+VMware jobs) requires **IAM Identity Center** access mode. That mode is chosen
+when Transform is first enabled and **cannot be changed afterward**. This account
+is enabled with IAM Identity Center, so every job works. If an account were
+enabled IAM-only, the full agentic SQL Server → Aurora job would be **impossible**
+there — fall back to offline schema conversion (10b, `$0`). The `atx` CLI (Java,
+Custom) needs only ordinary credentials, no Identity Center.
 
 ## Run order
 

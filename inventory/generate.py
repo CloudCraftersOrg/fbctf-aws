@@ -10,9 +10,13 @@ The assessment importer only processes a network-connections file when it is
 2026-08-27, and in docs/demo-runbook.md). So the deliverable is one ZIP:
 
     fbctf-assessment.zip
-      mpa_servers.csv          MPA "Server" import columns, fixed order
-      network_connections.csv  source/target host + IP + process name
-      ASSESSMENT_INTENT.md     the modernization brief, pasted into the chat
+      mpa_servers.csv          MPA "Server" import columns, fixed order  <- required
+      network_connections.csv  source/target host + IP + process name   <- required
+      ASSESSMENT_INTENT.md     the modernization brief                   <- convenience
+
+Only the two CSVs are a documented input. ASSESSMENT_INTENT.md is bundled so it
+travels with the data, but Transform consumes it by you pasting it into the job
+chat. If an upload is ever rejected, re-zip with just the two CSVs.
 
 Column names and order in the CSVs are fixed by the MPA template. Do not rename
 or reorder them.
