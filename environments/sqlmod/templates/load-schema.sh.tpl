@@ -16,7 +16,8 @@ DBADMIN=$(echo "$SECRET" | jq -r .username)
 DBPASS=$(echo "$SECRET" | jq -r .password)
 DB=${db_address}
 
-run() { "$SQLCMD" -S "$DB" -U "$DBADMIN" -P "$DBPASS" -C -b "$@"; }
+# -I: QUOTED_IDENTIFIER ON (the computed column referencing a UDF needs it).
+run() { "$SQLCMD" -S "$DB" -U "$DBADMIN" -P "$DBPASS" -C -I -b "$@"; }
 
 # Wait for the instance to accept connections.
 for i in $(seq 1 30); do
