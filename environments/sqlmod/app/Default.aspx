@@ -34,6 +34,8 @@
             TeamPicker.DataTextField = "Name";
             TeamPicker.DataValueField = "TeamId";
             TeamPicker.DataBind();
+
+            TeamCount.Text = teams.Rows.Count.ToString();
         }
     }
 
@@ -51,16 +53,18 @@
             cn.Open();
             cmd.ExecuteNonQuery();
             int newScore = (int)outScore.Value;
-            Result.Text = newScore < 0
+            SetMsg(newScore < 0
                 ? "Unknown or inactive flag."
-                : string.Format("Recorded. {0} is now on {1} points.", TeamPicker.SelectedItem.Text, newScore);
+                : string.Format("Recorded. {0} is now on {1} points.", TeamPicker.SelectedItem.Text, newScore),
+                newScore >= 0);
         }
+        FlagValue.Text = "";
         BindAll();
     }
 
     protected void AddTeam(object sender, EventArgs e)
     {
-        if (NewTeamName.Text.Trim().Length == 0) return;
+        if (NewTeamName.Text.Trim().Length == 0) { SetMsg("Enter a team name.", false); return; }
         using (var cn = new SqlConnection(Cs))
         using (var cmd = new SqlCommand("dbo.usp_UpsertTeam", cn) { CommandType = CommandType.StoredProcedure })
         {
@@ -70,6 +74,7 @@
             cn.Open();
             cmd.ExecuteNonQuery();
         }
+        SetMsg("Saved team " + NewTeamName.Text.Trim() + ".", true);
         NewTeamName.Text = NewTeamCountry.Text = "";
         BindAll();
     }
@@ -82,43 +87,86 @@
             cn.Open();
             cmd.ExecuteNonQuery();
         }
-        Result.Text = "Ranks recalculated.";
+        SetMsg("Ranks recalculated.", true);
+        BindAll();
+    }
+
+    void SetMsg(string text, bool good)
+    {
+        Result.Text = text;
+        Result.CssClass = good ? "msg ok" : "msg err";
     }
 </script>
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contoso Scoreboard</title>
     <style>
-        body { font: 15px/1.5 "Segoe UI", Arial, sans-serif; margin: 2rem auto; max-width: 880px; color: #1b1b1f; }
-        h1 { font-size: 1.5rem; } h2 { font-size: 1.05rem; margin-top: 2rem; }
-        table { border-collapse: collapse; width: 100%; } th, td { padding: 6px 10px; border-bottom: 1px solid #ddd; text-align: left; }
-        th { background: #f3f3f5; } .panel { background: #f8f8fa; border: 1px solid #e3e3e8; padding: 1rem; margin-top: 1rem; }
-        input, select { font: inherit; padding: 4px 6px; } .msg { color: #0a5; margin-left: 1rem; }
+        :root { --line: #e2e2e8; --ink: #1b1b1f; --muted: #6b6b76; --accent: #1f6feb; --bg: #f6f7f9; }
+        * { box-sizing: border-box; }
+        body { font: 15px/1.55 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink);
+               background: var(--bg); margin: 0; padding: 2.5rem 1rem; }
+        .wrap { max-width: 860px; margin: 0 auto; }
+        header { border-bottom: 2px solid var(--ink); padding-bottom: .6rem; margin-bottom: 1.5rem; }
+        h1 { font-size: 1.5rem; margin: 0; }
+        header p { margin: .25rem 0 0; color: var(--muted); font-size: .85rem; letter-spacing: .02em; }
+        h2 { font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
+             margin: 0 0 .75rem; }
+        .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem 1.4rem;
+                margin-bottom: 1.25rem; }
+        table.grid { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+        table.grid th { text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em;
+                        color: var(--muted); border-bottom: 2px solid var(--line); padding: .5rem .6rem; }
+        table.grid td { padding: .55rem .6rem; border-bottom: 1px solid var(--line); }
+        table.grid tr:last-child td { border-bottom: none; }
+        table.grid td:nth-child(2), table.grid th:nth-child(2),
+        table.grid td:nth-child(4), table.grid th:nth-child(4),
+        table.grid td:nth-child(5), table.grid th:nth-child(5) { text-align: right; }
+        .field { display: inline-flex; flex-direction: column; gap: .2rem; margin: 0 1rem .6rem 0; vertical-align: top; }
+        .field label { font-size: .78rem; color: var(--muted); }
+        input, select { font: inherit; padding: .4rem .55rem; border: 1px solid var(--line); border-radius: 6px;
+                        background: #fff; min-width: 11rem; }
+        .btn { font: inherit; padding: .45rem .9rem; border: 1px solid var(--accent); background: var(--accent);
+               color: #fff; border-radius: 6px; cursor: pointer; }
+        .btn.secondary { background: #fff; color: var(--accent); }
+        .msg { display: inline-block; margin-left: .75rem; font-size: .9rem; }
+        .msg.ok { color: #137333; } .msg.err { color: #c5221f; }
+        footer { color: var(--muted); font-size: .8rem; margin-top: 1.5rem; }
     </style>
 </head>
 <body>
 <form id="f" runat="server">
-    <h1>Contoso Scoreboard</h1>
-    <p>ASP.NET Web Forms &middot; .NET Framework 4.8 &middot; SQL Server</p>
+    <div class="wrap">
+        <header>
+            <h1>Contoso Scoreboard</h1>
+            <p>ASP.NET Web Forms &middot; .NET Framework 4.8 &middot; SQL Server 2022</p>
+        </header>
 
-    <h2>Leaderboard</h2>
-    <asp:GridView ID="Leaderboard" runat="server" AutoGenerateColumns="true" />
+        <div class="card">
+            <h2>Leaderboard &mdash; <asp:Literal ID="TeamCount" runat="server" /> teams</h2>
+            <asp:GridView ID="Leaderboard" runat="server" AutoGenerateColumns="true"
+                          GridLines="None" CssClass="grid" />
+        </div>
 
-    <div class="panel">
-        <h2>Record a capture</h2>
-        Team <asp:DropDownList ID="TeamPicker" runat="server" />
-        Flag <asp:TextBox ID="FlagValue" runat="server" placeholder="FLG-WEB-XSS-01" />
-        <asp:Button runat="server" Text="Submit" OnClick="RecordCapture" />
-        <asp:Label ID="Result" runat="server" CssClass="msg" />
-    </div>
+        <div class="card">
+            <h2>Record a capture</h2>
+            <span class="field"><label>Team</label><asp:DropDownList ID="TeamPicker" runat="server" /></span>
+            <span class="field"><label>Flag code</label><asp:TextBox ID="FlagValue" runat="server" placeholder="FLG-WEB-XSS-01" /></span>
+            <asp:Button runat="server" CssClass="btn" Text="Submit capture" OnClick="RecordCapture" />
+            <asp:Label ID="Result" runat="server" CssClass="msg" />
+        </div>
 
-    <div class="panel">
-        <h2>Add / update a team</h2>
-        Name <asp:TextBox ID="NewTeamName" runat="server" />
-        Country <asp:TextBox ID="NewTeamCountry" runat="server" placeholder="US" />
-        <asp:Button runat="server" Text="Save" OnClick="AddTeam" />
-        <asp:Button runat="server" Text="Recalculate ranks" OnClick="RecalcRanks" />
+        <div class="card">
+            <h2>Add / update a team</h2>
+            <span class="field"><label>Name</label><asp:TextBox ID="NewTeamName" runat="server" /></span>
+            <span class="field"><label>Country (2-letter)</label><asp:TextBox ID="NewTeamCountry" runat="server" placeholder="US" /></span>
+            <asp:Button runat="server" CssClass="btn" Text="Save team" OnClick="AddTeam" />
+            <asp:Button runat="server" CssClass="btn secondary" Text="Recalculate ranks" OnClick="RecalcRanks" />
+        </div>
+
+        <footer>Reads <code>dbo.vw_Leaderboard</code>; writes via <code>usp_UpsertTeam</code>, <code>usp_RecordCapture</code>, <code>usp_RecalculateRanks</code>.</footer>
     </div>
 </form>
 </body>
