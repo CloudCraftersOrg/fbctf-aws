@@ -1,10 +1,25 @@
 # fbctf-aws
 
-Terraform infrastructure for running [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) on AWS as the **"before" state** for an AWS Transform modernization demo.
+An **AWS Transform demo kit**. Three parts, one clone:
 
-Requirements, architecture, validated findings, and the phased implementation plan live in [`fbctf-aws-requirements.md`](fbctf-aws-requirements.md). Decisions are recorded in [`docs/decisions/`](docs/decisions/); the S3 artifact inventory in [`docs/artifacts-manifest.md`](docs/artifacts-manifest.md).
+| Part | What it is | Deployed? | Cost |
+|---|---|---|---|
+| **The live app** (`environments/demo`) | [facebookarchive/fbctf](https://github.com/facebookarchive/fbctf) (Hack/HHVM 3.21, nginx, MySQL, memcached — archived 2018) running on AWS as a real legacy "before" state | Yes, on demand | ~$5/day up, `$0` destroyed |
+| **The simulated estate** (`inventory/`) | A 14-server portfolio as CSV data for the Migration Portfolio Assessment import — the variety a single app can't provide | No — it's data | `$0` |
+| **The modernization fixtures** (`modernization/`) | Real .NET Framework, Java 8, COBOL and T-SQL code for Transform's transformation agents | No — source only | `$0` |
+| **The discovery fleet** (`environments/discovery-fleet/`) | A throwaway spot fleet that proves the live discovery-agent path | On demand | ~$0.10/run, self-terminating |
 
-## Architecture
+Feature-by-feature coverage and the order to run a full demo:
+[`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
+Why the demo grew beyond one app: [ADR 004](docs/decisions/004-demo-scope-expansion.md).
+
+Requirements, architecture, validated findings, and the phased implementation plan for the live app live in [`fbctf-aws-requirements.md`](fbctf-aws-requirements.md). Decisions are recorded in [`docs/decisions/`](docs/decisions/); the S3 artifact inventory in [`docs/artifacts-manifest.md`](docs/artifacts-manifest.md).
+
+---
+
+## The live app
+
+### Architecture
 
 ![fbctf on AWS — architecture](assets/fbctf-aws-architecture.png)
 
@@ -26,18 +41,17 @@ Internet → ALB (HTTP:80, public subnets)
 - No SSH — instance access via SSM Session Manager only.
 - Boot-time provisioning from a pinned, pre-patched app tarball in S3 (ADR 001). Four upstream breakages are patched in the tarball (`scripts/make-source-tarball.sh`).
 
-## Layout
+### Layout
 
-Two independent roots:
+Independent roots, each with its own state key in bucket `fbctf-demo-tfstate-337058058699-use1` (native S3 locking, no DynamoDB):
 
 | Root | State key | Contents |
 |---|---|---|
-| `environments/demo` | `fbctf-demo/terraform.tfstate` | Everything destroyable: network, SGs, IAM, RDS, ElastiCache, NLB/ALB, both ASGs, alarms |
+| `environments/demo` | `fbctf-demo/terraform.tfstate` | The live app: network, SGs, IAM, RDS, ElastiCache, NLB/ALB, both ASGs, alarms |
 | `environments/artifacts` | `fbctf-artifacts/terraform.tfstate` | The artifacts bucket only — **survives demo destroy cycles** (it holds the insurance against dead upstream repos) |
+| `environments/discovery-fleet` | `fbctf-discovery-fleet/terraform.tfstate` | The throwaway discovery fleet (see [its README](environments/discovery-fleet/README.md)) |
 
-State bucket: `fbctf-demo-tfstate-337058058699-use1` (native S3 locking, no DynamoDB).
-
-## Runbook
+### Runbook
 
 ```sh
 make init
@@ -61,6 +75,54 @@ make destroy    # ALWAYS after a demo session — the app runs an EOL OS
 3. Web instance boots: prebuilt tarball → `provision.sh` (nginx: Node 6, npm, grunt) → HTTP-only site config pointing FastCGI at the NLB → ALB healthy (~5 min).
 4. Scoreboard serves at the ALB DNS.
 
-## ⚠️ Destroy discipline
+### ⚠️ Destroy discipline
 
 The instances run Ubuntu 16.04 (EOL, unpatched) by design — that's the point of the demo. Do not leave this running unattended. `make destroy` after every session (~$5/day if left up). The artifacts root is not touched by destroy; re-apply brings the scoreboard back in ~20 minutes with the same admin password reachable via Secrets Manager.
+
+---
+
+## The simulated estate
+
+`inventory/` is a 14-server portfolio — Windows/.NET, SQL Server, Java, COBOL,
+self-managed services, an idle box — expressed as YAML and turned into the two
+CSVs the Migration Portfolio Assessment imports. It costs nothing and is never
+deployed.
+
+```sh
+python3 -m pip install -r inventory/requirements.txt
+python3 inventory/generate.py          # -> inventory/out/*.csv
+```
+
+Details, and what each server is there to trigger: [`inventory/README.md`](inventory/README.md).
+
+---
+
+## The modernization fixtures
+
+`modernization/` holds real code for Transform's transformation agents — one
+fixture per capability:
+
+| Fixture | Capability |
+|---|---|
+| [`dotnet-scoreboard/`](modernization/dotnet-scoreboard) | .NET Framework 4.8 → cross-platform .NET |
+| [`java-catalog/`](modernization/java-catalog) | Java 8 → 17 |
+| [`cobol-rollup/`](modernization/cobol-rollup) | COBOL / mainframe |
+| [`sqlserver-schema/`](modernization/sqlserver-schema) | SQL Server → Aurora schema conversion |
+| [`atx-task.md`](modernization/atx-task.md) | Transform Custom (`atx`) — generate the target Terraform |
+
+Source only — nothing here is deployed. See [`modernization/README.md`](modernization/README.md).
+
+---
+
+## The discovery fleet
+
+`environments/discovery-fleet/` stands up 4 self-terminating `t4g.nano` spot
+nodes running the AWS Application Discovery Agent, to demo the live agent path
+alongside the CSV import. ~$0.10 per run.
+
+```sh
+make apply   ENV=discovery-fleet
+make destroy ENV=discovery-fleet     # optional — nodes self-terminate in 3h
+```
+
+See [`environments/discovery-fleet/README.md`](environments/discovery-fleet/README.md).

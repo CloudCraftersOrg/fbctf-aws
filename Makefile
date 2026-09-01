@@ -1,3 +1,5 @@
+# ENV selects the root under environments/: demo (the live app, default),
+# artifacts (the persistent bucket), or discovery-fleet (throwaway agent fleet).
 ENV ?= demo
 AWS_PROFILE ?= cloudcrafters-sandbox
 TF_DIR = environments/$(ENV)
