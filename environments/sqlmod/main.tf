@@ -89,7 +89,7 @@ resource "aws_s3_object" "schema" {
 }
 
 resource "aws_s3_object" "app" {
-  for_each = var.deploy_app ? fileset("${path.module}/app", "*") : []
+  for_each = var.deploy_app ? toset(["Default.aspx", "web.config"]) : []
 
   bucket = aws_s3_bucket.schema.id
   key    = "app/${each.value}"
