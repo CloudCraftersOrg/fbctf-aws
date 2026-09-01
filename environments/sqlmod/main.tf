@@ -1,12 +1,12 @@
-# Live SQL Server for the one Transform capability that needs a real database:
-# the full agentic SQL Server -> Aurora modernization job. Transform creates its
-# own DMS replication instance inside this VPC, connects to the RDS instance,
-# reads the schema, converts the stored procs and rewrites the .NET data layer.
+# Live SQL Server for the Transform capability that needs a real database: the
+# full agentic SQL Server -> Aurora modernization job. Transform creates its own
+# DMS replication instance inside this VPC, connects to the SQL Server, reads the
+# schema, converts the stored procs and rewrites the .NET data layer.
 #
-# The DMS replication subnet group needs subnets in >= 2 AZs - that is why this
-# has its own 2-AZ VPC rather than reusing anything single-AZ.
+# SQL Server runs as the official mssql:2022 container on one EC2 host (no RDS).
+# The DMS replication subnet group needs subnets in >= 2 AZs - hence the 2-AZ VPC.
 #
-# On-demand only. `make destroy ENV=sqlmod` after the demo.
+# On-demand. `make destroy ENV=sqlmod` after the demo.
 
 module "network" {
   source = "../../modules/network"
@@ -20,9 +20,29 @@ data "aws_ssm_parameter" "al2023" {
   name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 }
 
-resource "aws_security_group" "rds" {
-  name        = "fbctf-sqlmod-rds"
-  description = "SQL Server 1433 from within the VPC (schema loader + the Transform DMS instance)"
+resource "random_password" "sa" {
+  length           = 24
+  override_special = "_-+=."
+  min_lower        = 2
+  min_upper        = 2
+  min_numeric      = 2
+  min_special      = 2
+}
+
+resource "aws_secretsmanager_secret" "sa" {
+  name                    = "fbctf-sqlmod/sa"
+  description             = "SQL Server sa login (mssql container on EC2)"
+  recovery_window_in_days = 0
+}
+
+resource "aws_secretsmanager_secret_version" "sa" {
+  secret_id     = aws_secretsmanager_secret.sa.id
+  secret_string = jsonencode({ username = "sa", password = random_password.sa.result })
+}
+
+resource "aws_security_group" "sqlserver" {
+  name        = "fbctf-sqlmod-sqlserver"
+  description = "SQL Server 1433 from within the VPC (the Transform DMS instance and the app tier)"
   vpc_id      = module.network.vpc_id
 
   ingress {
@@ -40,34 +60,7 @@ resource "aws_security_group" "rds" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = { Name = "fbctf-sqlmod-rds" }
-}
-
-resource "aws_db_instance" "sqlserver" {
-  identifier     = "fbctf-sqlmod"
-  engine         = "sqlserver-ex"
-  engine_version = var.sqlserver_engine_version
-  instance_class = "db.t3.small"
-  license_model  = "license-included"
-
-  allocated_storage = 20
-  storage_type      = "gp3"
-  storage_encrypted = true
-
-  username                    = "sqladmin"
-  manage_master_user_password = true
-
-  db_subnet_group_name   = module.network.database_subnet_group_name
-  vpc_security_group_ids = [aws_security_group.rds.id]
-  multi_az               = false
-  publicly_accessible    = false
-
-  deletion_protection      = false
-  skip_final_snapshot      = true
-  delete_automated_backups = true
-  backup_retention_period  = 0
-
-  tags = { Name = "fbctf-sqlmod" }
+  tags = { Name = "fbctf-sqlmod-sqlserver" }
 }
 
 # ---- schema files staged in S3 (too large for user-data; fbctf-* is in scope)
@@ -95,11 +88,11 @@ resource "aws_s3_object" "schema" {
   etag   = filemd5("${path.module}/../../modernization/sqlserver-schema/${each.value}")
 }
 
-# ---- schema loader: a throwaway host that runs the DDL, creates the read-only
-# login Transform uses, then idles. `make destroy` removes it.
+# ---- the SQL Server host: runs the container, then loads the schema and creates
+# the read-only login Transform connects with.
 
-resource "aws_iam_role" "loader" {
-  name = "fbctf-sqlmod-loader"
+resource "aws_iam_role" "host" {
+  name = "fbctf-sqlmod-host"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -111,14 +104,14 @@ resource "aws_iam_role" "loader" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "loader_ssm" {
-  role       = aws_iam_role.loader.name
+resource "aws_iam_role_policy_attachment" "host_ssm" {
+  role       = aws_iam_role.host.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_role_policy" "loader_access" {
+resource "aws_iam_role_policy" "host_access" {
   name = "read-secret-and-schema"
-  role = aws_iam_role.loader.id
+  role = aws_iam_role.host.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -126,7 +119,7 @@ resource "aws_iam_role_policy" "loader_access" {
       {
         Effect   = "Allow"
         Action   = "secretsmanager:GetSecretValue"
-        Resource = aws_db_instance.sqlserver.master_user_secret[0].secret_arn
+        Resource = aws_secretsmanager_secret.sa.arn
       },
       {
         Effect   = "Allow"
@@ -137,33 +130,19 @@ resource "aws_iam_role_policy" "loader_access" {
   })
 }
 
-resource "aws_iam_instance_profile" "loader" {
-  name = "fbctf-sqlmod-loader"
-  role = aws_iam_role.loader.name
+resource "aws_iam_instance_profile" "host" {
+  name = "fbctf-sqlmod-host"
+  role = aws_iam_role.host.name
 }
 
-resource "aws_security_group" "loader" {
-  name        = "fbctf-sqlmod-loader"
-  description = "Schema loader: egress only (RDS, Secrets Manager, package repos, SSM)"
-  vpc_id      = module.network.vpc_id
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = { Name = "fbctf-sqlmod-loader" }
-}
-
-resource "aws_instance" "loader" {
+resource "aws_instance" "sqlserver" {
   ami                    = data.aws_ssm_parameter.al2023.value
-  instance_type          = "t3.micro"
+  instance_type          = var.sqlserver_instance_type
   subnet_id              = module.network.private_app_subnet_ids[0]
-  vpc_security_group_ids = [aws_security_group.loader.id]
-  iam_instance_profile   = aws_iam_instance_profile.loader.name
+  vpc_security_group_ids = [aws_security_group.sqlserver.id]
+  iam_instance_profile   = aws_iam_instance_profile.host.name
 
+  instance_initiated_shutdown_behavior = "stop"
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"
@@ -171,19 +150,25 @@ resource "aws_instance" "loader" {
 
   root_block_device {
     volume_type = "gp3"
-    volume_size = 20
+    volume_size = 80
     encrypted   = true
   }
 
-  user_data = templatefile("${path.module}/templates/load-schema.sh.tpl", {
+  user_data = templatefile("${path.module}/templates/sqlserver-user-data.sh.tpl", {
     region        = var.region
-    db_address    = aws_db_instance.sqlserver.address
-    secret_arn    = aws_db_instance.sqlserver.master_user_secret[0].secret_arn
+    sa_secret_arn = aws_secretsmanager_secret.sa.arn
     ro_password   = var.transform_ro_password
     schema_bucket = aws_s3_bucket.schema.id
+    mssql_image   = var.mssql_image
   })
 
-  tags = { Name = "fbctf-sqlmod-loader" }
+  tags = { Name = "fbctf-sqlmod-sqlserver" }
 
-  depends_on = [aws_db_instance.sqlserver, aws_s3_object.schema]
+  # The container's data lives on this instance; a user_data edit must not
+  # recycle it. Re-run the loader over SSM if the schema logic changes.
+  lifecycle {
+    ignore_changes = [user_data]
+  }
+
+  depends_on = [aws_secretsmanager_secret_version.sa, aws_s3_object.schema]
 }

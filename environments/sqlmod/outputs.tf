@@ -1,19 +1,19 @@
 output "sql_server_address" {
-  description = "Give this to the AWS Transform SQL Server modernization job"
-  value       = aws_db_instance.sqlserver.address
+  description = "Give this to the AWS Transform SQL Server modernization job (private IP, reachable from within the VPC / the Transform DMS instance)"
+  value       = aws_instance.sqlserver.private_ip
 }
 
 output "sql_server_port" {
-  value = aws_db_instance.sqlserver.port
+  value = 1433
 }
 
 output "database_name" {
   value = "Scoreboard"
 }
 
-output "master_user_secret_arn" {
-  description = "RDS-managed master credentials (sqladmin)"
-  value       = aws_db_instance.sqlserver.master_user_secret[0].secret_arn
+output "sa_secret_arn" {
+  description = "Secrets Manager secret holding the sa login (fbctf-sqlmod/sa)"
+  value       = aws_secretsmanager_secret.sa.arn
 }
 
 output "transform_login" {
@@ -29,12 +29,12 @@ output "dms_subnet_ids" {
   value       = module.network.private_data_subnet_ids
 }
 
-output "rds_security_group_id" {
-  description = "Add Transform's DMS instance to a group allowed inbound here, or it is already covered by the VPC CIDR rule"
-  value       = aws_security_group.rds.id
+output "sqlserver_security_group_id" {
+  description = "1433 is open to the whole VPC CIDR; add Transform's DMS instance here only if you place it outside that range"
+  value       = aws_security_group.sqlserver.id
 }
 
-output "loader_instance_id" {
-  description = "SSM target — check /var/log/user-data.log for the schema-load result"
-  value       = aws_instance.loader.id
+output "sqlserver_instance_id" {
+  description = "SSM target - /var/log/user-data.log has the container start + schema-load result"
+  value       = aws_instance.sqlserver.id
 }

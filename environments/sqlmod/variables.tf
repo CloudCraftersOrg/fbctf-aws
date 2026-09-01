@@ -20,10 +20,16 @@ variable "vpc_cidr" {
   default     = "10.40.0.0/16"
 }
 
-variable "sqlserver_engine_version" {
-  description = "RDS SQL Server Express engine version"
+variable "sqlserver_instance_type" {
+  description = "SQL Server 2022 container needs ~4 GB RAM"
   type        = string
-  default     = "15.00" # SQL Server 2019
+  default     = "t3.medium"
+}
+
+variable "mssql_image" {
+  description = "SQL Server container image (Developer or Express edition set via MSSQL_PID in user-data)"
+  type        = string
+  default     = "mcr.microsoft.com/mssql/server:2022-latest"
 }
 
 variable "transform_ro_password" {
