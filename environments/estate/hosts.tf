@@ -106,15 +106,13 @@ module "windows_host" {
   root_volume_gb        = each.value.root_gb
 
   user_data = templatefile("${path.module}/templates/windows-role.ps1.tpl", {
-    hostname      = each.key
-    role          = each.value.role
-    max_minutes   = var.max_lifetime_minutes
-    install_agent = var.enable_discovery_agent
-    region        = var.region
-    hosts_map     = local.host_ip
-    chatter_literal = join(",", [
-      for t in local.targets[each.key] : "@{ip='${t.ip}';port=${t.port}}"
-    ])
+    hostname        = each.key
+    role            = each.value.role
+    max_minutes     = var.max_lifetime_minutes
+    install_agent   = var.enable_discovery_agent
+    region          = var.region
+    hosts_map       = local.host_ip
+    chatter_targets = local.targets[each.key]
   })
 
   tags = { Role = each.value.role, Tier = "windows" }

@@ -51,18 +51,22 @@ switch ("${role}") {
   }
 }
 
-# Chatter: outbound edges from this host.
-$chat = @'
-$targets = @(__TARGETS__)
+# Chatter: outbound edges from this host. Built as a scriptblock so the target
+# list survives templating without quote/comma collisions.
+$sb = {
+$targets = @(
+%{ for t in chatter_targets ~}
+@{ ip = '${t.ip}'; port = ${t.port} }
+%{ endfor ~}
+)
 while ($true) {
-  foreach ($t in $targets) {
-    try { (New-Object Net.Sockets.TcpClient).Connect($t.ip, $t.port) } catch {}
+  foreach ($item in $targets) {
+    try { (New-Object Net.Sockets.TcpClient).Connect($item.ip, $item.port) } catch {}
   }
   Start-Sleep 20
 }
-'@
-$chat = $chat.Replace('__TARGETS__', '${chatter_literal}')
-Set-Content C:\estate-chatter.ps1 $chat
+}
+Set-Content C:\estate-chatter.ps1 $sb.ToString()
 schtasks /create /tn estate-chatter /tr "powershell -NoProfile -File C:\estate-chatter.ps1" /sc onstart /ru SYSTEM /f
 Start-Process powershell -ArgumentList "-NoProfile -File C:\estate-chatter.ps1" -WindowStyle Hidden
 
