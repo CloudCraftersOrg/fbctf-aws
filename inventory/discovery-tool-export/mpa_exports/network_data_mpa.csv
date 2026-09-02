@@ -1,3 +1,4 @@
 Source Server ID,Source Server IP Address,Source Port,Target Server ID,Target Server IP Address,Target Port,Source Process ID,Target Process ID,State,Transport Protocol,IP Version,Count
 import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,10.50.0.232,,import_e0b56d26-039f-508a-af2f-774aba6ec4f8,10.50.10.208,1521,27217,,ESTABLISHED,TCP,IPv4,2993
-import_44784c54-26eb-5f62-98a6-b1770a879c26,10.40.0.108,,import_a8961f84-8e64-5327-9ea6-a9cdcb181127,10.40.10.96,1433,,,TIME_WAIT,TCP,IPv4,48
+import_44784c54-26eb-5f62-98a6-b1770a879c26,10.40.0.108,,import_a8961f84-8e64-5327-9ea6-a9cdcb181127,10.40.10.96,1433,584,,TIME_WAIT,TCP,IPv4,2520
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,10.40.0.125,,import_a8961f84-8e64-5327-9ea6-a9cdcb181127,10.40.10.96,1433,3464,,ESTABLISHED,TCP,IPv4,679

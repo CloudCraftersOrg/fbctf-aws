@@ -64,6 +64,28 @@ $conn = "Server=$sqlHost,1433;Database=Scoreboard;User Id=scoreboard_app;Passwor
 (Get-Content C:\inetpub\wwwroot\web.config) -replace '__CONNSTRING__', $conn | Set-Content C:\inetpub\wwwroot\web.config
 
 iisreset
+
+# Keep one SQL connection ESTABLISHED + the site warm, so the discovery tool's
+# netstat sweep records the .NET-app -> SQL Server dependency edge.
+$warm = @'
+$cs = "Server=SQLHOST,1433;Database=Scoreboard;User Id=scoreboard_app;Password=APPPW;TrustServerCertificate=True"
+while ($true) {
+  try {
+    $cn = New-Object System.Data.SqlClient.SqlConnection $cs
+    $cn.Open()
+    while ($cn.State -eq "Open") {
+      ($cn.CreateCommand() | % { $_.CommandText="SELECT 1"; $_.ExecuteScalar() }) | Out-Null
+      try { Invoke-WebRequest http://localhost/Default.aspx -UseBasicParsing -TimeoutSec 5 | Out-Null } catch {}
+      Start-Sleep 15
+    }
+  } catch { Start-Sleep 10 }
+}
+'@
+$warm = $warm.Replace("SQLHOST", $sqlHost).Replace("APPPW", $app.password)
+Set-Content C:\contoso-warm.ps1 $warm
+schtasks /create /tn contoso-warm /tr "powershell -NoProfile -WindowStyle Hidden -File C:\contoso-warm.ps1" /sc onstart /ru SYSTEM /f
+Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Hidden -File C:\contoso-warm.ps1"
+
 Write-Output "contoso scoreboard ready"
 Stop-Transcript
 </powershell>

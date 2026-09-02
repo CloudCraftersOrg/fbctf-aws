@@ -137,4 +137,40 @@ done
 
 php -r 'opcache_reset();' 2>/dev/null || true
 systemctl restart apache2
+
+# Hold a pdo_sqlsrv connection open + keep the site warm, so the discovery tool's
+# netstat sweep records the PHP-app -> SQL Server dependency edge.
+cat >/usr/local/bin/wp-warm.php <<'PHP'
+<?php
+while (true) {
+  try {
+    $db = new PDO("sqlsrv:Server=SQLHOST,1433;Database=wordpress;TrustServerCertificate=true", "wp_app", getenv("WPPW"));
+    while (true) { $db->query("SELECT 1")->fetch(); sleep(15); }
+  } catch (Exception $e) { sleep(10); }
+}
+PHP
+sed -i "s/SQLHOST/$SQLHOST/" /usr/local/bin/wp-warm.php
+cat >/etc/systemd/system/wp-warm.service <<UNIT
+[Unit]
+Description=Project Nami DB warm (discovery)
+After=network-online.target
+[Service]
+Environment=WPPW=$WP_PW
+ExecStart=/usr/bin/php /usr/local/bin/wp-warm.php
+Restart=always
+[Install]
+WantedBy=multi-user.target
+UNIT
+cat >/etc/systemd/system/wp-http-warm.service <<'UNIT'
+[Unit]
+Description=Project Nami HTTP warm (discovery)
+[Service]
+ExecStart=/bin/bash -c 'while true; do curl -s -o /dev/null http://localhost/ ; sleep 5; done'
+Restart=always
+[Install]
+WantedBy=multi-user.target
+UNIT
+systemctl daemon-reload
+systemctl enable --now wp-warm.service wp-http-warm.service
+
 echo "project nami ready $(date -u +%FT%TZ) - $SITE/  (admin / fbctf-sqlmod/wordpress-admin)"
