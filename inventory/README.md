@@ -1,7 +1,7 @@
 # Simulated source estate — Transform assessment input
 
-The live fbctf app (`environments/demo`) is one workload. A migration assessment
-needs an *estate*: enough servers, operating systems and dependencies that
+The live apps (`environments/sqlmod`, `environments/oramod`) are a handful of
+hosts. A migration assessment needs an *estate*: enough servers, operating systems and dependencies that
 right-sizing, move groups, wave planning and TCO have something to chew on, and
 enough variety that every assessment finding shows up at least once.
 
@@ -13,7 +13,7 @@ that AWS Transform's migration assessment imports.
 
 | File | Purpose |
 |---|---|
-| `fleet.yaml` | 14 servers. The two `i-*` hosts mirror the live app (same IDs/OS/utilisation as the validated upload); the rest are synthetic. Each carries a `signal:` line naming the finding it exercises. |
+| `fleet.yaml` | 14 servers. The two `i-*` hosts are the retired fbctf pair (kept because their rows were validated against a live upload — see [ADR 006](../docs/decisions/006-retire-fbctf.md)); the rest are synthetic. Each carries a `signal:` line naming the finding it exercises. |
 | `connections.yaml` | Server-to-server dependency edges with process names. Every synthetic host has at least one edge, so nothing lands in a trivial one-host wave. |
 | `ASSESSMENT_INTENT.md` | The modernization brief — pasted into the assessment chat. |
 | `generate.py` | Emits `out/fbctf-assessment.zip` (+ the loose CSVs for inspection). `--check` validates without writing. |

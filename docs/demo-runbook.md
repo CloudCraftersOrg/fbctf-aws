@@ -1,6 +1,6 @@
 # AWS Transform demo runbook — run every feature, in order
 
-A single linear pass through all 12 Transform capabilities against the deployed
+A single linear pass through every Transform capability against the deployed
 stack. Region: **us-east-1**. Profile: `personal-transform`. Transform is enabled
 with **IAM Identity Center**, so every feature is available.
 
@@ -10,19 +10,24 @@ Feature coverage + costs: [`transform-feature-coverage.md`](transform-feature-co
 
 | | |
 |---|---|
-| `environments/demo` | fbctf app — `http://fbctf-demo-web-928265368.us-east-1.elb.amazonaws.com/` |
-| `environments/sqlmod` | RDS SQL Server `fbctf-sqlmod.calscauowkvr.us-east-1.rds.amazonaws.com`, DB `Scoreboard`, login `transform_ro` (password in `environments/sqlmod/terraform.tfvars`), VPC `vpc-024a854f2776fcb2f`, DMS subnets `subnet-0ded3593f604b36cb` + `subnet-04d98c52365668670` |
-| Source bucket | `s3://fbctf-transform-src-337058058699-use1/` — holds `dotnet-scoreboard-src.zip`, `java-catalog-src.zip`, `cobol-rollup-src.zip` |
-| Assessment inputs | `inventory/out/fbctf-assessment.zip`, `inventory/out/fbctf-vmware-import.zip` (run `python3 inventory/generate.py` / `--vmware` to refresh) |
+| `environments/sqlmod` | SQL Server 2022 on EC2 + **Contoso Scoreboard** (.NET Framework 4.8 / IIS) + **Project Nami** (WordPress on SQL Server). `terraform -chdir=environments/sqlmod output` gives `sql_server_address`, `database_name` (`Scoreboard`), `transform_login` (`transform_ro`, password in `environments/sqlmod/terraform.tfvars`), `vpc_id`, `dms_subnet_ids`, `app_url`, `wordpress_url` |
+| `environments/oramod` | Oracle 21c XE on EC2 + **Contoso Catalog** (Java 8 / Spring Boot 2.7). Outputs: `oracle_address` (`:1521`, PDB `XEPDB1`), `transform_ro_user`, `app_secret_arn` (holds the `transform_ro` password), `vpc_id`, `dms_subnet_ids`, `app_url` |
+| `environments/discovery-collector` | optional — the real discovery tool; only for Phase 1 step 9 |
+| Source bucket | `s3://fbctf-transform-src-337058058699-use1/` — holds `contoso-scoreboard-src.zip` (from `environments/sqlmod/app`), `dotnet-scoreboard-src.zip`, `java-catalog-src.zip`, `cobol-rollup-src.zip` |
+| Assessment inputs | `inventory/out/fbctf-assessment.zip`, `inventory/out/fbctf-vmware-import.zip` (run `python3 inventory/generate.py --vmware` to refresh) and the committed `inventory/discovery_tool_export.zip` |
 | `atx` CLI | v3.12.0, `AWS/java-version-upgrade` in the registry; JDK 17 + Maven on the machine |
 
-## Two apps, on purpose
+## Three live apps, on purpose
 
-- **fbctf** — real, running. Its role: assess a live workload + prove Transform
-  **cannot** modernize Hack/HHVM.
-- **"Contoso Scoreboard"** — synthetic fixtures (`modernization/`), not deployed.
-  Its role: feed the code agents (.NET, Java, COBOL, SQL). Only its *schema*
-  runs, in `environments/sqlmod`, for the one job that needs a live database.
+| App | Stack | Role in the demo |
+|---|---|---|
+| **Contoso Scoreboard** | ASP.NET Web Forms / .NET Framework 4.8 / IIS → SQL Server | .NET → .NET 8 job, then the SQL Server → Aurora job rewrites its data layer |
+| **Project Nami** | WordPress on SQL Server / PHP | the "un-modernizable" runtime: the database routes to Aurora, the PHP does not |
+| **Contoso Catalog** | Java 8 / Spring Boot 2.7 → Oracle 21c XE | Java 8 → 17 via `atx`, then Oracle → Aurora PostgreSQL |
+
+The `modernization/` fixtures are the undeployed, richer variants of the same
+code (MVC 5 + WCF, Spring Boot 2.3, COBOL, T-SQL) for the agents that do not
+need a live host.
 
 ---
 
@@ -32,6 +37,11 @@ Feature coverage + costs: [`transform-feature-coverage.md`](transform-feature-co
 2. Console (account 337058058699) → **AWS Transform** (us-east-1) → open the **Web application URL**.
 3. **Workspaces** → **Create workspace** → open it.
 4. Confirm the CLI: `AWS_PROFILE=personal-transform atx custom def list` — lists the AWS-managed transformations.
+5. Deploy the stack (~15 min, both in parallel):
+   ```sh
+   make apply ENV=sqlmod
+   make apply ENV=oramod
+   ```
 
 ---
 
@@ -50,27 +60,27 @@ Feature coverage + costs: [`transform-feature-coverage.md`](transform-feature-co
 6. Set scenario assumptions: target **us-east-1**, **On-Demand**, EBS **gp3** → **Run**.
 7. TCO in chat: `compare as-is 24/7 vs rehost-right-sized vs modernize, with On-Demand / 1-yr Savings Plan / RI pricing, using a $500/server/month on-prem baseline for the contoso-* hosts`.
 8. **Artifacts** → generate the **PDF**, **PPTX**, and **XLSX**.
-9. *(optional — the real discovery-tool angle)* Run the **actual AWS Transform discovery tool** against live servers:
-   ```sh
-   cp environments/discovery-collector/terraform.tfvars.example environments/discovery-collector/terraform.tfvars
-   make apply ENV=discovery-collector
-   terraform -chdir=environments/discovery-collector output next_steps
-   ```
-   Follow `next_steps`: SSM-port-forward the tool UI (`:5000`), key the 2 fbctf hosts, add the SSH credentials + the `import.csv` source, let it SSH-collect for 1–2 h, then **Discovered inventory → Download inventory → `discovery_tool_export.zip`** and upload that ZIP here. It genuinely inventories 8 servers (6-host Linux fleet + the 2 live fbctf app servers). `make destroy ENV=discovery-collector` after.
-   *(The lower-effort stand-in is uploading `inventory/discovery-export/` — the fbctf account read via read-only APIs in the same export format.)*
-10. **The close:** `Can AWS Transform modernize this application's code? It is PHP/Hack on HHVM 3.21.` → capture the answer: **no supported code path** (only .NET, Java, mainframe/COBOL). Infra gets a Fargate + Aurora recommendation; the runtime needs a rewrite, flagged as a follow-on.
+9. **The real discovery-tool angle** — two options:
+   - **`$0`:** upload the committed **`inventory/discovery_tool_export.zip`** as a second data source. It is a genuine export from the tool: 12 hosts, Windows + Linux, the SQL Server and Oracle modules, and the three app→DB edges (see `inventory/discovery-tool-export/README.md`).
+   - **Live (~$0.60):** run the tool yourself:
+     ```sh
+     cp environments/discovery-collector/terraform.tfvars.example environments/discovery-collector/terraform.tfvars
+     make apply ENV=discovery-collector
+     terraform -chdir=environments/discovery-collector output next_steps
+     ```
+     Follow `next_steps`: SSM-port-forward the tool UI (`:5000`), key the Linux hosts, add the SSH / WinRM / Oracle credentials + the `import.csv` source, let it collect 1–2 h, then **Discovered inventory → Download inventory → `discovery_tool_export.zip`** and upload that. `make destroy ENV=discovery-collector` after.
+10. **The close:** `Can AWS Transform modernize the code of the WordPress application on the SQL Server? It is PHP.` → capture the answer: **no supported code path** (only .NET, Java, mainframe/COBOL). Its SQL Server routes to Aurora; the PHP runtime is a container lift or a rewrite, flagged as a follow-on.
 
 ---
 
 ## Phase 2 — .NET Framework → .NET 8 · feature 7 · **$0** · **run before Phase 4**
 
-1. Chat: `create a job` → **.NET modernization**.
-2. **Get resources to be transformed** → **Connect a source code repository** → **Amazon S3** → `s3://fbctf-transform-src-337058058699-use1/dotnet-scoreboard-src.zip` (one top-level folder, `dotnet-scoreboard/`, containing `ContosoScoreboard.sln`).
-3. Review discovery → the **transformation plan** → approve.
-4. Output: `transform-output/transformed-code.zip` + `diff.txt` in the bucket. It's an ASP.NET Core / .NET 8 solution (EF Core, minimal API, no `System.Drawing`).
-5. **Keep it for Phase 4:** download and extract; re-zip with one top-level folder as `dotnet-scoreboard-net8-src.zip`; `aws s3 cp` it to the source bucket.
-
-*The fixture is a structural stub (controllers, models, WCF, `packages.config`, `System.Drawing`, `Web.config` transforms) — enough constructs for the agent to produce a real plan. If the .NET agent needs a fully-restoring build, that's a fixture fix, not a stack change.*
+1. Package the deployed app (see `environments/sqlmod/app/README.md`) → `s3://fbctf-transform-src-337058058699-use1/contoso-scoreboard-src.zip`. *(The richer undeployed fixture, `dotnet-scoreboard-src.zip`, works the same way.)*
+2. Chat: `create a job` → **.NET modernization**.
+3. **Get resources to be transformed** → **Connect a source code repository** → **Amazon S3** → the zip (one top-level folder containing `ContosoScoreboard.sln`).
+4. Review discovery → the **transformation plan** → approve. Web Forms has no .NET Core successor, so expect the plan to call out a Razor Pages / Blazor port alongside `System.Data.SqlClient` → `Microsoft.Data.SqlClient` and `web.config` → `appsettings.json`.
+5. Output: `transform-output/transformed-code.zip` + `diff.txt` in the bucket.
+6. **Keep it for Phase 4:** download and extract; re-zip with one top-level folder as `contoso-scoreboard-net8-src.zip`; `aws s3 cp` it to the source bucket.
 
 ---
 
@@ -79,6 +89,9 @@ Feature coverage + costs: [`transform-feature-coverage.md`](transform-feature-co
 Run in any order. 8 and 11 are the paid ones (`atx`, $0.035/agent-minute, `--limit` caps the spend).
 
 ### 8 · Java 8 → 17 · `atx` · ~$2.50
+
+Either `modernization/java-catalog` (Spring Boot 2.3, undeployed) or
+`environments/oramod/app` (Spring Boot 2.7, the deployed Contoso Catalog).
 
 ```sh
 export JAVA_HOME=$(brew --prefix openjdk@17); export PATH="$JAVA_HOME/bin:$PATH"
@@ -90,7 +103,7 @@ AWS_PROFILE=personal-transform AWS_REGION=us-east-1 \
 ```
 `mvn clean install` on the fixture passes today (verified). Review the result:
 `git log --author="ATX Bot"` then `git diff <first-commit>`. Covers JDK 8→17,
-`javax`→`jakarta`, Spring Boot 2.3→3, JUnit 4→5, `WebSecurityConfigurerAdapter`.
+`javax`→`jakarta`, Spring Boot 2→3, JUnit 4→5, `WebSecurityConfigurerAdapter`.
 *(Alternative: `AWS/spring-boot-version-upgrade`.)* `atx` commits in place — it
 does **not** push or open a PR.
 
@@ -106,7 +119,7 @@ does **not** push or open a PR.
 
 1. Download **AWS SCT** desktop. **New project** → do **not** connect a source; add **script files**.
 2. Add `modernization/sqlserver-schema/{01_tables,02_programmability,03_seed}.sql`. Target: **Aurora PostgreSQL**. Run the assessment.
-3. Show the conversion report flagging as *manual*: `MERGE`, `IDENTITY` + `SCOPE_IDENTITY()`, `SEQUENCE`/`NEXT VALUE FOR`, the scalar UDF inside a computed column, the `AFTER INSERT` trigger, the explicit `CURSOR`, `TOP … WITH TIES`.
+3. Show the conversion report flagging as *manual*: `MERGE`, `IDENTITY` + `SCOPE_IDENTITY()`, `SEQUENCE`/`NEXT VALUE FOR`, the scalar UDF inside a computed column, the `AFTER INSERT` trigger, the explicit `CURSOR`, `TOP … WITH TIES`, `usp_RecalculateRanks WITH EXECUTE AS OWNER`.
 
 ### 11 · Transform Custom (`atx`) · ~$1–3
 
@@ -120,7 +133,7 @@ AWS_PROFILE=personal-transform AWS_REGION=us-east-1 atx        # interactive
 # > "Create a transformation definition that reads a modernized .NET project and
 # >  emits a Terraform module for its target: ECS Fargate (2 tasks/2 AZs, ARM64),
 # >  Aurora PostgreSQL Serverless v2, ALB + ACM + WAF, Secrets Manager, all names
-# >  fbctf-after-*. Reference: /Users/.../fbctf-aws/modernization/atx-task.md"
+# >  fbctf-after-*. Reference: <repo>/modernization/atx-task.md"
 # > (test, iterate, then:)
 atx custom def save-draft -n fbctf-after-terraform --description "target IaC for the modernized scoreboard" --sd <definition-dir>
 
@@ -133,19 +146,36 @@ Review with `git diff`. Output is in-place git commits; no PR.
 ## Phase 4 — SQL Server → Aurora, full agentic · feature 10a · needs Phase 2 + `sqlmod`
 
 1. Chat: `create a job` → **SQL Server modernization**.
-2. **Configure Database Connector** → New Connection:
+2. **Configure Database Connector** → New Connection, from `terraform -chdir=environments/sqlmod output`:
    | | |
    |---|---|
-   | Endpoint | `fbctf-sqlmod.calscauowkvr.us-east-1.rds.amazonaws.com` |
+   | Endpoint | `sql_server_address` (private IP) |
    | Port | `1433` |
    | Database | `Scoreboard` |
    | Login | `transform_ro` |
    | Password | `transform_ro_password` from `environments/sqlmod/terraform.tfvars` |
-   → **Test connectivity** (RDS SG already allows the whole VPC CIDR).
-3. **Connect source code repository** → **Amazon S3** → `dotnet-scoreboard-net8-src.zip` (from Phase 2).
-4. **Set up Landing Zone** → Aurora PostgreSQL **Serverless v2**; VPC `vpc-024a854f2776fcb2f`; subnets `subnet-0ded3593f604b36cb` + `subnet-04d98c52365668670`.
-5. Walk: **Assessment** → **Wave planning** (approve) → **Schema conversion** (approve) → **Data migration** → choose **Synthetic Data Generation** → **Code migration** (approve — EF/ADO.NET → Npgsql, T-SQL → PL/pgSQL, connection strings) → **Validation review** → **Deployment approval** (CloudFormation/CDK → ECS).
-6. **Teardown:** `make destroy ENV=sqlmod`, then delete the Transform-created DMS replication instance, the Aurora cluster and the ECS service from the job.
+   → **Test connectivity** (1433 is open to the whole VPC CIDR, so the DMS instance reaches it wherever Transform places it).
+3. **Connect source code repository** → **Amazon S3** → `contoso-scoreboard-net8-src.zip` (from Phase 2).
+4. **Set up Landing Zone** → Aurora PostgreSQL **Serverless v2**; `vpc_id`; the two `dms_subnet_ids`.
+5. Walk: **Assessment** → **Wave planning** (approve) → **Schema conversion** (approve) → **Data migration** → choose **Synthetic Data Generation** or the live `Scoreboard` data → **Code migration** (approve — `SqlClient` → Npgsql, T-SQL → PL/pgSQL, connection strings) → **Validation review** → **Deployment approval** (CloudFormation/CDK → ECS).
+6. Bonus: point Transform at the live **Contoso Scoreboard** (`app_url`) and **Project Nami** (`wordpress_url`) to show the "before" while the job runs.
+
+---
+
+## Phase 4b — Oracle → Aurora PostgreSQL · needs `oramod`
+
+1. Chat: `create a job` → the **Oracle** database modernization job type.
+2. **Database Connector**, from `terraform -chdir=environments/oramod output`:
+   | | |
+   |---|---|
+   | Endpoint | `oracle_address` |
+   | Port | `1521` |
+   | Service / PDB | `XEPDB1` |
+   | Login | `transform_ro` |
+   | Password | `transform_ro` field of the secret at `app_secret_arn` |
+3. **Source code** → the Java 17 output of Phase 3 step 8 run on `environments/oramod/app` (or the Java 8 source as-is).
+4. **Landing Zone** → Aurora PostgreSQL Serverless v2; oramod `vpc_id` + `dms_subnet_ids`.
+5. Walk the same gates. Expect `PRODUCT_SEQ` + `trg_products_bi` → identity, `catalog_pkg` → PL/pgSQL, `VW_CATALOG_SUMMARY`, the `VIRTUAL` column, `FROM dual`, and the JPA `@SequenceGenerator` + native `@Query` rewrites.
 
 ---
 
@@ -162,14 +192,15 @@ Review with `git diff`. Output is in-place git commits; no PR.
 ## Phase 6 — teardown
 
 ```sh
-cd ~/aws-personal/fbctf-aws
-make destroy               # fbctf app
-make destroy ENV=sqlmod    # if not already done in Phase 4
+make destroy ENV=discovery-collector   # if it was applied in Phase 1
+make destroy ENV=sqlmod
+make destroy ENV=oramod
 aws s3 rb s3://fbctf-transform-src-337058058699-use1 --force
 ```
 
-Also delete: the Transform-created DMS/Aurora/ECS from the SQL job; the VMware
-discovery connector. **Keep `environments/artifacts`** (persistent).
+Also delete: the Transform-created DMS / Aurora / ECS resources from the SQL
+Server and Oracle jobs; the VMware discovery connector. **Keep
+`environments/artifacts`** (persistent).
 
 ---
 
@@ -177,9 +208,10 @@ discovery connector. **Keep `environments/artifacts`** (persistent).
 
 | Phase | Result |
 |---|---|
-| 1 | 14-server inventory readiness; a wave plan; a TCO scenario; PDF + PPTX + XLSX in Artifacts; chat states Hack/HHVM has no code path |
+| 1 | 14-server inventory readiness; a wave plan; a TCO scenario; PDF + PPTX + XLSX in Artifacts; the real tool export ingested; chat states PHP has no code path |
 | 2 | `transformed-code.zip` — a .NET 8 solution |
 | 3 | Java: `ATX Bot` commits + `mvn clean install` passes. COBOL: a COBOL→Java plan + wave plan. 10b: SCT report with the manual-conversion list. 11: a custom def in the registry + commits generating Terraform |
 | 4 | connectivity test passes; PL/pgSQL schema on Aurora; a branch with the Npgsql-rewritten data layer |
+| 4b | Oracle connectivity passes; `catalog_pkg` as PL/pgSQL; the JPA layer rewritten |
 | 5 | VMware inventory readiness (14 servers, ESXi); a wave plan + network design + runbook |
-| 6 | `terraform destroy` clean on demo + sqlmod; source bucket gone; no orphan DMS/Aurora/ECS |
+| 6 | `terraform destroy` clean on sqlmod, oramod and the collector; source bucket gone; no orphan DMS/Aurora/ECS |

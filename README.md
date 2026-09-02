@@ -9,7 +9,8 @@ output, not this repo's.
 | **The assessment inventory** (`inventory/`) | A server portfolio as data → `generate.py` → one assessment ZIP | No — data | `$0` |
 | **The modernization fixtures** (`modernization/`) | Real .NET Framework, Java 8, COBOL and T-SQL code for Transform's transformation agents | No — source only | `$0` |
 | **The SQL Server estate** (`environments/sqlmod`) | One EC2 SQL Server 2022 + two live apps against it — **Contoso Scoreboard** (.NET Framework 4.8 / IIS) and **Project Nami** (WordPress-on-SQL-Server / PHP) — in a 2-AZ VPC | On demand | ~$0.20/hr up, `$0` destroyed |
-| **The discovery collector** (`environments/discovery-collector`) | The real AWS Transform discovery tool + a synthetic fleet; peers to the sqlmod VPC | On demand | ~$0.30/hr up |
+| **The Oracle estate** (`environments/oramod`) | One EC2 Oracle 21c XE + **Contoso Catalog** (Java 8 / Spring Boot 2.7) against it, in a 2-AZ VPC | On demand | ~$0.15/hr up, `$0` destroyed |
+| **The discovery collector** (`environments/discovery-collector`) | The real AWS Transform discovery tool + a synthetic Linux fleet + a Windows/SQL Express box; peers into the sqlmod and oramod VPCs. Its last export is committed at `inventory/discovery-tool-export/` | On demand | ~$0.30/hr up, self-terminating |
 
 Feature-by-feature coverage: [`docs/transform-feature-coverage.md`](docs/transform-feature-coverage.md).
 End-to-end run order: [`docs/demo-runbook.md`](docs/demo-runbook.md).
@@ -54,9 +55,8 @@ Independent roots, each with its own state key in bucket `fbctf-demo-tfstate-337
 
 | Root | State key | Contents |
 |---|---|---|
-| `environments/demo` | `fbctf-demo/terraform.tfstate` | The live app: network, SGs, IAM, RDS, ElastiCache, NLB/ALB, both ASGs, alarms |
-| `environments/artifacts` | `fbctf-artifacts/terraform.tfstate` | The artifacts bucket only — **survives demo destroy cycles** (it holds the insurance against dead upstream repos) |
-| `environments/sqlmod` | `fbctf-sqlmod/terraform.tfstate` | RDS SQL Server Express + 2-AZ VPC for the SQL Server → Aurora job (see [its README](environments/sqlmod/README.md)) |
+| `environments/demo` | `fbctf-demo/terraform.tfstate` | **Retired** — the root is deleted and the state key is empty |
+| `environments/artifacts` | `fbctf-artifacts/terraform.tfstate` | The artifacts bucket only — **survives destroy cycles** (it held the insurance against dead upstream repos) |
 
 ### Runbook
 
@@ -120,19 +120,43 @@ Source only — nothing here is deployed. See [`modernization/README.md`](modern
 
 ---
 
-## The SQL modernization target
+## The live estate
 
-`environments/sqlmod/` deploys **RDS SQL Server Express** in a 2-AZ VPC, with the
-`modernization/sqlserver-schema` DDL loaded. It exists for the one Transform
-capability that needs a live database — the full agentic **SQL Server → Aurora**
-job, which reads the schema through a DMS instance, converts the stored procs,
-and rewrites the .NET data-access layer.
+Three real applications on two database engines, in two on-demand roots. State
+keys `fbctf-sqlmod/` and `fbctf-oramod/` in the same bucket as above.
+
+| Root | Database | Apps | Transform jobs it feeds |
+|---|---|---|---|
+| [`environments/sqlmod`](environments/sqlmod) | SQL Server 2022 (EC2, `mssql/server:2022` container) | **Contoso Scoreboard** — ASP.NET Web Forms / .NET Framework 4.8 / IIS ([source](environments/sqlmod/app)); **Project Nami** — WordPress on SQL Server / PHP | .NET → .NET 8; SQL Server → Aurora (full agentic); the "no PHP code path" close |
+| [`environments/oramod`](environments/oramod) | Oracle 21c XE (EC2, `gvenzl/oracle-xe` container) | **Contoso Catalog** — Java 8 / Spring Boot 2.7 ([source](environments/oramod/app)) | Java 8 → 17 (`atx`); Oracle → Aurora PostgreSQL |
 
 ```sh
-cp environments/sqlmod/terraform.tfvars.example environments/sqlmod/terraform.tfvars
+cp environments/sqlmod/terraform.tfvars.example environments/sqlmod/terraform.tfvars   # set transform_ro_password
 make apply   ENV=sqlmod
-make destroy ENV=sqlmod                       # after the demo
+make apply   ENV=oramod
+make destroy ENV=sqlmod && make destroy ENV=oramod   # after the demo
 ```
 
-Everything else — the assessment, .NET / Java / COBOL agents, offline schema
-conversion — needs no infrastructure. See [`environments/sqlmod/README.md`](environments/sqlmod/README.md).
+Both app tiers are reachable on `:80` from `app_allow_cidr` / `wordpress_allow_cidr`
+(default `0.0.0.0/0` — tighten to your IP for a public demo). Database ports are
+VPC-internal; SSH / WinRM / Oracle Net open only to the discovery-collector CIDR.
+
+---
+
+## The discovery collector
+
+`environments/discovery-collector/` runs the **actual AWS Transform discovery
+tool** on an EC2 host, peers into the two estates above, and SSH/WinRM-collects
+12 hosts (6 synthetic Linux roles, a Windows + SQL Express box, and the 5 live
+sqlmod/oramod hosts) into `discovery_tool_export.zip`. The last export is
+committed at [`inventory/discovery-tool-export/`](inventory/discovery-tool-export),
+so the assessment can ingest genuine discovery data at `$0` without re-running it.
+
+```sh
+cp environments/discovery-collector/terraform.tfvars.example environments/discovery-collector/terraform.tfvars
+make apply   ENV=discovery-collector
+terraform -chdir=environments/discovery-collector output next_steps
+make destroy ENV=discovery-collector
+```
+
+See [`environments/discovery-collector/README.md`](environments/discovery-collector/README.md).
