@@ -51,6 +51,7 @@ cp -a "$SRC"/. /var/www/html/
 sed -i "s/'ReturnDatesAsStrings'=>true,/'ReturnDatesAsStrings'=>true, 'TrustServerCertificate'=>true,/g" \
   /var/www/html/wp-includes/class-wpdb.php
 
+SITE="${site_url}"
 cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sed -i \
   -e "s/database_name_here/wordpress/" \
@@ -58,10 +59,25 @@ sed -i \
   -e "s#password_here#$WP_PW#" \
   -e "s/localhost/$SQLHOST/" \
   /var/www/html/wp-config.php
+# pin the URL so the browser never sees a localhost asset/link
+sed -i "s#/\* That's all, stop editing.*#define('WP_HOME','$SITE');\ndefine('WP_SITEURL','$SITE');\n&#" /var/www/html/wp-config.php
 chown -R www-data:www-data /var/www/html
 
 a2enmod rewrite
-sed -i 's#<Directory /var/www/>#<Directory /var/www/>\n\tAllowOverride All#' /etc/apache2/apache2.conf
+sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+cat > /var/www/html/.htaccess <<'HT'
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %%{REQUEST_FILENAME} !-f
+RewriteCond %%{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+HT
+chown www-data:www-data /var/www/html/.htaccess
 systemctl restart apache2
 sleep 5
 
@@ -77,5 +93,48 @@ curl -fsS -m 120 "http://localhost/wp-admin/install.php?step=2" \
   --data-urlencode "Submit=Install WordPress" \
   --data-urlencode "language=" -o /var/log/wp-install.html || echo "install POST returned non-zero"
 
-IP=$(curl -fsS -H "X-aws-ec2-metadata-token: $(curl -fsS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')" http://169.254.169.254/latest/meta-data/public-ipv4)
-echo "project nami ready $(date -u +%FT%TZ) - http://$IP/  (admin / fbctf-sqlmod/wordpress-admin)"
+TT5=/var/www/html/wp-content/themes/twentytwentyfive/parts
+cat > $TT5/header.html <<'HDR'
+<!-- wp:group {"tagName":"header","align":"full","style":{"spacing":{"padding":{"top":"1rem","bottom":"1rem"}}},"layout":{"type":"constrained"}} -->
+<header class="wp-block-group alignfull" style="padding-top:1rem;padding-bottom:1rem">
+<!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
+<div class="wp-block-group alignwide">
+<!-- wp:site-title {"level":1} /-->
+<!-- wp:navigation {"ref":4,"overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"right"}} /-->
+</div>
+<!-- /wp:group -->
+</header>
+<!-- /wp:group -->
+HDR
+cat > $TT5/footer.html <<'FT'
+<!-- wp:group {"tagName":"footer","align":"full","style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}},"layout":{"type":"constrained"}} -->
+<footer class="wp-block-group alignfull" style="padding-top:2rem;padding-bottom:2rem">
+<!-- wp:paragraph {"fontSize":"small"} --><p class="has-small-font-size"><strong>Contoso Blog</strong> &mdash; Project Nami on SQL Server</p><!-- /wp:paragraph -->
+</footer>
+<!-- /wp:group -->
+FT
+chown -R www-data:www-data $TT5
+
+pnq() { "$SQLCMD" -S "$SQLHOST,1433" -U sa -P "$SA_PW" -C -b -d wordpress -Q "$1"; }
+pnq "UPDATE wp_options SET option_value='$SITE' WHERE option_name IN ('siteurl','home');
+     UPDATE wp_options SET option_value='/%postname%/' WHERE option_name='permalink_structure';
+     UPDATE wp_options SET option_value='Contoso migration blog - a Project Nami (WordPress on SQL Server) demo' WHERE option_name='blogdescription';
+     DELETE FROM wp_options WHERE option_name LIKE '%transient%' OR option_name='rewrite_rules';
+     UPDATE wp_posts SET post_content='<!-- wp:navigation-link {\"label\":\"Home\",\"url\":\"/\",\"kind\":\"custom\"} /--><!-- wp:navigation-link {\"label\":\"About\",\"url\":\"/about/\",\"kind\":\"custom\"} /-->' WHERE post_type='wp_navigation';
+     UPDATE wp_posts SET post_title='About', post_name='about', post_status='publish',
+       post_content='<!-- wp:paragraph --><p>Contoso is migrating a portfolio of legacy workloads to AWS with AWS Transform. This blog runs on Project Nami - WordPress on SQL Server - one of the apps in that portfolio.</p><!-- /wp:paragraph -->'
+       WHERE post_type='page';
+     UPDATE wp_posts SET post_title='Welcome to the Contoso migration blog',
+       post_content='<!-- wp:paragraph --><p>We are moving Contoso off self-managed databases. Follow along as the .NET, PHP and Java apps get assessed and modernized.</p><!-- /wp:paragraph -->'
+       WHERE post_type='post' AND post_name='hello-world';"
+for slug_title in "assessing-the-sql-server-estate:::Assessing the SQL Server estate:::AWS Transform inventoried the Windows + IIS + SQL Server hosts over WinRM and flagged the schema objects that need conversion." \
+                  "wordpress-on-sql-server:::WordPress on SQL Server:::Project Nami swaps the WordPress MySQL layer for pdo_sqlsrv so the same content model runs on SQL Server."; do
+  s=$${slug_title%%:::*}; rest=$${slug_title#*:::}; t=$${rest%%:::*}; b=$${rest#*:::}
+  pnq "IF NOT EXISTS (SELECT 1 FROM wp_posts WHERE post_name='$s')
+       INSERT INTO wp_posts (post_author,post_date,post_date_gmt,post_content,post_title,post_status,comment_status,ping_status,post_name,post_modified,post_modified_gmt,post_type,post_excerpt,to_ping,pinged,post_content_filtered)
+       VALUES (1,SYSDATETIME(),SYSUTCDATETIME(),'<!-- wp:paragraph --><p>$b</p><!-- /wp:paragraph -->','$t','publish','open','open','$s',SYSDATETIME(),SYSUTCDATETIME(),'post','','','','');"
+done
+
+php -r 'opcache_reset();' 2>/dev/null || true
+systemctl restart apache2
+echo "project nami ready $(date -u +%FT%TZ) - $SITE/  (admin / fbctf-sqlmod/wordpress-admin)"

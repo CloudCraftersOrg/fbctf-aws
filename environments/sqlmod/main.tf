@@ -476,6 +476,7 @@ resource "aws_instance" "wordpress" {
     wp_admin_secret_arn = aws_secretsmanager_secret.wp_admin[0].arn
     sql_host            = aws_instance.sqlserver.private_ip
     projectnami_zip_url = var.projectnami_zip_url
+    site_url            = "http://${aws_eip.wordpress[0].public_ip}"
   })
 
   tags = { Name = "fbctf-sqlmod-wordpress" }
@@ -484,8 +485,13 @@ resource "aws_instance" "wordpress" {
 }
 
 resource "aws_eip" "wordpress" {
-  count    = var.deploy_wordpress ? 1 : 0
-  instance = aws_instance.wordpress[0].id
-  domain   = "vpc"
-  tags     = { Name = "fbctf-sqlmod-wordpress" }
+  count  = var.deploy_wordpress ? 1 : 0
+  domain = "vpc"
+  tags   = { Name = "fbctf-sqlmod-wordpress" }
+}
+
+resource "aws_eip_association" "wordpress" {
+  count         = var.deploy_wordpress ? 1 : 0
+  instance_id   = aws_instance.wordpress[0].id
+  allocation_id = aws_eip.wordpress[0].id
 }
