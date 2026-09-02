@@ -1701,3 +1701,315 @@ import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4584,C:\Windows\system32
 import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4680,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
 import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4956,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
 import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,3852,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kthreadd],2,[kthreadd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-netns],8,[kworker/R-netns],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_preempt],15,[rcu_preempt],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[migration/0],18,[migration/0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[cpuhp/0],19,[cpuhp/0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[cpuhp/1],20,[cpuhp/1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[migration/1],21,[migration/1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kdevtmpfs],27,[kdevtmpfs],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kauditd],32,[kauditd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[khungtaskd],34,[khungtaskd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[oom_reaper],35,[oom_reaper],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kcompactd0],38,[kcompactd0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[khugepaged],39,[khugepaged],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[irq/9-acpi],43,[irq/9-acpi],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[watchdogd],48,[watchdogd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/0:1H-xfs-log/nvme0n1p1],50,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kswapd0],75,[kswapd0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfsalloc],77,[kworker/R-xfsalloc],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-kthrotld],82,[kworker/R-kthrotld],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-nvme-delete-wq],141,[kworker/R-nvme-delete-wq],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-mld],168,[kworker/R-mld],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-ipv6_addrconf],172,[kworker/R-ipv6_addrconf],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u9:0],559,[kworker/u9:0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:1H-kblockd],603,[kworker/1:1H-kblockd],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-buf/nvme0n1p1],1090,[kworker/R-xfs-buf/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-conv/nvme0n1p1],1091,[kworker/R-xfs-conv/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-reclaim/nvme0n1p1],1092,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-blockgc/nvme0n1p1],1093,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-inodegc/nvme0n1p1],1094,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-log/nvme0n1p1],1095,[kworker/R-xfs-log/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xfs-cil/nvme0n1p1],1096,[kworker/R-xfs-cil/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[xfsaild/nvme0n1p1],1097,[xfsaild/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-journald,1143,/usr/lib/systemd/systemd-journald,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-udevd,1605,/usr/lib/systemd/systemd-udevd,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-resolved,1612,/usr/lib/systemd/systemd-resolved,systemd+
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,auditd,1624,/sbin/auditd,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-rpciod],1642,[kworker/R-rpciod],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-xprtiod],1644,[kworker/R-xprtiod],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-ena],1691,[kworker/R-ena],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-inhibit,1770,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,irqbalance,1773,/usr/sbin/irqbalance --foreground,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,lsmd,1774,/usr/bin/lsmd -d,libstor+
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-homed,1777,/usr/lib/systemd/systemd-homed,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-logind,1778,/usr/lib/systemd/systemd-logind,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,dbus-broker-launch,1780,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-networkd,1781,/usr/lib/systemd/systemd-networkd,systemd+
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,dbus-broker,1787,dbus-broker --log 4 --controller 9 --machine-id ec2a0052bfbe04894dc87dd9c5d9daa5 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,acpid,1805,/usr/sbin/acpid -f,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,gssproxy,1808,/usr/sbin/gssproxy -D,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,amazon-ssm-agent,1992,/usr/bin/amazon-ssm-agent,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,sshd,1997,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,atd,2003,/usr/sbin/atd -f,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,agetty,2005,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,agetty,2008,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,chronyd,2026,/usr/sbin/chronyd -F 2,chrony
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,ssm-agent-worker,2049,/usr/bin/ssm-agent-worker,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,containerd,4986,/usr/bin/containerd,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,dockerd,5096,/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --default-ulimit nofile=32768:65536,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,docker-proxy,27934,/usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1433 -container-ip 172.17.0.2 -container-port 1433,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,docker-proxy,27941,/usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 1433 -container-ip 172.17.0.2 -container-port 1433,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,containerd-shim-runc-v2,27955,/usr/bin/containerd-shim-runc-v2 -namespace moby -id 6144e78b8cd58120987281335cef6b086e8edbdd4bb887c5c6c085df999a056f -address /run/containerd/containerd.sock,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,bash,27983,/bin/bash /opt/mssql/bin/launch_sqlservr.sh /opt/mssql/bin/sqlservr,10001
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,sqlservr,28007,/opt/mssql/bin/sqlservr,10001
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,sqlservr,28013,/opt/mssql/bin/sqlservr,10001
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/R-dio/nvme0n1p1],28118,[kworker/R-dio/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-userdbd,30646,/usr/lib/systemd/systemd-userdbd,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/0:2-events],36404,[kworker/0:2-events],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:1-events],41026,[kworker/1:1-events],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u8:3-flush-259:0],47058,[kworker/u8:3-flush-259:0],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:2-cgroup_release],47448,[kworker/1:2-cgroup_release],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u8:1-events_unbound],48332,[kworker/u8:1-events_unbound],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/0:0-events],49153,[kworker/0:0-events],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u8:0-kvfree_rcu_reclaim],49410,[kworker/u8:0-kvfree_rcu_reclaim],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:0-cgroup_release],50166,[kworker/1:0-cgroup_release],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/0:1-events],50240,[kworker/0:1-events],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u8:2-xfs-blockgc/nvme0n1p1],50527,[kworker/u8:2-xfs-blockgc/nvme0n1p1],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/1:3-events],50871,[kworker/1:3-events],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,[kworker/u8:4-events_unbound],50988,[kworker/u8:4-events_unbound],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-userwork,51710,systemd-userwork: waiting...,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-userwork,51746,systemd-userwork: waiting...,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd-userwork,51751,systemd-userwork: waiting...,root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,systemd,51850,/usr/lib/systemd/systemd --user,ec2-user
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,(sd-pam),51852,(sd-pam),ec2-user
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,sshd-session,52104,sshd-session: ec2-user [priv],root
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,sshd-session,52107,sshd-session: ec2-user@notty,ec2-user
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,timeout,52108,timeout 60 ps aux -ww --no-headers,ec2-user
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,ps,52126,ps aux -ww --no-headers,ec2-user
+import_44784c54-26eb-5f62-98a6-b1770a879c26,init,1,/sbin/init,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kthreadd],2,[kthreadd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-rcu_g],4,[kworker/R-rcu_g],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-rcu_p],5,[kworker/R-rcu_p],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-slub_],6,[kworker/R-slub_],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-netns],7,[kworker/R-netns],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:0H-events_highpri],9,[kworker/0:0H-events_highpri],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-mm_pe],12,[kworker/R-mm_pe],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[rcu_tasks_rude_kthread],13,[rcu_tasks_rude_kthread],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[rcu_tasks_trace_kthread],14,[rcu_tasks_trace_kthread],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[ksoftirqd/0],15,[ksoftirqd/0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[rcu_sched],16,[rcu_sched],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[migration/0],17,[migration/0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[idle_inject/0],18,[idle_inject/0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[cpuhp/0],19,[cpuhp/0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[cpuhp/1],20,[cpuhp/1],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[idle_inject/1],21,[idle_inject/1],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[migration/1],22,[migration/1],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[ksoftirqd/1],23,[ksoftirqd/1],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:0H-events_highpri],25,[kworker/1:0H-events_highpri],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kdevtmpfs],26,[kdevtmpfs],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-inet_],27,[kworker/R-inet_],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kauditd],28,[kauditd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[khungtaskd],30,[khungtaskd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[oom_reaper],32,[oom_reaper],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-write],33,[kworker/R-write],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kcompactd0],35,[kcompactd0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[ksmd],36,[ksmd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[khugepaged],37,[khugepaged],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kinte],38,[kworker/R-kinte],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kbloc],39,[kworker/R-kbloc],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-blkcg],40,[kworker/R-blkcg],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[irq/9-acpi],41,[irq/9-acpi],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-tpm_d],42,[kworker/R-tpm_d],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-ata_s],43,[kworker/R-ata_s],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-md],44,[kworker/R-md],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-md_bi],45,[kworker/R-md_bi],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-edac-],46,[kworker/R-edac-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-devfr],47,[kworker/R-devfr],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[watchdogd],48,[watchdogd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-quota],49,[kworker/R-quota],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:1H-kblockd],50,[kworker/1:1H-kblockd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kswapd0],51,[kswapd0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[ecryptfs-kthread],52,[ecryptfs-kthread],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kthro],53,[kworker/R-kthro],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-acpi_],54,[kworker/R-acpi_],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-nvme-],55,[kworker/R-nvme-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-nvme-],56,[kworker/R-nvme-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-nvme-],57,[kworker/R-nvme-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-nvme-],58,[kworker/R-nvme-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-mld],61,[kworker/R-mld],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:1H-kblockd],62,[kworker/0:1H-kblockd],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-ipv6_],63,[kworker/R-ipv6_],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kstrp],70,[kworker/R-kstrp],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/u5:0],72,[kworker/u5:0],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-charg],85,[kworker/R-charg],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[jbd2/nvme0n1p1-8],86,[jbd2/nvme0n1p1-8],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-ext4-],87,[kworker/R-ext4-],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd-journald,127,/lib/systemd/systemd-journald,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kalua],161,[kworker/R-kalua],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kmpat],163,[kworker/R-kmpat],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kmpat],164,[kworker/R-kmpat],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-kmpat],165,[kworker/R-kmpat],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,multipathd,166,/sbin/multipathd -d -s,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd-udevd,169,/lib/systemd/systemd-udevd,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-ena],191,[kworker/R-ena],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-crypt],193,[kworker/R-crypt],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd-networkd,335,/lib/systemd/systemd-networkd,systemd+
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd-resolved,337,/lib/systemd/systemd-resolved,systemd+
+import_44784c54-26eb-5f62-98a6-b1770a879c26,acpid,370,/usr/sbin/acpid,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,cron,374,/usr/sbin/cron -f -P,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,@dbus-daemon,378,@dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only,message+
+import_44784c54-26eb-5f62-98a6-b1770a879c26,irqbalance,388,/usr/sbin/irqbalance --foreground,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,python3,390,/usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,rsyslogd,394,/usr/sbin/rsyslogd -n -iNONE,syslog
+import_44784c54-26eb-5f62-98a6-b1770a879c26,amazon-ssm-agent,395,/snap/amazon-ssm-agent/13349/amazon-ssm-agent,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,snapd,400,/usr/lib/snapd/snapd,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd-logind,401,/lib/systemd/systemd-logind,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,agetty,437,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220",root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,agetty,444,/sbin/agetty -o -p -- \u --noclear tty1 linux,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,chronyd,465,/usr/sbin/chronyd -F 1,_chrony
+import_44784c54-26eb-5f62-98a6-b1770a879c26,chronyd,468,/usr/sbin/chronyd -F 1,_chrony
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,470,/usr/sbin/apache2 -k start,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,python3,486,/usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,polkitd,522,/usr/libexec/polkitd --no-debug,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,575,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,576,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,584,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,589,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,596,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/R-tls-s],626,[kworker/R-tls-s],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,sshd,636,sshd: /usr/sbin/sshd -D -o AuthorizedKeysCommand /usr/share/ec2-instance-connect/eic_run_authorized_keys %u %f -o AuthorizedKeysCommandUser ec2-instance-connect [listener] 0 of 10-100 startups,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,ssm-agent-worker,686,/snap/amazon-ssm-agent/13349/ssm-agent-worker,root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,723,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,729,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,730,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,apache2,731,/usr/sbin/apache2 -k start,www-data
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/u4:2-events_power_efficient],1293,[kworker/u4:2-events_power_efficient],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:0-cgroup_offline],8001,[kworker/0:0-cgroup_offline],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:2-cgwb_release],8551,[kworker/1:2-cgwb_release],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/u4:1-events_unbound],10826,[kworker/u4:1-events_unbound],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:1-events],13601,[kworker/1:1-events],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:3-cgroup_bpf_destroy],15136,[kworker/0:3-cgroup_bpf_destroy],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:2-events],18042,[kworker/0:2-events],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/u4:3-events_power_efficient],18285,[kworker/u4:3-events_power_efficient],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:0-cgroup_free],18597,[kworker/1:0-cgroup_free],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:1-events],19450,[kworker/0:1-events],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/0:4-cgroup_free],19451,[kworker/0:4-cgroup_free],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/u4:0-events_power_efficient],19521,[kworker/u4:0-events_power_efficient],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,[kworker/1:3-events],19894,[kworker/1:3-events],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,systemd,20380,/lib/systemd/systemd --user,ubuntu
+import_44784c54-26eb-5f62-98a6-b1770a879c26,(sd-pam),20383,(sd-pam),ubuntu
+import_44784c54-26eb-5f62-98a6-b1770a879c26,sshd,20792,sshd: ubuntu [priv],root
+import_44784c54-26eb-5f62-98a6-b1770a879c26,sshd,20838,sshd: ubuntu@notty,ubuntu
+import_44784c54-26eb-5f62-98a6-b1770a879c26,timeout,20839,timeout 60 ps aux -ww --no-headers,ubuntu
+import_44784c54-26eb-5f62-98a6-b1770a879c26,ps,20840,ps aux -ww --no-headers,ubuntu
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,amazon-ssm-agent,2516,C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,conhost,3752,C:\Windows\system32\conhost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,csrss,416,csrss,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,csrss,496,csrss,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,dllhost,3528,C:\Windows\system32\DllHost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,dwm,864,C:\Windows\system32\dwm.exe,Window Manager\DWM-1
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,fontdrvhost,776,C:\Windows\system32\fontdrvhost.exe,Font Driver Host\UMFD-1
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,fontdrvhost,784,C:\Windows\system32\fontdrvhost.exe,Font Driver Host\UMFD-0
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,Idle,0,Idle,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,LogonUI,916,C:\Windows\system32\LogonUI.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,lsass,648,C:\Windows\system32\lsass.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,MpDefenderCoreService,2588,MpDefenderCoreService,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,msdtc,1284,C:\Windows\System32\msdtc.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,MsMpEng,2764,MsMpEng,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,NisSrv,340,NisSrv,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,Registry,96,Registry,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,services,628,services,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,smss,316,smss,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,spoolsv,2428,C:\Windows\System32\spoolsv.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,ssm-agent-worker,3720,C:\Program Files\Amazon\SSM\ssm-agent-worker.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,348,C:\Windows\System32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,356,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,372,C:\Windows\System32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,436,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,624,C:\Windows\System32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,752,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,852,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,920,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,996,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1144,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1192,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1204,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1216,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1228,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1236,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1340,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1376,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1424,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1432,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1540,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1548,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1656,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1664,C:\Windows\System32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1668,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1688,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1772,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1800,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1856,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1880,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1896,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1928,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,1976,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2088,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2164,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2288,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2304,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2464,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2476,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2492,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2524,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2596,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2636,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2688,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2696,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2728,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2808,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,2888,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,3416,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,svchost,3668,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,System,4,System,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wininit,488,wininit,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,winlogon,556,C:\Windows\system32\winlogon.exe,NT AUTHORITY\SYSTEM
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,WmiPrvSE,2144,C:\Windows\system32\wbem\wmiprvse.exe,NT AUTHORITY\NETWORK SERVICE
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wsmprovhost,816,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-HVB61P6\discovery
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wsmprovhost,2392,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-HVB61P6\discovery
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wsmprovhost,2956,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-HVB61P6\discovery
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wsmprovhost,3012,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-HVB61P6\discovery
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,wsmprovhost,3560,wsmprovhost,

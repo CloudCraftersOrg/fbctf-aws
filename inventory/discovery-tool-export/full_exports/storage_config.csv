@@ -1,4 +1,7 @@
 server_id,disk_controller_id,vmdk_vhd_file_name,disk_volume_type,disk_provisioned_gb,disk_device_type,disk_interface_type,disk_protocol
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,/dev/nvme0n1,,Physical,80.0,NVMe SSD,NVMe,
+import_44784c54-26eb-5f62-98a6-b1770a879c26,/dev/nvme0n1,,Physical,40.0,NVMe SSD,NVMe,
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,SCSI 0,,Physical,60.0,NVMe SSD,NVMe,
 import_da2c6743-6a4f-54db-9c8d-5227933d64fd,/dev/nvme0n1,,Physical,30.0,NVMe SSD,NVMe,
 import_a30b55c1-0587-5029-839d-71f30905225f,/dev/nvme0n1,,Physical,30.0,NVMe SSD,NVMe,
 import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,/dev/nvme0n1,,Physical,30.0,NVMe SSD,NVMe,
