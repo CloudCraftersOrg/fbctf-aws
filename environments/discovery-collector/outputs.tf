@@ -41,13 +41,22 @@ output "next_steps" {
          --parameters '{"portNumber":["5000"],"localPortNumber":["5000"]}'
        then open https://localhost:5000 (self-signed cert), set a password.
 
-    2. Key the two fbctf app hosts (they are SSM-only; this adds the pubkey,
-       fully reversible - remove the line or run `make destroy ENV=discovery-collector`):
+    2. Key the Linux hosts in the peered stacks (they are SSM-only; this adds the
+       pubkey, fully reversible - remove the line or `make destroy ENV=<stack>`):
        PUB=$(ssh-keygen -y -f ${local_file.discovery_key.filename})
-       for i in ${var.discover_fbctf ? "i-01c6e66f6dc9e6da5 i-06ac30d9a470ba4ab" : ""}; do
+       for i in ${join(" ", concat(
+  var.discover_sqlmod ? [data.aws_instance.sqlmod_sqlserver[0].id] : [],
+  var.discover_oramod ? [data.aws_instance.oramod_oracle[0].id, data.aws_instance.oramod_app[0].id] : [],
+))}; do   # Amazon Linux -> ec2-user
          aws ssm send-command --instance-ids $i --document-name AWS-RunShellScript \
-           --parameters "commands=[\"echo $PUB >> /home/ubuntu/.ssh/authorized_keys\"]"
+           --parameters "commands=[\"echo $PUB >> /home/ec2-user/.ssh/authorized_keys\"]"
        done
+       %{if var.discover_sqlmod~}
+       aws ssm send-command --instance-ids ${data.aws_instance.sqlmod_wordpress[0].id} --document-name AWS-RunShellScript \
+         --parameters "commands=[\"echo $PUB >> /home/ubuntu/.ssh/authorized_keys\"]"   # Ubuntu -> ubuntu
+       The Contoso app host (Windows) is collected over WinRM: add a WinRM credential,
+       user 'discovery', password from Secrets Manager fbctf-sqlmod/app-winrm.
+       %{endif~}
 
     3. In the UI: Credentials -> add SSH key /opt/discovery/fbctf-discovery.pem
        for user 'ec2-user', and a second for user 'ubuntu'. Then add a

@@ -1,5 +1,5 @@
 # Runs the REAL AWS Transform discovery tool (Linux installer) on one EC2 host,
-# pointed at a small Linux fleet plus the live fbctf app. The tool SSHes into
+# pointed at a small Linux fleet plus the sqlmod / oramod app stacks. The tool SSHes into
 # each server and collects genuine inventory / CPU-RAM-disk metrics / running
 # processes / netstat dependencies, then exports discovery_tool_export.zip for
 # the migration assessment.
@@ -54,7 +54,7 @@ resource "aws_subnet" "public" {
 }
 
 # No inline `route` blocks: aws_route_table prunes any standalone aws_route on
-# the same table (the fbctf peering route) on the next apply. Keep all standalone.
+# the same table (the sqlmod / oramod peering routes) on the next apply. Keep all standalone.
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.this.id
   tags   = { Name = "fbctf-discovery-collector" }
@@ -133,10 +133,6 @@ locals {
   all_targets = concat(
     [for name, h in local.fleet : { name = name, ip = h.ip }],
     var.enable_windows ? [{ name = "contoso-sql-01", ip = local.windows_ip }] : [],
-    var.discover_fbctf ? [
-      { name = "fbctf-demo-app", ip = "10.20.10.104" },
-      { name = "fbctf-demo-web", ip = "10.20.11.55" },
-    ] : [],
     var.discover_sqlmod ? [
       { name = "sqlmod-sqlserver", ip = data.aws_instance.sqlmod_sqlserver[0].private_ip },
       { name = "sqlmod-app", ip = data.aws_instance.sqlmod_app[0].private_ip },
@@ -219,7 +215,7 @@ resource "aws_instance" "windows" {
   user_data = templatefile("${path.module}/templates/windows-user-data.ps1.tpl", {
     max_minutes    = var.max_lifetime_minutes
     admin_password = random_password.windows[0].result
-    peer_ips       = join(",", concat(local.fleet_ips, var.discover_fbctf ? ["10.20.10.104"] : []))
+    peer_ips       = join(",", local.fleet_ips)
   })
 
   tags = { Name = "fbctf-discovery-contoso-sql-01" }
@@ -298,7 +294,7 @@ resource "aws_instance" "fleet" {
 
 resource "aws_security_group" "collector" {
   name        = "fbctf-discovery-collector"
-  description = "Discovery tool: UI on 5000, egress to the fleet and fbctf on 22"
+  description = "Discovery tool: UI on 5000, egress to the fleet and the peered stacks"
   vpc_id      = aws_vpc.this.id
 
   dynamic "ingress" {
@@ -353,90 +349,6 @@ resource "aws_instance" "collector" {
   lifecycle {
     ignore_changes = [user_data]
   }
-}
-
-
-data "aws_vpc" "fbctf" {
-  count = var.discover_fbctf ? 1 : 0
-  filter {
-    name   = "tag:Name"
-    values = ["fbctf-demo"]
-  }
-}
-
-data "aws_route_table" "fbctf_app" {
-  count  = var.discover_fbctf ? 1 : 0
-  vpc_id = data.aws_vpc.fbctf[0].id
-  filter {
-    name   = "tag:Name"
-    values = ["fbctf-demo-app"]
-  }
-}
-
-data "aws_security_group" "fbctf_app" {
-  count  = var.discover_fbctf ? 1 : 0
-  vpc_id = data.aws_vpc.fbctf[0].id
-  filter {
-    name   = "group-name"
-    values = ["fbctf-demo-app-hhvm"]
-  }
-}
-
-data "aws_security_group" "fbctf_web" {
-  count  = var.discover_fbctf ? 1 : 0
-  vpc_id = data.aws_vpc.fbctf[0].id
-  filter {
-    name   = "group-name"
-    values = ["fbctf-demo-web-nginx"]
-  }
-}
-
-resource "aws_vpc_peering_connection" "fbctf" {
-  count       = var.discover_fbctf ? 1 : 0
-  vpc_id      = aws_vpc.this.id
-  peer_vpc_id = data.aws_vpc.fbctf[0].id
-  auto_accept = true
-  tags        = { Name = "fbctf-discovery-to-demo" }
-}
-
-resource "aws_route" "collector_to_fbctf" {
-  count                     = var.discover_fbctf ? 1 : 0
-  route_table_id            = aws_route_table.public.id
-  destination_cidr_block    = data.aws_vpc.fbctf[0].cidr_block
-  vpc_peering_connection_id = aws_vpc_peering_connection.fbctf[0].id
-}
-
-resource "aws_route" "fbctf_to_collector" {
-  count                     = var.discover_fbctf ? 1 : 0
-  route_table_id            = data.aws_route_table.fbctf_app[0].id
-  destination_cidr_block    = var.vpc_cidr
-  vpc_peering_connection_id = aws_vpc_peering_connection.fbctf[0].id
-}
-
-resource "aws_security_group_rule" "fbctf_app_ssh" {
-  count                    = var.discover_fbctf ? 1 : 0
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = data.aws_security_group.fbctf_app[0].id
-  source_security_group_id = aws_security_group.collector.id
-  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
-
-  depends_on = [aws_vpc_peering_connection.sqlmod]
-}
-
-resource "aws_security_group_rule" "fbctf_web_ssh" {
-  count                    = var.discover_fbctf ? 1 : 0
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = data.aws_security_group.fbctf_web[0].id
-  source_security_group_id = aws_security_group.collector.id
-  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
-
-  depends_on = [aws_vpc_peering_connection.sqlmod]
 }
 
 

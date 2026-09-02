@@ -36,5 +36,5 @@ systemctl is-active discovery-tool || true
 
 IP=$(curl -fsS -H "X-aws-ec2-metadata-token: $(curl -fsS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')" http://169.254.169.254/latest/meta-data/local-ipv4)
 echo "discovery tool ready — UI at https://$IP:5000"
-echo "  SSH key : /opt/discovery/fbctf-discovery.pem   (user: ec2-user for the fleet, ubuntu for the fbctf hosts)"
+echo "  SSH key : /opt/discovery/fbctf-discovery.pem   (user: ec2-user for the fleet + AL2023 hosts, ubuntu for Project Nami)"
 echo "  import  : /opt/discovery/import.csv"

@@ -1,5 +1,5 @@
 variable "region" {
-  description = "Must match where the fbctf demo runs and the Transform assessment lives"
+  description = "Must match where the sqlmod / oramod stacks run and the Transform assessment lives"
   type        = string
   default     = "us-east-1"
 }
@@ -22,7 +22,7 @@ variable "collector_instance_type" {
 }
 
 variable "vpc_cidr" {
-  description = "CIDR for the collector VPC (peered to the fbctf demo VPC)"
+  description = "CIDR for the collector VPC (peered to the sqlmod and oramod VPCs)"
   type        = string
   default     = "10.70.0.0/16"
 }
@@ -36,12 +36,6 @@ variable "max_lifetime_minutes" {
     condition     = var.max_lifetime_minutes == 0 || (var.max_lifetime_minutes >= 60 && var.max_lifetime_minutes <= 1440)
     error_message = "max_lifetime_minutes must be 0 (disabled) or 60-1440."
   }
-}
-
-variable "discover_fbctf" {
-  description = "Also peer to the fbctf demo VPC and add it to the import list (2 live app servers)"
-  type        = bool
-  default     = true
 }
 
 variable "discover_sqlmod" {
