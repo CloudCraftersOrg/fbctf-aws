@@ -1,0 +1,1 @@
+Serverid,isPhysical,hypervisor,HOSTNAME,osName,osVersion,numCpus,numCoresPerCpu,numThreadsPerCore,maxCpuUsagePctDec (%),avgCpuUsagePctDec (%),totalRAM (GB),maxRamUsagePctDec (%),avgRamUtlPctDec (%),Uptime,Environment Type,Storage-Total Disk Size (GB),Storage-Utilization %,Storage-Max Read IO Size (KB),Storage-Max Write IO Size (KB),Storage-Max Read IOPS,Storage-Max Write IOPS

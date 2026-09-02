@@ -1,0 +1,34 @@
+# Observed server-to-server dependencies, one edge per line.
+#
+# generate.py resolves each id to its IP from fleet.yaml and emits the MPA
+# "Network Connection" import. Edges drive Transform's dependency graph, move
+# groups and wave ordering, so every synthetic host below is reachable from at
+# least one other host - an isolated node lands in its own trivial wave.
+#
+# The first edge (nginx -> hhvm) mirrors the live app.
+
+connections:
+  - { from: i-0422e26203cb709b2, to: i-0d6b944117ba6302b, from_proc: nginx, to_proc: hhvm }
+
+  - { from: srv-contoso-web-01, to: srv-contoso-app-01, from_proc: w3wp, to_proc: w3wp }
+  - { from: srv-contoso-web-01, to: srv-contoso-app-02, from_proc: w3wp, to_proc: w3wp }
+  - { from: srv-contoso-app-01, to: srv-contoso-sql-01, from_proc: w3wp, to_proc: sqlservr }
+  - { from: srv-contoso-app-02, to: srv-contoso-sql-01, from_proc: w3wp, to_proc: sqlservr }
+  - { from: srv-contoso-app-01, to: srv-cache-01, from_proc: w3wp, to_proc: redis-server }
+  - { from: srv-contoso-app-02, to: srv-cache-01, from_proc: w3wp, to_proc: redis-server }
+  - { from: srv-contoso-app-01, to: srv-mq-01, from_proc: w3wp, to_proc: beam.smp }
+  - { from: srv-contoso-app-01, to: srv-catalog-svc-01, from_proc: w3wp, to_proc: java }
+  - { from: srv-contoso-app-02, to: srv-catalog-svc-01, from_proc: w3wp, to_proc: java }
+
+  - { from: srv-contoso-worker-01, to: srv-mq-01, from_proc: ScoreWorker.exe, to_proc: beam.smp }
+  - { from: srv-contoso-worker-01, to: srv-contoso-sql-01, from_proc: ScoreWorker.exe, to_proc: sqlservr }
+
+  - { from: srv-contoso-sql-01, to: srv-contoso-sql-rpt-01, from_proc: sqlservr, to_proc: sqlservr }
+
+  - { from: srv-finance-batch-01, to: srv-nfs-01, from_proc: cobcrun, to_proc: rpc.mountd }
+  - { from: srv-finance-batch-01, to: srv-contoso-sql-01, from_proc: cobcrun, to_proc: sqlservr }
+
+  - { from: srv-catalog-svc-01, to: srv-contoso-sql-01, from_proc: java, to_proc: sqlservr }
+
+  - { from: srv-ci-01, to: srv-contoso-app-01, from_proc: java, to_proc: winrm }
+  - { from: srv-ci-01, to: srv-catalog-svc-01, from_proc: java, to_proc: sshd }

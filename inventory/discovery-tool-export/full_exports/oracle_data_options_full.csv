@@ -1,0 +1,13 @@
+Server ID,CDB Instance Name,Option Name,Is Installed,Container ID,Source Host Name,Detection Path
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,ASM Proxy Instance,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Active Data Guard,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Advanced Analytics,TRUE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Advanced Compression,TRUE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Automatic Storage Management,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,OLAP,TRUE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Oracle Data Guard,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Oracle Database Vault,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Oracle Label Security,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Partitioning,TRUE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Real Application Clusters,FALSE,0,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,Spatial,TRUE,0,10.50.10.208,db_inventory

@@ -1,0 +1,9 @@
+{
+  "sources": [],
+  "deduplication_stats": {
+    "total_collected": 0,
+    "unique_vms": 0,
+    "duplicates_removed": 0
+  },
+  "vms": {}
+}

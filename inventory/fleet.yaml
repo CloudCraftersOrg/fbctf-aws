@@ -1,0 +1,165 @@
+# Simulated "before" estate for the AWS Transform assessment demo.
+#
+# The two i-* entries mirror the live fbctf app in environments/demo (same
+# instance IDs, OS, and utilisation as the validated MPA upload). Every other
+# host is synthetic but internally consistent: specs, utilisation and the
+# dependency edges in connections.yaml all line up so Transform produces a
+# coherent wave plan.
+#
+# generate.py turns this file + connections.yaml into the two CSVs Transform's
+# Migration Portfolio Assessment ingests. Field meanings match the MPA "Server"
+# import columns exactly:
+#   ram.*      megabytes
+#   storage.*  total in GB, used_pct as a percentage
+#   cpu.peak / cpu.avg / ram.*  percentages
+#
+# "signal" is documentation only — it records which Transform finding each host
+# is here to exercise. It is not emitted to the CSV.
+
+defaults:
+  environment: Production
+  hypervisor: KVM
+  datacenter: aws-us-east-1a
+  threads_per_core: 2
+
+servers:
+  # The two i-* hosts must stay byte-identical to the validated MPA upload.
+  - id: i-0422e26203cb709b2
+    hostname: ip-10-20-10-205.ec2.internal
+    ip: 10.20.10.205
+    os: { name: Linux, version: Ubuntu 16.04.7 LTS }
+    cpu: { sockets: 1, cores_per_socket: 1, peak: 48.44, avg: 1.22 }
+    ram: { total: 2048, peak: 17.4, avg: 17.4 }
+    storage: { total: 30, used_pct: 9 }
+    role: web tier - nginx 1.10.3 FastCGI gateway (live)
+    signal: OS end-of-support; EC2 right-size; refactor blocked (Hack/HHVM not a Transform language)
+
+  - id: i-0d6b944117ba6302b
+    hostname: ip-10-20-10-138.ec2.internal
+    ip: 10.20.10.138
+    os: { name: Linux, version: Ubuntu 16.04.7 LTS }
+    cpu: { sockets: 1, cores_per_socket: 1, peak: 49.09, avg: 1.31 }
+    ram: { total: 4096, peak: 16.1, avg: 16.1 }
+    storage: { total: 30, used_pct: 9 }
+    role: app tier - HHVM 3.21.11 (Hack/PHP), live
+    signal: OS end-of-support; no ARM64 runtime; rewrite-off-Hack follow-on
+
+  - id: srv-contoso-web-01
+    hostname: contoso-web-01.corp.local
+    ip: 10.20.40.11
+    os: { name: Windows, version: Windows Server 2016 Standard }
+    cpu: { sockets: 2, cores_per_socket: 4, peak: 11.0, avg: 4.0 }
+    ram: { total: 32768, peak: 22.0, avg: 14.0 }
+    storage: { total: 200, used_pct: 21 }
+    role: IIS 10 + ASP.NET MVC 5 front-end (modernization/dotnet-scoreboard)
+    signal: heavily over-provisioned (right-size m5.2xlarge -> t3.large); single node = no HA; refactor -> Fargate
+
+  - id: srv-contoso-app-01
+    hostname: contoso-app-01.corp.local
+    ip: 10.20.41.11
+    os: { name: Windows, version: Windows Server 2019 Datacenter }
+    cpu: { sockets: 2, cores_per_socket: 2, peak: 58.0, avg: 41.0 }
+    ram: { total: 16384, peak: 63.0, avg: 47.0 }
+    storage: { total: 150, used_pct: 38 }
+    role: .NET Framework 4.8 Web API + WCF ScoringService
+    signal: primary .NET Framework -> .NET 8 modernization target; HA move-group with app-02
+
+  - id: srv-contoso-app-02
+    hostname: contoso-app-02.corp.local
+    ip: 10.20.41.12
+    os: { name: Windows, version: Windows Server 2019 Datacenter }
+    cpu: { sockets: 2, cores_per_socket: 2, peak: 55.0, avg: 39.0 }
+    ram: { total: 16384, peak: 61.0, avg: 45.0 }
+    storage: { total: 150, used_pct: 37 }
+    role: .NET Framework 4.8 Web API + WCF ScoringService (second node)
+    signal: .NET modernization; move-group cohesion signal
+
+  - id: srv-contoso-worker-01
+    hostname: contoso-worker-01.corp.local
+    ip: 10.20.41.21
+    os: { name: Windows, version: Windows Server 2012 R2 Standard }
+    cpu: { sockets: 1, cores_per_socket: 4, peak: 34.0, avg: 19.0 }
+    ram: { total: 8192, peak: 44.0, avg: 28.0 }
+    storage: { total: 120, used_pct: 44 }
+    role: .NET Framework 4.5 queue worker (badge/score recalculation)
+    signal: OS end-of-support (2012 R2); .NET Framework modernization; replatform
+
+  - id: srv-contoso-sql-01
+    hostname: contoso-sql-01.corp.local
+    ip: 10.20.42.11
+    os: { name: Windows, version: Windows Server 2019 Datacenter }
+    cpu: { sockets: 4, cores_per_socket: 2, peak: 47.0, avg: 31.0 }
+    ram: { total: 65536, peak: 71.0, avg: 58.0 }
+    storage: { total: 2048, used_pct: 18 }
+    role: SQL Server 2017 Standard - scoreboard OLTP database (modernization/sqlserver-schema)
+    signal: SQL Server -> Aurora routing + schema conversion; single-AZ = no HA; EBS right-size (2 TB @ 18%)
+
+  - id: srv-contoso-sql-rpt-01
+    hostname: contoso-sql-rpt-01.corp.local
+    ip: 10.20.42.12
+    os: { name: Windows, version: Windows Server 2019 Datacenter }
+    cpu: { sockets: 4, cores_per_socket: 2, peak: 14.0, avg: 6.0 }
+    ram: { total: 32768, peak: 22.0, avg: 12.0 }
+    storage: { total: 1024, used_pct: 22 }
+    role: SQL Server 2017 - reporting replica (log shipping from sql-01)
+    signal: under-utilised (consolidate into an Aurora reader); replication edge feeds wave planning
+
+  - id: srv-catalog-svc-01
+    hostname: catalog-svc-01.corp.local
+    ip: 10.20.43.11
+    os: { name: Linux, version: Red Hat Enterprise Linux 7.9 }
+    cpu: { sockets: 1, cores_per_socket: 2, peak: 52.0, avg: 33.0 }
+    ram: { total: 8192, peak: 68.0, avg: 44.0 }
+    storage: { total: 80, used_pct: 41 }
+    role: Java 8 (OpenJDK 1.8) Spring Boot 2.3 catalog service (modernization/java-catalog)
+    signal: OS end-of-support (RHEL 7); Java 8 -> 17 language upgrade
+
+  - id: srv-finance-batch-01
+    hostname: finance-batch-01.corp.local
+    ip: 10.20.43.21
+    os: { name: Linux, version: Red Hat Enterprise Linux 8.8 }
+    cpu: { sockets: 1, cores_per_socket: 4, peak: 92.0, avg: 8.0 }
+    ram: { total: 16384, peak: 40.0, avg: 11.0 }
+    storage: { total: 300, used_pct: 27 }
+    role: GnuCOBOL nightly score-rollup batch (modernization/cobol-rollup)
+    signal: COBOL / mainframe modernization; spiky nightly load (schedule-based sizing)
+
+  - id: srv-cache-01
+    hostname: cache-01.corp.local
+    ip: 10.20.42.31
+    os: { name: Linux, version: Amazon Linux 2 }
+    cpu: { sockets: 1, cores_per_socket: 2, peak: 19.0, avg: 12.0 }
+    ram: { total: 16384, peak: 24.0, avg: 15.0 }
+    storage: { total: 40, used_pct: 12 }
+    role: self-managed Redis 6.0 session/leaderboard cache
+    signal: replatform -> ElastiCache; over-provisioned RAM
+
+  - id: srv-mq-01
+    hostname: mq-01.corp.local
+    ip: 10.20.42.32
+    os: { name: Linux, version: Ubuntu 16.04.7 LTS }
+    cpu: { sockets: 1, cores_per_socket: 2, peak: 16.0, avg: 9.0 }
+    ram: { total: 8192, peak: 21.0, avg: 13.0 }
+    storage: { total: 60, used_pct: 19 }
+    role: self-managed RabbitMQ 3.6 (worker job queue)
+    signal: OS end-of-support; replatform -> Amazon MQ
+
+  - id: srv-nfs-01
+    hostname: nfs-01.corp.local
+    ip: 10.20.43.31
+    os: { name: Linux, version: Amazon Linux 2 }
+    cpu: { sockets: 1, cores_per_socket: 2, peak: 13.0, avg: 5.0 }
+    ram: { total: 8192, peak: 18.0, avg: 9.0 }
+    storage: { total: 4096, used_pct: 8 }
+    role: NFS export - shared batch input/output for finance-batch-01
+    signal: replatform -> EFS; large under-utilised volume (storage right-size, 4 TB @ 8%)
+
+  - id: srv-ci-01
+    hostname: ci-01.corp.local
+    ip: 10.20.40.31
+    os: { name: Linux, version: Amazon Linux 2 }
+    cpu: { sockets: 1, cores_per_socket: 2, peak: 21.0, avg: 3.0 }
+    ram: { total: 8192, peak: 30.0, avg: 6.0 }
+    storage: { total: 100, used_pct: 34 }
+    role: Jenkins CI (idle nights and weekends)
+    signal: retire candidate -> AWS CodeBuild; near-zero average utilisation

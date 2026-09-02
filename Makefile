@@ -1,4 +1,5 @@
-ENV ?= demo
+# ENV selects the root under environments/ (sqlmod | discovery-collector | artifacts).
+ENV ?= sqlmod
 AWS_PROFILE ?= cloudcrafters-sandbox
 TF_DIR = environments/$(ENV)
 
@@ -15,7 +16,6 @@ plan:
 apply:
 	terraform -chdir=$(TF_DIR) apply
 
-# The app runs an EOL OS — destroy after every demo session.
 destroy:
 	terraform -chdir=$(TF_DIR) destroy
 

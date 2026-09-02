@@ -1,0 +1,17 @@
+server_id,interface_name,interface_index,mac_address,adapter_type,virtual_network_name,virtual_network_id,virtual_switch,ipv4_address,ipv4_subnet_mask,ipv4_gateway,ipv6_address,ipv6_prefix_length,ipv6_gateway,dns_servers,dhcp_enabled,interface_status,vlan_id,is_primary
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,ens5,2,02:ca:a2:c4:a9:db,,,,,10.40.10.96,255.255.255.0,10.40.10.1,fe80::ca:a2ff:fec4:a9db,64,,10.40.0.2,Unknown,Up,,True
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,docker0,3,02:42:51:f1:bc:b4,,,,,172.17.0.1,255.255.0.0,,fe80::42:51ff:fef1:bcb4,64,,10.40.0.2,Unknown,Up,,False
+import_a8961f84-8e64-5327-9ea6-a9cdcb181127,veth644ba8a,5,76:02:91:83:e1:68,,,,,,,,fe80::7402:91ff:fe83:e168,64,,10.40.0.2,Unknown,Up,,False
+import_44784c54-26eb-5f62-98a6-b1770a879c26,ens5,2,02:93:0c:da:9e:39,,,,,10.40.0.108,255.255.255.0,10.40.0.1,fe80::93:cff:feda:9e39,64,,10.40.0.2,Unknown,Up,,True
+import_3e51316c-c467-5519-b24b-939f6f02b8d7,Ethernet 3,7,02:aa:33:cc:0c:95,,,,,10.40.0.125,255.255.255.0,10.40.0.1,fe80::d948:4553:ee4d:7340%7,64,,10.40.0.2,True,Up,0,True
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,ens5,2,02:9c:6b:5f:1c:e7,,,,,10.70.1.21,255.255.255.0,10.70.1.1,fe80::9c:6bff:fe5f:1ce7,64,,10.70.0.2,Unknown,Up,,True
+import_a30b55c1-0587-5029-839d-71f30905225f,ens5,2,02:95:41:b5:0b:e1,,,,,10.70.1.22,255.255.255.0,10.70.1.1,fe80::95:41ff:feb5:be1,64,,10.70.0.2,Unknown,Up,,True
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ens5,2,02:e7:50:e7:89:b1,,,,,10.70.1.31,255.255.255.0,10.70.1.1,fe80::e7:50ff:fee7:89b1,64,,10.70.0.2,Unknown,Up,,True
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ens5,2,02:3b:d5:c7:78:bf,,,,,10.70.1.32,255.255.255.0,10.70.1.1,fe80::3b:d5ff:fec7:78bf,64,,10.70.0.2,Unknown,Up,,True
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,ens5,2,02:ff:16:ee:15:01,,,,,10.70.1.33,255.255.255.0,10.70.1.1,fe80::ff:16ff:feee:1501,64,,10.70.0.2,Unknown,Up,,True
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,ens5,2,02:b2:e1:d0:9d:97,,,,,10.70.1.41,255.255.255.0,10.70.1.1,fe80::b2:e1ff:fed0:9d97,64,,10.70.0.2,Unknown,Up,,True
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,ens5,2,02:d4:96:39:29:07,,,,,10.50.10.208,255.255.255.0,10.50.10.1,fe80::d4:96ff:fe39:2907,64,,10.50.0.2,Unknown,Up,,True
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,docker0,3,02:42:3a:b7:2c:73,,,,,172.17.0.1,255.255.0.0,,fe80::42:3aff:feb7:2c73,64,,10.50.0.2,Unknown,Up,,False
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,veth8b78140,5,5a:5b:92:d0:0c:7d,,,,,,,,fe80::585b:92ff:fed0:c7d,64,,10.50.0.2,Unknown,Up,,False
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ens5,2,02:53:ea:49:0e:7f,,,,,10.50.0.232,255.255.255.0,10.50.0.1,fe80::53:eaff:fe49:e7f,64,,10.50.0.2,Unknown,Up,,True
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,Ethernet 3,7,02:e8:5b:46:f3:af,,,,,10.70.1.51,255.255.255.0,10.70.1.1,fe80::48a6:ec89:cf44:6ef0%7,64,,10.70.0.2,True,Up,0,True

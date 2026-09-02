@@ -1,0 +1,10 @@
+Server ID,CDB Instance Name,PDB Name,Component ID,Component Name,Version,Version Full,Status,Schema,Namespace,Modified,Source Host Name,Detection Path
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,CATALOG,Oracle Database Catalog Views,21.0.0.0.0,21.3.0.0.0,VALID,SYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,CATJAVA,Oracle Database Java Packages,21.0.0.0.0,21.3.0.0.0,REMOVED,SYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,CATPROC,Oracle Database Packages and Types,21.0.0.0.0,21.3.0.0.0,VALID,SYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,DV,Oracle Database Vault,21.0.0.0.0,21.3.0.0.0,VALID,DVSYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,JAVAVM,JServer JAVA Virtual Machine,21.0.0.0.0,21.3.0.0.0,REMOVED,SYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,OLS,Oracle Label Security,21.0.0.0.0,21.3.0.0.0,VALID,LBACSYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,RAC,Oracle Real Application Clusters,21.0.0.0.0,21.3.0.0.0,OPTION OFF,SYS,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,XDB,Oracle XML Database,21.0.0.0.0,21.3.0.0.0,INVALID,XDB,SERVER,,10.50.10.208,db_inventory
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,XE,XEPDB1,XML,Oracle XDK,21.0.0.0.0,21.3.0.0.0,REMOVED,SYS,SERVER,,10.50.10.208,db_inventory
