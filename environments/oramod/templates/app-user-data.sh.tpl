@@ -6,9 +6,9 @@ exec > >(tee -a /var/log/user-data.log | logger -t user-data -s 2>/dev/console) 
 
 dnf install -y java-1.8.0-amazon-corretto-devel jq tar gzip unzip
 MVN=3.9.9
-curl -fsSL -o /tmp/mvn.tgz "https://dlcdn.apache.org/maven/maven-3/$MVN/binaries/apache-maven-$MVN-bin.tar.gz"
+curl -fsSL -o /tmp/mvn.tgz "https://archive.apache.org/dist/maven/maven-3/$MVN/binaries/apache-maven-$MVN-bin.tar.gz"
 tar -xzf /tmp/mvn.tgz -C /opt
-ln -sf /opt/apache-maven-$MVN/bin/mvn /usr/local/bin/mvn
+ln -sf /opt/apache-maven-$MVN/bin/mvn /usr/bin/mvn
 
 useradd -r -s /sbin/nologin catalog || true
 install -d -o catalog -g catalog /opt/catalog

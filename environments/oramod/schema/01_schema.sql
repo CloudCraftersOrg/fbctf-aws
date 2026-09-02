@@ -45,6 +45,10 @@ END catalog_pkg;
 
 CREATE OR REPLACE PACKAGE BODY catalog_pkg AS
     FUNCTION restock(p_sku IN VARCHAR2, p_qty IN NUMBER) RETURN NUMBER IS
+        -- AUTONOMOUS_TRANSACTION lets the app call this from `SELECT ... FROM dual`
+        -- (a function doing DML in a query context needs it). PostgreSQL has no
+        -- equivalent - a Transform conversion point.
+        PRAGMA AUTONOMOUS_TRANSACTION;
         v_new products.stock%TYPE;
     BEGIN
         UPDATE products
