@@ -1,3 +1,0 @@
-server_id,disk_controller_id,vmdk_vhd_file_name,disk_volume_type,disk_provisioned_gb,disk_device_type,disk_interface_type,disk_protocol,ebs_volume_type,ebs_iops,ebs_throughput_mbps,encrypted
-i-0422e26203cb709b2,/dev/nvme0n1,,Virtual,30.0,EBS SSD,NVMe,AWS Nitro,gp3,3000,125,true
-i-0d6b944117ba6302b,/dev/nvme0n1,,Virtual,30.0,EBS SSD,NVMe,AWS Nitro,gp3,3000,125,true

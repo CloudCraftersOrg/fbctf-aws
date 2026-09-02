@@ -1,3 +1,0 @@
-Server ID,Hostname,Physical/Virtual,OS Name,OS Version,CPU-Number of Processors,CPU-Cores per Processor,CPU-Number of Threads per CPU-Core,CPU-Peak Utilization,CPU-Average Utilization,RAM-Total Size,RAM-Peak Utilization,RAM-Average Utilization,Storage-Total Disk Size,Storage-Utilization,Environment Type,Hypervisor,Datacenter ID
-i-0422e26203cb709b2,ip-10-20-10-205.ec2.internal,Virtual,Linux,Ubuntu 16.04.7 LTS,1,1,2,48.44,1.22,2048,17.4,17.4,30,9,Production,KVM,aws-us-east-1a
-i-0d6b944117ba6302b,ip-10-20-10-138.ec2.internal,Virtual,Linux,Ubuntu 16.04.7 LTS,1,1,2,49.09,1.31,4096,16.1,16.1,30,9,Production,KVM,aws-us-east-1a

@@ -1,3 +1,0 @@
-server_id,interface_name,interface_index,mac_address,adapter_type,virtual_network_name,virtual_network_id,virtual_switch,ipv4_address,ipv4_subnet_mask,ipv4_gateway,ipv6_address,ipv6_prefix_length,ipv6_gateway,dns_servers,dhcp_enabled,interface_status,vlan_id,is_primary,mtu
-i-0422e26203cb709b2,ens5,2,02:62:6C:5A:54:3D,ENA,fbctf-demo-app-us-east-1a,subnet-0221778590c48c4fa,vpc-04e129cdd512a5ffd,10.20.10.205,255.255.255.0,10.20.10.1,fe80::62:6cff:fe5a:543d,64,,10.20.0.2,true,Up,,true,9001
-i-0d6b944117ba6302b,ens5,2,02:17:01:27:2D:47,ENA,fbctf-demo-app-us-east-1a,subnet-0221778590c48c4fa,vpc-04e129cdd512a5ffd,10.20.10.138,255.255.255.0,10.20.10.1,fe80::17:1ff:fe27:2d47,64,,10.20.0.2,true,Up,,true,9001

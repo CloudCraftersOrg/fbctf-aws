@@ -85,6 +85,33 @@ resource "aws_iam_role_policy_attachment" "ssm" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+resource "aws_s3_bucket" "export" {
+  bucket        = "fbctf-discovery-export-337058058699-use1"
+  force_destroy = true
+  tags          = { Name = "fbctf-discovery-export" }
+}
+
+resource "aws_s3_bucket_public_access_block" "export" {
+  bucket                  = aws_s3_bucket.export.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+resource "aws_iam_role_policy" "export" {
+  name = "write-export"
+  role = aws_iam_role.host.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = ["s3:PutObject", "s3:GetObject", "s3:ListBucket"]
+      Resource = [aws_s3_bucket.export.arn, "${aws_s3_bucket.export.arn}/*"]
+    }]
+  })
+}
+
 resource "aws_iam_instance_profile" "host" {
   name = "fbctf-discovery-host"
   role = aws_iam_role.host.name

@@ -1,0 +1,1703 @@
+server_id,process_name,process_id,process_command_line,process_user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kthreadd],2,[kthreadd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-netns],8,[kworker/R-netns],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_preempt],15,[rcu_preempt],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[migration/0],18,[migration/0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[cpuhp/0],19,[cpuhp/0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[cpuhp/1],20,[cpuhp/1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[migration/1],21,[migration/1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:0H-xfs-log/nvme0n1p1],24,[kworker/1:0H-xfs-log/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kdevtmpfs],27,[kdevtmpfs],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kauditd],32,[kauditd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[khungtaskd],34,[khungtaskd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[oom_reaper],35,[oom_reaper],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kcompactd0],38,[kcompactd0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[khugepaged],39,[khugepaged],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[irq/9-acpi],43,[irq/9-acpi],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[watchdogd],48,[watchdogd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:1H],51,[kworker/1:1H],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kswapd0],75,[kswapd0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfsalloc],78,[kworker/R-xfsalloc],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-kthrotld],81,[kworker/R-kthrotld],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-nvme-delete-wq],142,[kworker/R-nvme-delete-wq],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-mld],168,[kworker/R-mld],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-ipv6_addrconf],172,[kworker/R-ipv6_addrconf],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u9:0],559,[kworker/u9:0],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:1H-xfs-log/nvme0n1p1],561,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-buf/nvme0n1p1],1070,[kworker/R-xfs-buf/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-conv/nvme0n1p1],1071,[kworker/R-xfs-conv/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-reclaim/nvme0n1p1],1072,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-blockgc/nvme0n1p1],1073,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-inodegc/nvme0n1p1],1074,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-log/nvme0n1p1],1075,[kworker/R-xfs-log/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xfs-cil/nvme0n1p1],1076,[kworker/R-xfs-cil/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[xfsaild/nvme0n1p1],1077,[xfsaild/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-journald,1124,/usr/lib/systemd/systemd-journald,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-udevd,1567,/usr/lib/systemd/systemd-udevd,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-resolved,1590,/usr/lib/systemd/systemd-resolved,systemd+
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-rpciod],1595,[kworker/R-rpciod],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-xprtiod],1596,[kworker/R-xprtiod],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,auditd,1598,/sbin/auditd,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/R-ena],1615,[kworker/R-ena],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-inhibit,1724,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,irqbalance,1727,/usr/sbin/irqbalance --foreground,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,lsmd,1728,/usr/bin/lsmd -d,libstor+
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-homed,1731,/usr/lib/systemd/systemd-homed,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-logind,1732,/usr/lib/systemd/systemd-logind,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,dbus-broker-launch,1733,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-networkd,1734,/usr/lib/systemd/systemd-networkd,systemd+
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,dbus-broker,1741,dbus-broker --log 4 --controller 9 --machine-id ec25a8aa23098be223979601a7bdb10f --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,acpid,1758,/usr/sbin/acpid -f,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,gssproxy,1762,/usr/sbin/gssproxy -D,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,amazon-ssm-agent,1948,/usr/bin/amazon-ssm-agent,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd,1953,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,atd,1959,/usr/sbin/atd -f,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,agetty,1960,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,agetty,1961,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,chronyd,1982,/usr/sbin/chronyd -F 2,chrony
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,tee,1997,tee -a /var/log/cloud-init-output.log,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,1999,/bin/bash /var/lib/cloud/instance/scripts/part-001,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,tee,2000,tee -a /var/log/user-data.log,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,logger,2001,logger -t user-data -s,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,ssm-agent-worker,2007,/usr/bin/ssm-agent-worker,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,21062,/bin/bash /var/lib/cloud/instance/scripts/part-001,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,socat,21074,"socat TCP-LISTEN:7,fork,reuseaddr SYSTEM:cat",root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,java,21735,java Svc,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,21769,/bin/bash /usr/local/bin/estate-chatter,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userdbd,26655,/usr/lib/systemd/systemd-userdbd,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:1-events_power_efficient],90774,[kworker/1:1-events_power_efficient],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:4-xfs-cil/nvme0n1p1],90842,[kworker/u8:4-xfs-cil/nvme0n1p1],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:1-events],93576,[kworker/0:1-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:1-kvfree_rcu_reclaim],94006,[kworker/u8:1-kvfree_rcu_reclaim],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:0-cgroup_free],95941,[kworker/0:0-cgroup_free],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:2-events_unbound],96760,[kworker/u8:2-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:3-events],96814,[kworker/1:3-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:2-events],97526,[kworker/0:2-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,97753,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,97797,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:0-events],97811,[kworker/1:0-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,97826,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sleep,98016,sleep 20,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98023,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98024,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98025,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98028,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98029,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98030,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98031,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd,98042,/usr/lib/systemd/systemd --user,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,(sd-pam),98046,(sd-pam),ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98054,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98055,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,98056,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98061,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,timeout,98063,timeout 60 sudo ss -tnap,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98066,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98069,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98070,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,98071,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,98073,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,98076,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,timeout,98079,timeout 60 ps aux -ww --no-headers,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,98081,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,ps,98161,ps aux -ww --no-headers,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[bash],98163,[bash] <defunct>,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:0H-kblockd],24,[kworker/1:0H-kblockd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:4-events_unbound],90842,[kworker/u8:4-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:1-cgroup_release],93576,[kworker/0:1-cgroup_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:1-events_unbound],94006,[kworker/u8:1-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:3-cgroup_release],96814,[kworker/1:3-cgroup_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:2-rcu_gp],97526,[kworker/0:2-rcu_gp],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:0-cgroup_free],97811,[kworker/1:0-cgroup_free],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:0-cgroup_release],98437,[kworker/0:0-cgroup_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:0-events_unbound],98740,[kworker/u8:0-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:3-cgroup_free],98742,[kworker/0:3-cgroup_free],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:4-rcu_gp],98743,[kworker/0:4-rcu_gp],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,98927,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,99092,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:1-events],99143,[kworker/1:1-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,99159,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sleep,99170,sleep 20,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99181,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99183,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99185,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99187,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99188,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99190,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd,99204,/usr/lib/systemd/systemd --user,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,(sd-pam),99230,(sd-pam),ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99267,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99269,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99270,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,99272,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99287,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,99288,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,99298,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,iostat,99312,iostat -xk 1 2,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,top,99353,top -bn1,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,99357,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,timeout,99358,timeout 60 ps aux -ww --no-headers,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,99360,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,bash,99402,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,ps,99403,ps aux -ww --no-headers,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:1H-kblockd],561,[kworker/0:1H-kblockd],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:2-writeback],96760,[kworker/u8:2-writeback],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:3-cgroup_release],103391,[kworker/0:3-cgroup_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:3-events_unbound],106644,[kworker/u8:3-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:0-events],106870,[kworker/0:0-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:0-events],107236,[kworker/1:0-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:1-events_unbound],108323,[kworker/u8:1-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:3-cgroup_free],108413,[kworker/1:3-cgroup_free],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:1-events],108430,[kworker/0:1-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,109417,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,109459,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd-userwork,109516,systemd-userwork: waiting...,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/0:2-events],109695,[kworker/0:2-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:1-cgroup_release],109948,[kworker/1:1-cgroup_release],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/u8:0-events_unbound],110205,[kworker/u8:0-events_unbound],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sleep,110249,sleep 20,root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,110251,sshd-session: ec2-user [priv],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,systemd,110256,/usr/lib/systemd/systemd --user,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,(sd-pam),110258,(sd-pam),ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,[kworker/1:2-events],110259,[kworker/1:2-events],root
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,sshd-session,110266,sshd-session: ec2-user@notty,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,timeout,110267,timeout 60 ps aux -ww --no-headers,ec2-user
+import_da2c6743-6a4f-54db-9c8d-5227933d64fd,ps,110285,ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kthreadd],2,[kthreadd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-netns],8,[kworker/R-netns],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:0H-xfs-log/nvme0n1p1],10,[kworker/0:0H-xfs-log/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_preempt],15,[rcu_preempt],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[migration/0],18,[migration/0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[cpuhp/0],19,[cpuhp/0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[cpuhp/1],20,[cpuhp/1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[migration/1],21,[migration/1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:0H-xfs-log/nvme0n1p1],24,[kworker/1:0H-xfs-log/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kdevtmpfs],27,[kdevtmpfs],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kauditd],32,[kauditd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[khungtaskd],34,[khungtaskd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[oom_reaper],35,[oom_reaper],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kcompactd0],38,[kcompactd0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[khugepaged],39,[khugepaged],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[irq/9-acpi],43,[irq/9-acpi],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[watchdogd],48,[watchdogd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:1H],51,[kworker/1:1H],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kswapd0],60,[kswapd0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfsalloc],77,[kworker/R-xfsalloc],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-kthrotld],81,[kworker/R-kthrotld],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-nvme-delete-wq],141,[kworker/R-nvme-delete-wq],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-mld],171,[kworker/R-mld],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-ipv6_addrconf],172,[kworker/R-ipv6_addrconf],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u9:0],559,[kworker/u9:0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:1H],561,[kworker/0:1H],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-buf/nvme0n1p1],1069,[kworker/R-xfs-buf/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-conv/nvme0n1p1],1070,[kworker/R-xfs-conv/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-reclaim/nvme0n1p1],1071,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-blockgc/nvme0n1p1],1072,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-inodegc/nvme0n1p1],1073,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-log/nvme0n1p1],1074,[kworker/R-xfs-log/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xfs-cil/nvme0n1p1],1075,[kworker/R-xfs-cil/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[xfsaild/nvme0n1p1],1076,[xfsaild/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-journald,1123,/usr/lib/systemd/systemd-journald,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-udevd,1569,/usr/lib/systemd/systemd-udevd,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-resolved,1592,/usr/lib/systemd/systemd-resolved,systemd+
+import_a30b55c1-0587-5029-839d-71f30905225f,auditd,1597,/sbin/auditd,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-rpciod],1601,[kworker/R-rpciod],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-xprtiod],1602,[kworker/R-xprtiod],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/R-ena],1644,[kworker/R-ena],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-inhibit,1726,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_a30b55c1-0587-5029-839d-71f30905225f,irqbalance,1729,/usr/sbin/irqbalance --foreground,root
+import_a30b55c1-0587-5029-839d-71f30905225f,lsmd,1730,/usr/bin/lsmd -d,libstor+
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-homed,1733,/usr/lib/systemd/systemd-homed,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-logind,1735,/usr/lib/systemd/systemd-logind,root
+import_a30b55c1-0587-5029-839d-71f30905225f,dbus-broker-launch,1737,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-networkd,1739,/usr/lib/systemd/systemd-networkd,systemd+
+import_a30b55c1-0587-5029-839d-71f30905225f,dbus-broker,1759,dbus-broker --log 4 --controller 9 --machine-id ec24b486f5db9816387a61eafa1a1b5c --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_a30b55c1-0587-5029-839d-71f30905225f,acpid,1761,/usr/sbin/acpid -f,root
+import_a30b55c1-0587-5029-839d-71f30905225f,gssproxy,1764,/usr/sbin/gssproxy -D,root
+import_a30b55c1-0587-5029-839d-71f30905225f,amazon-ssm-agent,1948,/usr/bin/amazon-ssm-agent,root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd,1953,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_a30b55c1-0587-5029-839d-71f30905225f,atd,1955,/usr/sbin/atd -f,root
+import_a30b55c1-0587-5029-839d-71f30905225f,agetty,1956,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_a30b55c1-0587-5029-839d-71f30905225f,agetty,1957,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_a30b55c1-0587-5029-839d-71f30905225f,chronyd,1982,/usr/sbin/chronyd -F 2,chrony
+import_a30b55c1-0587-5029-839d-71f30905225f,ssm-agent-worker,2007,/usr/bin/ssm-agent-worker,root
+import_a30b55c1-0587-5029-839d-71f30905225f,socat,5449,"socat TCP-LISTEN:7,fork,reuseaddr SYSTEM:cat",root
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,6612,/bin/bash /usr/local/bin/estate-chatter,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userdbd,26521,/usr/lib/systemd/systemd-userdbd,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:2-xfs-cil/nvme0n1p1],87835,[kworker/u8:2-xfs-cil/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:3-events_unbound],90065,[kworker/u8:3-events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:0-events_unbound],91765,[kworker/u8:0-events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:2-events],92946,[kworker/1:2-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:1-events],93790,[kworker/0:1-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:1-events],94746,[kworker/1:1-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:2-rcu_gp],95726,[kworker/0:2-rcu_gp],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:1-writeback],96636,[kworker/u8:1-writeback],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,96744,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,96745,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,96746,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:0-rcu_gp],96857,[kworker/0:0-rcu_gp],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sleep,97083,sleep 20,root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97099,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97100,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97101,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97102,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97103,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97104,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd,97117,/usr/lib/systemd/systemd --user,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,(sd-pam),97121,(sd-pam),ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97130,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,97131,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97132,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,timeout,97133,timeout 60 sudo ss -tnap,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97135,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97139,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97144,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,97145,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,timeout,97149,timeout 60 ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,iostat,97202,iostat -xk 1 2,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,97206,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sudo,97231,sudo ss -tnap,root
+import_a30b55c1-0587-5029-839d-71f30905225f,ps,97243,ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:3-writeback],90065,[kworker/u8:3-writeback],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:0-xfs-cil/nvme0n1p1],91765,[kworker/u8:0-xfs-cil/nvme0n1p1],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:2-cgroup_release],95726,[kworker/0:2-cgroup_release],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:1-events_unbound],96636,[kworker/u8:1-events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:0-events],97349,[kworker/1:0-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:3-cgroup_free],97843,[kworker/1:3-cgroup_free],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,97894,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,97895,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,97900,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:1-events],98112,[kworker/0:1-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sleep,98263,sleep 20,root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98264,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98265,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98266,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98267,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98269,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98271,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98273,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd,98290,/usr/lib/systemd/systemd --user,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,(sd-pam),98320,(sd-pam),ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98355,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98356,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,98357,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98359,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,timeout,98361,timeout 60 sudo ss -tnap,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98367,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98370,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98371,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,98372,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,98377,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,98383,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sudo,98410,sudo ss -tnap,root
+import_a30b55c1-0587-5029-839d-71f30905225f,timeout,98423,timeout 60 ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,iostat,98426,iostat -xk 1 2,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,top,98482,top -bn1,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,bash,98492,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,ps,98503,ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:0H-kblockd],10,[kworker/0:0H-kblockd],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:2-events],100336,[kworker/1:2-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:2-events_unbound],100617,[kworker/u8:2-events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:3-cgroup_release],102425,[kworker/0:3-cgroup_release],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:0-events],104253,[kworker/1:0-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:0-flush-259:0],105672,[kworker/u8:0-flush-259:0],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:1-cgroup_release],106430,[kworker/1:1-cgroup_release],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:0-cgroup_free],106843,[kworker/0:0-cgroup_free],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/u8:1-events_unbound],107887,[kworker/u8:1-events_unbound],root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/1:3-events],107896,[kworker/1:3-events],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,108175,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,108176,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd-userwork,108239,systemd-userwork: waiting...,root
+import_a30b55c1-0587-5029-839d-71f30905225f,[kworker/0:1-cgroup_release],109148,[kworker/0:1-cgroup_release],root
+import_a30b55c1-0587-5029-839d-71f30905225f,sleep,109257,sleep 20,root
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,109268,sshd-session: ec2-user [priv],root
+import_a30b55c1-0587-5029-839d-71f30905225f,systemd,109273,/usr/lib/systemd/systemd --user,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,(sd-pam),109275,(sd-pam),ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,sshd-session,109282,sshd-session: ec2-user@notty,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,timeout,109283,timeout 60 ps aux -ww --no-headers,ec2-user
+import_a30b55c1-0587-5029-839d-71f30905225f,ps,109301,ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kthreadd],2,[kthreadd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-netns],8,[kworker/R-netns],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_preempt],15,[rcu_preempt],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[migration/0],18,[migration/0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[cpuhp/0],19,[cpuhp/0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[cpuhp/1],20,[cpuhp/1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[migration/1],21,[migration/1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kdevtmpfs],27,[kdevtmpfs],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kauditd],32,[kauditd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[khungtaskd],34,[khungtaskd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[oom_reaper],35,[oom_reaper],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kcompactd0],38,[kcompactd0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[khugepaged],39,[khugepaged],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[irq/9-acpi],43,[irq/9-acpi],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[watchdogd],48,[watchdogd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:1H-xfs-log/nvme0n1p1],51,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kswapd0],75,[kswapd0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfsalloc],78,[kworker/R-xfsalloc],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-kthrotld],81,[kworker/R-kthrotld],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-nvme-delete-wq],143,[kworker/R-nvme-delete-wq],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-mld],170,[kworker/R-mld],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-ipv6_addrconf],171,[kworker/R-ipv6_addrconf],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:1H-xfs-log/nvme0n1p1],172,[kworker/1:1H-xfs-log/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u9:0],560,[kworker/u9:0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-buf/nvme0n1p1],1068,[kworker/R-xfs-buf/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-conv/nvme0n1p1],1069,[kworker/R-xfs-conv/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-reclaim/nvme0n1p1],1070,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-blockgc/nvme0n1p1],1071,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-inodegc/nvme0n1p1],1072,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-log/nvme0n1p1],1073,[kworker/R-xfs-log/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xfs-cil/nvme0n1p1],1074,[kworker/R-xfs-cil/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[xfsaild/nvme0n1p1],1075,[xfsaild/nvme0n1p1],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-journald,1123,/usr/lib/systemd/systemd-journald,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-udevd,1566,/usr/lib/systemd/systemd-udevd,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-resolved,1593,/usr/lib/systemd/systemd-resolved,systemd+
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,auditd,1596,/sbin/auditd,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-rpciod],1601,[kworker/R-rpciod],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-xprtiod],1602,[kworker/R-xprtiod],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/R-ena],1607,[kworker/R-ena],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-inhibit,1725,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,irqbalance,1728,/usr/sbin/irqbalance --foreground,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,lsmd,1729,/usr/bin/lsmd -d,libstor+
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-homed,1732,/usr/lib/systemd/systemd-homed,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-logind,1737,/usr/lib/systemd/systemd-logind,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,dbus-broker-launch,1738,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-networkd,1739,/usr/lib/systemd/systemd-networkd,systemd+
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,dbus-broker,1742,dbus-broker --log 4 --controller 9 --machine-id ec2fb8fa5848a7201fc8c82d7aadac40 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,acpid,1759,/usr/sbin/acpid -f,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,gssproxy,1763,/usr/sbin/gssproxy -D,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,amazon-ssm-agent,1948,/usr/bin/amazon-ssm-agent,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd,1953,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,atd,1959,/usr/sbin/atd -f,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,agetty,1960,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,agetty,1961,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,chronyd,1982,/usr/sbin/chronyd -F 2,chrony
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ssm-agent-worker,2007,/usr/bin/ssm-agent-worker,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,redis6-server,9726,/usr/bin/redis6-server 127.0.0.1:6379,redis6
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,10200,/bin/bash /usr/local/bin/estate-chatter,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userdbd,26569,/usr/lib/systemd/systemd-userdbd,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:1-writeback],77709,[kworker/u8:1-writeback],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:3-events_power_efficient],82302,[kworker/1:3-events_power_efficient],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:2-events_unbound],83144,[kworker/u8:2-events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:2-events],85139,[kworker/0:2-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:3-cgroup_free],85469,[kworker/0:3-cgroup_free],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:1-events],85559,[kworker/1:1-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:3-flush-259:0],86570,[kworker/u8:3-flush-259:0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:0-events],86606,[kworker/1:0-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:0-events],86800,[kworker/0:0-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,86848,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,86862,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,86863,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sleep,87079,sleep 20,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87080,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87081,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87082,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87083,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87084,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87085,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87086,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd,87099,/usr/lib/systemd/systemd --user,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,(sd-pam),87102,(sd-pam),ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87111,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87113,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,87115,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87133,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87134,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87135,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,87137,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87138,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,87139,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,87140,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,87149,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,87155,timeout 60 sudo ss -tnap,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,87194,timeout 60 ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,iostat,87203,iostat -xk 1 2,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ps,87271,ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:1-events_unbound],77709,[kworker/u8:1-events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:0-cgroup_release],86800,[kworker/0:0-cgroup_release],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:0-events_unbound],87399,[kworker/u8:0-events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:1-cgroup_release],87414,[kworker/0:1-cgroup_release],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,87739,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,87775,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,87780,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:2-rcu_gp],88056,[kworker/1:2-rcu_gp],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sleep,88067,sleep 20,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88069,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88070,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88072,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88073,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88074,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88077,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd,88095,/usr/lib/systemd/systemd --user,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,(sd-pam),88111,(sd-pam),ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:3-cgroup_bpf_destroy],88122,[kworker/1:3-cgroup_bpf_destroy],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88158,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88159,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88160,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88163,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,88166,timeout 60 sudo ss -tnap,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88174,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,88183,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,88184,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,88207,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sudo,88237,sudo ss -tnap,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,88239,timeout 60 ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,88250,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,top,88273,top -bn1,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,iostat,88310,iostat -xk 1 2,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,bash,88331,"bash -c timeout 60 sudo echo ""===SECTION:uuid==="" dmidecode -s system-uuid 2>/dev/null || cat /sys/class/dmi/id/product_uuid 2>/dev/null echo ""===SECTION:manufacturer==="" result=$(dmidecode -s system-manufacturer 2>/dev/null); [ -n ""$result"" ] && echo ""$result"" || { result=$(cat /sys/class/dmi/id/sys_vendor 2>/dev/null); [ -n ""$result"" ] && echo ""$result"" || cat /sys/hypervisor/type 2>/dev/null; }",ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,88349,timeout 60 sudo echo ===SECTION:lvdisplay===,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sudo,88350,sudo echo ===SECTION:lvdisplay===,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ss,88352,ss -tnap,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sudo,88360,sudo echo ===SECTION:lvdisplay===,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,88371,timeout 60 sudo echo ===SECTION:uuid===,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ps,88374,ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sudo,88375,sudo echo ===SECTION:uuid===,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:1H-kblockd],51,[kworker/0:1H-kblockd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:1H-kblockd],172,[kworker/1:1H-kblockd],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:0-cgroup_release],91972,[kworker/1:0-cgroup_release],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:0-cgroup_release],92431,[kworker/0:0-cgroup_release],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:3-events_unbound],92805,[kworker/u8:3-events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:3-events],93289,[kworker/0:3-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:3-events],94001,[kworker/1:3-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:1-cgroup_free],95006,[kworker/0:1-cgroup_free],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:1-events_unbound],95468,[kworker/u8:1-events_unbound],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/1:1-cgroup_free],96212,[kworker/1:1-cgroup_free],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,96402,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,96467,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd-userwork,96552,systemd-userwork: waiting...,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/0:2-events],96812,[kworker/0:2-events],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,[kworker/u8:0],97152,[kworker/u8:0],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sleep,97435,sleep 20,root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,97437,sshd-session: ec2-user [priv],root
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,systemd,97442,/usr/lib/systemd/systemd --user,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,(sd-pam),97444,(sd-pam),ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,sshd-session,97451,sshd-session: ec2-user@notty,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,timeout,97452,timeout 60 ps aux -ww --no-headers,ec2-user
+import_4d2ba2dd-1c65-54c9-8961-706f9bc2c716,ps,97470,ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kthreadd],2,[kthreadd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-netns],8,[kworker/R-netns],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_preempt],15,[rcu_preempt],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[migration/0],18,[migration/0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[cpuhp/0],19,[cpuhp/0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[cpuhp/1],20,[cpuhp/1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[migration/1],21,[migration/1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:0H-xfs-log/nvme0n1p1],24,[kworker/1:0H-xfs-log/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kdevtmpfs],27,[kdevtmpfs],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kauditd],32,[kauditd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[khungtaskd],34,[khungtaskd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[oom_reaper],35,[oom_reaper],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kcompactd0],38,[kcompactd0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[khugepaged],39,[khugepaged],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[irq/9-acpi],43,[irq/9-acpi],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[watchdogd],48,[watchdogd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:1H-xfs-log/nvme0n1p1],51,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kswapd0],74,[kswapd0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfsalloc],76,[kworker/R-xfsalloc],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs_mru_cache],78,[kworker/R-xfs_mru_cache],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-cryptd],79,[kworker/R-cryptd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-kthrotld],80,[kworker/R-kthrotld],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-nvme-delete-wq],142,[kworker/R-nvme-delete-wq],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-mld],167,[kworker/R-mld],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-ipv6_addrconf],171,[kworker/R-ipv6_addrconf],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-kstrp],172,[kworker/R-kstrp],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u9:0],560,[kworker/u9:0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:1H],568,[kworker/1:1H],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-buf/nvme0n1p1],1070,[kworker/R-xfs-buf/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-conv/nvme0n1p1],1071,[kworker/R-xfs-conv/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-reclaim/nvme0n1p1],1072,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-blockgc/nvme0n1p1],1073,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-inodegc/nvme0n1p1],1074,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-log/nvme0n1p1],1075,[kworker/R-xfs-log/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xfs-cil/nvme0n1p1],1076,[kworker/R-xfs-cil/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[xfsaild/nvme0n1p1],1077,[xfsaild/nvme0n1p1],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-journald,1124,/usr/lib/systemd/systemd-journald,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-udevd,1563,/usr/lib/systemd/systemd-udevd,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-resolved,1589,/usr/lib/systemd/systemd-resolved,systemd+
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,auditd,1591,/sbin/auditd,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-rpciod],1592,[kworker/R-rpciod],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-xprtiod],1593,[kworker/R-xprtiod],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/R-ena],1624,[kworker/R-ena],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-inhibit,1719,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,irqbalance,1722,/usr/sbin/irqbalance --foreground,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,lsmd,1723,/usr/bin/lsmd -d,libstor+
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-homed,1726,/usr/lib/systemd/systemd-homed,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-logind,1728,/usr/lib/systemd/systemd-logind,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,dbus-broker-launch,1729,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-networkd,1730,/usr/lib/systemd/systemd-networkd,systemd+
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,dbus-broker,1746,dbus-broker --log 4 --controller 9 --machine-id ec290c89ea2a1ff85628ff145265161d --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,acpid,1754,/usr/sbin/acpid -f,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,gssproxy,1756,/usr/sbin/gssproxy -D,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,amazon-ssm-agent,1940,/usr/bin/amazon-ssm-agent,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd,1945,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,atd,1951,/usr/sbin/atd -f,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,agetty,1952,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,agetty,1953,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,chronyd,1976,/usr/sbin/chronyd -F 2,chrony
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ssm-agent-worker,1999,/usr/bin/ssm-agent-worker,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,socat,5817,"socat TCP-LISTEN:7,fork,reuseaddr SYSTEM:cat",root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,6896,/bin/bash /usr/local/bin/estate-chatter,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userdbd,26519,/usr/lib/systemd/systemd-userdbd,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd,30291,/usr/lib/systemd/systemd --user,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,(sd-pam),30293,(sd-pam),ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,socat,30319,"socat TCP-LISTEN:5672,fork,reuseaddr SYSTEM:sleep 900",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:0-kvfree_rcu_reclaim],74397,[kworker/u8:0-kvfree_rcu_reclaim],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:2-writeback],78657,[kworker/u8:2-writeback],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:1-kvfree_rcu_reclaim],80317,[kworker/u8:1-kvfree_rcu_reclaim],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:1-events_power_efficient],83336,[kworker/1:1-events_power_efficient],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:0-rcu_gp],84741,[kworker/1:0-rcu_gp],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:1-rcu_gp],85300,[kworker/0:1-rcu_gp],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:0-cgroup_release],86240,[kworker/0:0-cgroup_release],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,86587,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,86588,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,86675,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:2-events],86703,[kworker/1:2-events],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sleep,86820,sleep 20,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86824,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86825,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86826,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86827,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86828,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86829,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86841,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86850,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86885,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,86904,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,timeout,86908,timeout 60 sudo ss -tnap,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86928,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sudo,86943,sudo ss -tnap,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:2-events],86949,[kworker/0:2-events],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,86955,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86957,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,timeout,86965,timeout 60 ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,iostat,86975,iostat -xk 1 2,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,86979,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,86993,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,timeout,87028,timeout 60 sudo echo ===SECTION:lvdisplay===,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sudo,87031,sudo echo ===SECTION:lvdisplay===,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ss,87033,ss -tnap,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sudo,87034,sudo echo ===SECTION:lvdisplay===,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,87035,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ps,87037,ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,87040,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:2-events_unbound],78657,[kworker/u8:2-events_unbound],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:1-events_unbound],80317,[kworker/u8:1-events_unbound],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:0-events],84741,[kworker/1:0-events],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:1-cgroup_bpf_destroy],85300,[kworker/0:1-cgroup_bpf_destroy],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:2-cgroup_free],86949,[kworker/0:2-cgroup_free],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:3-events_unbound],87102,[kworker/u8:3-events_unbound],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:4-kvfree_rcu_reclaim],87103,[kworker/u8:4-kvfree_rcu_reclaim],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,87770,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,87792,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,87826,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sleep,87841,sleep 20,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87849,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87850,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87851,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87853,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87854,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87855,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87857,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87866,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87880,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,87913,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,iostat,87956,iostat -xk 1 2,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87971,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87972,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,timeout,87973,timeout 60 ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,87974,bash -c timeout 60 sudo ss -tnap,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87982,sshd-session: ec2-user,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87994,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,87995,sshd-session: ec2-user,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,bash,87999,"bash -c timeout 60 lsblk -J -o NAME,TYPE,TRAN,SIZE,ROTA",ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ps,88016,ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:0H-kblockd],24,[kworker/1:0H-kblockd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:1H-kblockd],51,[kworker/0:1H-kblockd],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:1-cgroup_free],85300,[kworker/0:1-cgroup_free],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:1-flush-259:0],90161,[kworker/u8:1-flush-259:0],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:0-kvfree_rcu_reclaim],92216,[kworker/u8:0-kvfree_rcu_reclaim],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:1-events],93545,[kworker/1:1-events],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:0-cgroup_release],93727,[kworker/0:0-cgroup_release],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:0-cgroup_free],94971,[kworker/1:0-cgroup_free],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/0:2-cgroup_release],95246,[kworker/0:2-cgroup_release],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/1:2-events],96239,[kworker/1:2-events],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,96403,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,96527,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,systemd-userwork,96670,systemd-userwork: waiting...,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,[kworker/u8:3-writeback],96786,[kworker/u8:3-writeback],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sleep,97043,sleep 20,root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,97084,sshd-session: ec2-user [priv],root
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,sshd-session,97088,sshd-session: ec2-user@notty,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,timeout,97089,timeout 60 ps aux -ww --no-headers,ec2-user
+import_0705e40e-dd07-5423-b3ca-e8cea03e8c1c,ps,97107,ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kthreadd],2,[kthreadd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-netns],8,[kworker/R-netns],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_preempt],15,[rcu_preempt],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[migration/0],18,[migration/0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[cpuhp/0],19,[cpuhp/0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[cpuhp/1],20,[cpuhp/1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[migration/1],21,[migration/1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kdevtmpfs],27,[kdevtmpfs],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kauditd],32,[kauditd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[khungtaskd],34,[khungtaskd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[oom_reaper],35,[oom_reaper],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kcompactd0],38,[kcompactd0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[khugepaged],39,[khugepaged],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[irq/9-acpi],43,[irq/9-acpi],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[watchdogd],48,[watchdogd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:1H-xfs-log/nvme0n1p1],50,[kworker/1:1H-xfs-log/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kswapd0],75,[kswapd0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfsalloc],76,[kworker/R-xfsalloc],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-kthrotld],81,[kworker/R-kthrotld],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-nvme-reset-wq],141,[kworker/R-nvme-reset-wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-nvme-delete-wq],143,[kworker/R-nvme-delete-wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-mld],168,[kworker/R-mld],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-ipv6_addrconf],172,[kworker/R-ipv6_addrconf],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u9:0],559,[kworker/u9:0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:1H-xfs-log/nvme0n1p1],560,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-buf/nvme0n1p1],1068,[kworker/R-xfs-buf/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-conv/nvme0n1p1],1069,[kworker/R-xfs-conv/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-reclaim/nvme0n1p1],1070,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-blockgc/nvme0n1p1],1071,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-inodegc/nvme0n1p1],1072,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-log/nvme0n1p1],1073,[kworker/R-xfs-log/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xfs-cil/nvme0n1p1],1074,[kworker/R-xfs-cil/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[xfsaild/nvme0n1p1],1075,[xfsaild/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-journald,1123,/usr/lib/systemd/systemd-journald,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-udevd,1566,/usr/lib/systemd/systemd-udevd,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-resolved,1594,/usr/lib/systemd/systemd-resolved,systemd+
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,auditd,1595,/sbin/auditd,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-rpciod],1598,[kworker/R-rpciod],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-xprtiod],1599,[kworker/R-xprtiod],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/R-ena],1627,[kworker/R-ena],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-inhibit,1725,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,irqbalance,1728,/usr/sbin/irqbalance --foreground,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,lsmd,1729,/usr/bin/lsmd -d,libstor+
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-homed,1732,/usr/lib/systemd/systemd-homed,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-logind,1733,/usr/lib/systemd/systemd-logind,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,dbus-broker-launch,1735,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-networkd,1737,/usr/lib/systemd/systemd-networkd,systemd+
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,dbus-broker,1742,dbus-broker --log 4 --controller 9 --machine-id ec262c13f34340f043f6170fd6535b14 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,acpid,1759,/usr/sbin/acpid -f,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,gssproxy,1763,/usr/sbin/gssproxy -D,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,amazon-ssm-agent,1948,/usr/bin/amazon-ssm-agent,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd,1953,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,atd,1959,/usr/sbin/atd -f,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,agetty,1960,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,agetty,1965,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,chronyd,1982,/usr/sbin/chronyd -F 2,chrony
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,ssm-agent-worker,2013,/usr/bin/ssm-agent-worker,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,rpc.idmapd,6836,/usr/sbin/rpc.idmapd,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,rpcbind,6838,/usr/bin/rpcbind -w -f,rpc
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,rpc.statd,6879,/usr/sbin/rpc.statd,rpcuser
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,nfsdcld,7014,/usr/sbin/nfsdcld,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,rpc.mountd,7069,/usr/sbin/rpc.mountd,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[lockd],7185,[lockd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7389,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7390,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7391,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7392,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7393,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7395,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7396,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[nfsd],7397,[nfsd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,socat,7508,"socat TCP-LISTEN:7,fork,reuseaddr SYSTEM:cat",root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,8477,/bin/bash /usr/local/bin/estate-chatter,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userdbd,26592,/usr/lib/systemd/systemd-userdbd,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:2-cgroup_release],84028,[kworker/0:2-cgroup_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:2-writeback],88909,[kworker/u8:2-writeback],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:0-kvfree_rcu_reclaim],91374,[kworker/u8:0-kvfree_rcu_reclaim],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:3-events],94061,[kworker/1:3-events],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:3-events_unbound],95005,[kworker/u8:3-events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:1-cgroup_free],96682,[kworker/1:1-cgroup_free],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:0-events],96709,[kworker/0:0-events],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,96890,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,96920,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,96986,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sleep,97295,sleep 20,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97309,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97310,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97311,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97312,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97313,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97314,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97315,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd,97326,/usr/lib/systemd/systemd --user,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,(sd-pam),97328,(sd-pam),ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:1-events],97335,[kworker/0:1-events],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97341,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97343,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97344,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97345,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,timeout,97347,timeout 60 sudo ss -tnap,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97348,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97349,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97356,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,97359,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97360,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sudo,97414,sudo ss -tnap,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,iostat,97418,iostat -xk 1 2,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97421,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,timeout,97422,timeout 60 ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97423,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sudo,97429,sudo ss -tnap,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97442,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,97483,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[awk],97489,[awk] <defunct>,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,ps,97491,ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:2-events_unbound],88909,[kworker/u8:2-events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:0-events_unbound],91374,[kworker/u8:0-events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:3-xfs-cil/nvme0n1p1],95005,[kworker/u8:3-xfs-cil/nvme0n1p1],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:1-kvfree_rcu_reclaim],97540,[kworker/u8:1-kvfree_rcu_reclaim],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:0-events],97611,[kworker/1:0-events],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:2-cgwb_release],97744,[kworker/1:2-cgwb_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,97867,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:4],97985,[kworker/1:4],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,98049,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,98216,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:3-cgroup_release],98432,[kworker/0:3-cgroup_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98468,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98470,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98471,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98472,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98473,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98475,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98476,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd,98484,/usr/lib/systemd/systemd --user,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,(sd-pam),98488,(sd-pam),ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sleep,98509,sleep 20,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98510,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98511,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98512,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98513,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,98515,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98516,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98518,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,timeout,98521,timeout 60 sudo ss -tnap,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,98522,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,98535,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,98538,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,98593,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,timeout,98596,timeout 60 ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sudo,98602,sudo ss -tnap,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,bash,98614,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sudo,98627,sudo ss -tnap,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,top,98641,top -bn1,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,iostat,98662,iostat -xk 1 2,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,ps,98677,ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:1H-kblockd],50,[kworker/1:1H-kblockd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:1H-kblockd],560,[kworker/0:1H-kblockd],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:1-cgroup_free],99617,[kworker/1:1-cgroup_free],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:1-events_unbound],99669,[kworker/u8:1-events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:0-cgroup_free],103607,[kworker/0:0-cgroup_free],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:0-cgroup_release],103713,[kworker/1:0-cgroup_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:0-events_unbound],104147,[kworker/u8:0-events_unbound],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:1-cgroup_free],104778,[kworker/0:1-cgroup_free],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:2-events],106214,[kworker/1:2-events],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:3-rcu_gp],106579,[kworker/0:3-rcu_gp],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/u8:4-flush-259:0],108021,[kworker/u8:4-flush-259:0],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,108217,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/0:2-mm_percpu_wq],108265,[kworker/0:2-mm_percpu_wq],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,108278,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,[kworker/1:3-cgroup_release],108330,[kworker/1:3-cgroup_release],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd-userwork,108529,systemd-userwork: waiting...,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sleep,109471,sleep 20,root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,109480,sshd-session: ec2-user [priv],root
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,systemd,109485,/usr/lib/systemd/systemd --user,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,(sd-pam),109487,(sd-pam),ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,sshd-session,109495,sshd-session: ec2-user@notty,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,timeout,109496,timeout 60 ps aux -ww --no-headers,ec2-user
+import_7a60d1e0-995a-53c0-84e3-58df40793c90,ps,109514,ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kthreadd],2,[kthreadd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-netns],8,[kworker/R-netns],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_preempt],15,[rcu_preempt],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[migration/0],18,[migration/0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[cpuhp/0],19,[cpuhp/0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[cpuhp/1],20,[cpuhp/1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[migration/1],21,[migration/1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kdevtmpfs],27,[kdevtmpfs],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kauditd],32,[kauditd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[khungtaskd],34,[khungtaskd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[oom_reaper],35,[oom_reaper],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kcompactd0],38,[kcompactd0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[khugepaged],39,[khugepaged],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[irq/9-acpi],43,[irq/9-acpi],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[watchdogd],48,[watchdogd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:1H-kblockd],51,[kworker/1:1H-kblockd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kswapd0],74,[kswapd0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfsalloc],76,[kworker/R-xfsalloc],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs_mru_cache],78,[kworker/R-xfs_mru_cache],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-cryptd],79,[kworker/R-cryptd],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-kthrotld],80,[kworker/R-kthrotld],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-nvme-delete-wq],142,[kworker/R-nvme-delete-wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-mld],170,[kworker/R-mld],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-ipv6_addrconf],171,[kworker/R-ipv6_addrconf],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-kstrp],172,[kworker/R-kstrp],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u9:0],559,[kworker/u9:0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:1H-xfs-log/nvme0n1p1],561,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-buf/nvme0n1p1],1069,[kworker/R-xfs-buf/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-conv/nvme0n1p1],1070,[kworker/R-xfs-conv/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-reclaim/nvme0n1p1],1071,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-blockgc/nvme0n1p1],1072,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-inodegc/nvme0n1p1],1073,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-log/nvme0n1p1],1074,[kworker/R-xfs-log/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xfs-cil/nvme0n1p1],1075,[kworker/R-xfs-cil/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[xfsaild/nvme0n1p1],1076,[xfsaild/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-journald,1123,/usr/lib/systemd/systemd-journald,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-udevd,1566,/usr/lib/systemd/systemd-udevd,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-resolved,1591,/usr/lib/systemd/systemd-resolved,systemd+
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-rpciod],1594,[kworker/R-rpciod],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-xprtiod],1595,[kworker/R-xprtiod],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,auditd,1598,/sbin/auditd,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/R-ena],1609,[kworker/R-ena],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-inhibit,1723,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,irqbalance,1726,/usr/sbin/irqbalance --foreground,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,lsmd,1727,/usr/bin/lsmd -d,libstor+
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-homed,1730,/usr/lib/systemd/systemd-homed,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-logind,1731,/usr/lib/systemd/systemd-logind,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,dbus-broker-launch,1733,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-networkd,1734,/usr/lib/systemd/systemd-networkd,systemd+
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,dbus-broker,1756,dbus-broker --log 4 --controller 9 --machine-id ec2f5c182b6c360333d38b3fb27f628b --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,acpid,1757,/usr/sbin/acpid -f,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,gssproxy,1761,/usr/sbin/gssproxy -D,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,amazon-ssm-agent,1945,/usr/bin/amazon-ssm-agent,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd,1950,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,atd,1959,/usr/sbin/atd -f,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,agetty,1960,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,agetty,1962,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,chronyd,1978,/usr/sbin/chronyd -F 2,chrony
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,ssm-agent-worker,2004,/usr/bin/ssm-agent-worker,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,java,23247,java -jar /opt/jenkins.war --httpPort=8080,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,socat,23248,"socat TCP-LISTEN:7,fork,reuseaddr SYSTEM:cat",root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,23991,/bin/bash /usr/local/bin/estate-chatter,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userdbd,26703,/usr/lib/systemd/systemd-userdbd,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:2-events],83634,[kworker/1:2-events],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:0-cgroup_free],86844,[kworker/0:0-cgroup_free],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:4-events_unbound],91909,[kworker/u8:4-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:1-flush-259:0],93782,[kworker/u8:1-flush-259:0],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:1-mm_percpu_wq],96071,[kworker/0:1-mm_percpu_wq],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:0-events],96193,[kworker/1:0-events],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:0-events_unbound],96889,[kworker/u8:0-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,97665,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,97666,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,97696,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:1-events],98006,[kworker/1:1-events],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sleep,98020,sleep 20,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98021,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98022,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98023,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98024,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98025,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98026,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd,98040,/usr/lib/systemd/systemd --user,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,(sd-pam),98043,(sd-pam),ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98052,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98053,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,98057,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98059,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98061,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98064,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,98065,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,98067,timeout 60 sudo ss -tnap,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,98140,timeout 60 ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,98141,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,iostat,98158,iostat -xk 1 2,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sudo,98163,sudo ss -tnap,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,98175,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sudo,98176,sudo ss -tnap,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,top,98223,top -bn1,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,ps,98230,ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:0-cgroup_release],86844,[kworker/0:0-cgroup_release],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:4-kvfree_rcu_reclaim],91909,[kworker/u8:4-kvfree_rcu_reclaim],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:1-xfs-cil/nvme0n1p1],93782,[kworker/u8:1-xfs-cil/nvme0n1p1],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:1-rcu_gp],96071,[kworker/0:1-rcu_gp],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:2-cgroup_release],98264,[kworker/0:2-cgroup_release],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:2-events_unbound],98285,[kworker/u8:2-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,98750,systemd-userwork: processing...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,98752,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,98916,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sleep,99173,sleep 20,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99177,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99178,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99180,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99182,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99183,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99184,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd,99194,/usr/lib/systemd/systemd --user,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,(sd-pam),99197,(sd-pam),ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99211,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99212,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,99213,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99214,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99223,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,99228,timeout 60 sudo ss -tnap,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,99237,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99239,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,99242,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,iostat,99271,iostat -xk 1 2,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,99286,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sudo,99289,sudo ss -tnap,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,bash,99291,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,99307,timeout 60 ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,99344,timeout 60 sudo echo ===SECTION:lvdisplay===,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sudo,99345,sudo echo ===SECTION:lvdisplay===,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sudo,99348,sudo echo ===SECTION:lvdisplay===,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,top,99353,top -bn1,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,ps,99400,ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:1-cgroup_release],102438,[kworker/0:1-cgroup_release],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:1-events_unbound],103925,[kworker/u8:1-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:2-events_unbound],105595,[kworker/u8:2-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:0-events_unbound],107244,[kworker/u8:0-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:0-rcu_gp],108304,[kworker/0:0-rcu_gp],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:1-cgroup_offline],108457,[kworker/1:1-cgroup_offline],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:3-cgroup_free],108471,[kworker/1:3-cgroup_free],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,109041,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,109132,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd-userwork,109272,systemd-userwork: waiting...,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/u8:3-events_unbound],109398,[kworker/u8:3-events_unbound],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/0:2-cgroup_free],109894,[kworker/0:2-cgroup_free],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,[kworker/1:2-cgroup_free],110020,[kworker/1:2-cgroup_free],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sleep,110083,sleep 20,root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,110189,sshd-session: ec2-user [priv],root
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,systemd,110194,/usr/lib/systemd/systemd --user,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,(sd-pam),110196,(sd-pam),ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,sshd-session,110203,sshd-session: ec2-user@notty,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,timeout,110204,timeout 60 ps aux -ww --no-headers,ec2-user
+import_99b69105-fed0-5c04-8b6a-54651a9c3e47,ps,110222,ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kthreadd],2,[kthreadd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-netns],8,[kworker/R-netns],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_preempt],15,[rcu_preempt],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[migration/0],18,[migration/0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[cpuhp/0],19,[cpuhp/0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[cpuhp/1],20,[cpuhp/1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[migration/1],21,[migration/1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kdevtmpfs],27,[kdevtmpfs],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kauditd],32,[kauditd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[khungtaskd],34,[khungtaskd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[oom_reaper],35,[oom_reaper],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kcompactd0],38,[kcompactd0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[khugepaged],39,[khugepaged],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[irq/9-acpi],43,[irq/9-acpi],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[watchdogd],48,[watchdogd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:1H-kblockd],50,[kworker/0:1H-kblockd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kswapd0],74,[kswapd0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfsalloc],77,[kworker/R-xfsalloc],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs_mru_cache],78,[kworker/R-xfs_mru_cache],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-cryptd],79,[kworker/R-cryptd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-kthrotld],80,[kworker/R-kthrotld],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:3-writeback],94,[kworker/u8:3-writeback],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-nvme-wq],140,[kworker/R-nvme-wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-nvme-reset-wq],141,[kworker/R-nvme-reset-wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-nvme-delete-wq],143,[kworker/R-nvme-delete-wq],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-mld],158,[kworker/R-mld],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-ipv6_addrconf],160,[kworker/R-ipv6_addrconf],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:1H-xfs-log/nvme0n1p1],163,[kworker/1:1H-xfs-log/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-kstrp],174,[kworker/R-kstrp],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u9:0],560,[kworker/u9:0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-buf/nvme0n1p1],1091,[kworker/R-xfs-buf/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-conv/nvme0n1p1],1092,[kworker/R-xfs-conv/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-reclaim/nvme0n1p1],1093,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-blockgc/nvme0n1p1],1094,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-inodegc/nvme0n1p1],1095,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-log/nvme0n1p1],1096,[kworker/R-xfs-log/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xfs-cil/nvme0n1p1],1097,[kworker/R-xfs-cil/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[xfsaild/nvme0n1p1],1098,[xfsaild/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-journald,1144,/usr/lib/systemd/systemd-journald,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-udevd,1606,/usr/lib/systemd/systemd-udevd,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-resolved,1641,/usr/lib/systemd/systemd-resolved,systemd+
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,auditd,1642,/sbin/auditd,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-rpciod],1645,[kworker/R-rpciod],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-xprtiod],1646,[kworker/R-xprtiod],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/R-ena],1666,[kworker/R-ena],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-inhibit,1771,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,irqbalance,1774,/usr/sbin/irqbalance --foreground,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,lsmd,1775,/usr/bin/lsmd -d,libstor+
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-homed,1778,/usr/lib/systemd/systemd-homed,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-logind,1780,/usr/lib/systemd/systemd-logind,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,dbus-broker-launch,1781,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-networkd,1783,/usr/lib/systemd/systemd-networkd,systemd+
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,dbus-broker,1804,dbus-broker --log 4 --controller 9 --machine-id ec2f5756aee17dc2cf06b03556d27646 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,acpid,1805,/usr/sbin/acpid -f,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,gssproxy,1809,/usr/sbin/gssproxy -D,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,amazon-ssm-agent,1993,/usr/bin/amazon-ssm-agent,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd,1998,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,atd,2004,/usr/sbin/atd -f,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,agetty,2013,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,agetty,2014,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,chronyd,2027,/usr/sbin/chronyd -F 2,chrony
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,ssm-agent-worker,2280,/usr/bin/ssm-agent-worker,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:6-kvfree_rcu_reclaim],3625,[kworker/u8:6-kvfree_rcu_reclaim],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,containerd,5423,/usr/bin/containerd,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,dockerd,5526,/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --default-ulimit nofile=32768:65536,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,docker-proxy,28031,/usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1521 -container-ip 172.17.0.2 -container-port 1521,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,docker-proxy,28036,/usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 1521 -container-ip 172.17.0.2 -container-port 1521,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,containerd-shim-runc-v2,28068,/usr/bin/containerd-shim-runc-v2 -namespace moby -id d638e61ecce8f85c0aa698b39cc0a7b751bb28bf0e9ebb57806cce761c7ea79f -address /run/containerd/containerd.sock,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,28124,/bin/bash /opt/oracle/container-entrypoint.sh,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,tnslsnr,28263,/opt/oracle/product/21c/dbhomeXE/bin/tnslsnr LISTENER -inherit,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_pmon_XE,28312,xe_pmon_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_clmn_XE,28316,xe_clmn_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_psp0_XE,28320,xe_psp0_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_vktm_XE,28324,xe_vktm_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_gen0_XE,28330,xe_gen0_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_mman_XE,28334,xe_mman_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_gen1_XE,28340,xe_gen1_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_gen2_XE,28342,xe_gen2_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_vosd_XE,28347,xe_vosd_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_diag_XE,28349,xe_diag_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_ofsd_XE,28352,xe_ofsd_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_dbrm_XE,28355,xe_dbrm_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_vkrm_XE,28357,xe_vkrm_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_svcb_XE,28359,xe_svcb_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_pman_XE,28362,xe_pman_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_dia0_XE,28366,xe_dia0_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_dbw0_XE,28368,xe_dbw0_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_lgwr_XE,28370,xe_lgwr_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_ckpt_XE,28372,xe_ckpt_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_smon_XE,28374,xe_smon_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_smco_XE,28376,xe_smco_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_reco_XE,28379,xe_reco_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_lreg_XE,28382,xe_lreg_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_pxmn_XE,28385,xe_pxmn_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_mmon_XE,28390,xe_mmon_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_mmnl_XE,28393,xe_mmnl_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_bg00_XE,28404,xe_bg00_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_bg01_XE,28410,xe_bg01_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_d000_XE,28416,xe_d000_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w000_XE,28418,xe_w000_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_tmon_XE,28420,xe_tmon_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_lg00_XE,28422,xe_lg00_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w001_XE,28425,xe_w001_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_lg01_XE,28427,xe_lg01_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_tt00_XE,28430,xe_tt00_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_tt01_XE,28432,xe_tt01_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_tt02_XE,28434,xe_tt02_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_rcbg_XE,28438,xe_rcbg_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_aqpc_XE,28477,xe_aqpc_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_p000_XE,28482,xe_p000_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w002_XE,28484,xe_w002_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_m002_XE,28492,xe_m002_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_m004_XE,28518,xe_m004_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_cjq0_XE,28523,xe_cjq0_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,coreutils,28546,/usr/bin/coreutils --coreutils-prog-shebang=tail /usr/bin/tail -f /opt/oracle/diag/rdbms/xe/XE/trace/alert_XE.log,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w003_XE,28596,xe_w003_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_qm02_XE,28607,xe_qm02_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_q001_XE,28630,xe_q001_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_q004_XE,28652,xe_q004_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w004_XE,28658,xe_w004_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_cl00_XE,28954,xe_cl00_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w005_XE,30284,xe_w005_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w006_XE,30287,xe_w006_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_w007_XE,30291,xe_w007_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:1-cgroup_offline],32774,[kworker/1:1-cgroup_offline],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userdbd,33085,/usr/lib/systemd/systemd-userdbd,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:1-events],33800,[kworker/0:1-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:0-flush-259:0],33802,[kworker/u8:0-flush-259:0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_m000_XE,33995,xe_m000_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:0-events],34180,[kworker/1:0-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_m003_XE,34182,xe_m003_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34187,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34189,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34191,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:2-events_power_efficient],34250,[kworker/0:2-events_power_efficient],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34252,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34254,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34256,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34258,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34260,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34262,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,34264,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:2-xfs-conv/nvme0n1p1],34387,[kworker/1:2-xfs-conv/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:0-events],34391,[kworker/0:0-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,34449,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,34450,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,34451,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34516,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34517,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34518,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34519,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34520,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34521,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34522,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd,34536,/usr/lib/systemd/systemd --user,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,(sd-pam),34540,(sd-pam),ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34547,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34548,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34549,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34552,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34555,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34557,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34559,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,34562,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34567,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34606,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34607,bash -c timeout 60 sudo ss -tnap,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,iostat,34608,iostat -xk 1 2,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34626,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,34628,timeout 60 ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,34629,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,top,34650,top -bn1,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,34685,timeout 60 sudo echo ===SECTION:lvdisplay===,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sudo,34688,sudo echo ===SECTION:lvdisplay===,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[bash],34699,[bash],ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[cat],34709,[cat] <defunct>,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,ps,34711,ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:1H-xfs-log/nvme0n1p1],50,[kworker/0:1H-xfs-log/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:3-xfs-blockgc/nvme0n1p1],94,[kworker/u8:3-xfs-blockgc/nvme0n1p1],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:6-events_unbound],3625,[kworker/u8:6-events_unbound],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:0-events_unbound],33802,[kworker/u8:0-events_unbound],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:2-cgroup_release],34387,[kworker/1:2-cgroup_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:0-cgroup_release],34391,[kworker/0:0-cgroup_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:1-events_unbound],34781,[kworker/u8:1-events_unbound],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:3-cgroup_release],35199,[kworker/0:3-cgroup_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,35270,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,35271,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,35275,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35400,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35401,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35403,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35406,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35407,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35408,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd,35417,/usr/lib/systemd/systemd --user,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,(sd-pam),35419,(sd-pam),ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35430,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35432,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35433,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,35435,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35443,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,35453,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35459,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,35475,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,top,35476,top -bn1,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,35482,timeout 60 sudo ss -tnap,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,bash,35505,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,35507,timeout 60 ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,iostat,35514,iostat -xk 1 2,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sudo,35546,sudo ss -tnap,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,35547,timeout 60 sudo echo ===SECTION:lvdisplay===,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sudo,35549,sudo echo ===SECTION:lvdisplay===,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sudo,35608,sudo ss -tnap,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,ps,35626,ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:1H-kblockd],163,[kworker/1:1H-kblockd],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:1-flush-259:0],37353,[kworker/u8:1-flush-259:0],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37640,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37642,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37644,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37646,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37648,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37650,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37652,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37654,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37656,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,oracleXE,37658,oracleXE (LOCAL=NO),54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,xe_m001_XE,37768,xe_m001_XE,54321
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:0-cgroup_release],39150,[kworker/1:0-cgroup_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:1-cgroup_release],39280,[kworker/0:1-cgroup_release],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:3-cgroup_free],41247,[kworker/0:3-cgroup_free],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/u8:2-events_unbound],41575,[kworker/u8:2-events_unbound],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:1-events],41764,[kworker/1:1-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:0-cgroup_bpf_destroy],42355,[kworker/0:0-cgroup_bpf_destroy],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:2-events],42673,[kworker/0:2-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,42841,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,42870,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/1:2-events],42873,[kworker/1:2-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd-userwork,42877,systemd-userwork: waiting...,root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,[kworker/0:4-events],43011,[kworker/0:4-events],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,43511,sshd-session: ec2-user [priv],root
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,systemd,43516,/usr/lib/systemd/systemd --user,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,(sd-pam),43518,(sd-pam),ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,sshd-session,43525,sshd-session: ec2-user@notty,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,timeout,43526,timeout 60 ps aux -ww --no-headers,ec2-user
+import_e0b56d26-039f-508a-af2f-774aba6ec4f8,ps,43544,ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd,1,/usr/lib/systemd/systemd --switched-root --system --deserialize=32,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kthreadd],2,[kthreadd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[pool_workqueue_release],3,[pool_workqueue_release],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-rcu_gp],4,[kworker/R-rcu_gp],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-sync_wq],5,[kworker/R-sync_wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kvfree_rcu_reclaim],6,[kworker/R-kvfree_rcu_reclaim],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-slub_flushwq],7,[kworker/R-slub_flushwq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-netns],8,[kworker/R-netns],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:0H-xfs-log/nvme0n1p1],10,[kworker/0:0H-xfs-log/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-mm_percpu_wq],13,[kworker/R-mm_percpu_wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[ksoftirqd/0],14,[ksoftirqd/0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_preempt],15,[rcu_preempt],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_exp_par_gp_kthread_worker/0],16,[rcu_exp_par_gp_kthread_worker/0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_exp_gp_kthread_worker],17,[rcu_exp_gp_kthread_worker],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[migration/0],18,[migration/0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[cpuhp/0],19,[cpuhp/0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[cpuhp/1],20,[cpuhp/1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[migration/1],21,[migration/1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[ksoftirqd/1],22,[ksoftirqd/1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:0H-xfs-log/nvme0n1p1],24,[kworker/1:0H-xfs-log/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:1-writeback],26,[kworker/u8:1-writeback],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kdevtmpfs],27,[kdevtmpfs],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-inet_frag_wq],28,[kworker/R-inet_frag_wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_tasks_kthread],29,[rcu_tasks_kthread],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_tasks_rude_kthread],30,[rcu_tasks_rude_kthread],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[rcu_tasks_trace_kthread],31,[rcu_tasks_trace_kthread],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kauditd],32,[kauditd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[khungtaskd],34,[khungtaskd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[oom_reaper],35,[oom_reaper],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:2-events_unbound],36,[kworker/u8:2-events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-writeback],37,[kworker/R-writeback],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kcompactd0],38,[kcompactd0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[khugepaged],39,[khugepaged],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kblockd],40,[kworker/R-kblockd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-blkcg_punt_bio],41,[kworker/R-blkcg_punt_bio],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kintegrityd],42,[kworker/R-kintegrityd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[irq/9-acpi],43,[irq/9-acpi],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-tpm_dev_wq],45,[kworker/R-tpm_dev_wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-md_bitmap],46,[kworker/R-md_bitmap],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-edac-poller],47,[kworker/R-edac-poller],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[watchdogd],48,[watchdogd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-quota_events_unbound],49,[kworker/R-quota_events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:1H],51,[kworker/1:1H],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kswapd0],75,[kswapd0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfsalloc],77,[kworker/R-xfsalloc],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs_mru_cache],79,[kworker/R-xfs_mru_cache],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-cryptd],80,[kworker/R-cryptd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kthrotld],81,[kworker/R-kthrotld],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-nvme-wq],139,[kworker/R-nvme-wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-nvme-reset-wq],140,[kworker/R-nvme-reset-wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-nvme-delete-wq],142,[kworker/R-nvme-delete-wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-mld],164,[kworker/R-mld],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-ipv6_addrconf],172,[kworker/R-ipv6_addrconf],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kstrp],173,[kworker/R-kstrp],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u9:0],559,[kworker/u9:0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:1H],561,[kworker/0:1H],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-buf/nvme0n1p1],1070,[kworker/R-xfs-buf/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-conv/nvme0n1p1],1071,[kworker/R-xfs-conv/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-reclaim/nvme0n1p1],1072,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-blockgc/nvme0n1p1],1073,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-inodegc/nvme0n1p1],1074,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-log/nvme0n1p1],1075,[kworker/R-xfs-log/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-cil/nvme0n1p1],1076,[kworker/R-xfs-cil/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[xfsaild/nvme0n1p1],1077,[xfsaild/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-journald,1124,/usr/lib/systemd/systemd-journald,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-udevd,1570,/usr/lib/systemd/systemd-udevd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-resolved,1594,/usr/lib/systemd/systemd-resolved,systemd+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,auditd,1597,/sbin/auditd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-rpciod],1605,[kworker/R-rpciod],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xprtiod],1609,[kworker/R-xprtiod],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-ena],1626,[kworker/R-ena],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-inhibit,1727,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,irqbalance,1730,/usr/sbin/irqbalance --foreground,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,lsmd,1731,/usr/bin/lsmd -d,libstor+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-homed,1734,/usr/lib/systemd/systemd-homed,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-logind,1735,/usr/lib/systemd/systemd-logind,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,dbus-broker-launch,1736,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-networkd,1738,/usr/lib/systemd/systemd-networkd,systemd+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,dbus-broker,1744,dbus-broker --log 4 --controller 9 --machine-id ec232ee890c14563cbfd73406c172245 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,acpid,1761,/usr/sbin/acpid -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,gssproxy,1765,/usr/sbin/gssproxy -D,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,amazon-ssm-agent,1953,/usr/bin/amazon-ssm-agent,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd,1958,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,atd,1964,/usr/sbin/atd -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,agetty,1965,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,agetty,1966,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,chronyd,1988,/usr/sbin/chronyd -F 2,chrony
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ssm-agent-worker,2016,/usr/bin/ssm-agent-worker,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:0-kvfree_rcu_reclaim],26652,[kworker/u8:0-kvfree_rcu_reclaim],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,java,27217,/usr/lib/jvm/java-1.8.0-amazon-corretto/bin/java -jar /opt/catalog/catalog.jar,catalog
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userdbd,27510,/usr/lib/systemd/systemd-userdbd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:0-cgroup_free],27919,[kworker/1:0-cgroup_free],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:1-events],28040,[kworker/0:1-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:2-cgroup_free],28227,[kworker/0:2-cgroup_free],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:2-cgroup_free],28287,[kworker/1:2-cgroup_free],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:0-mm_percpu_wq],28476,[kworker/0:0-mm_percpu_wq],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,28480,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,28481,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,28482,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:1-events],28540,[kworker/1:1-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28544,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28545,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28546,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28547,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28548,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28549,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28550,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd,28577,/usr/lib/systemd/systemd --user,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,(sd-pam),28596,(sd-pam),ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28632,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28633,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28635,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,28636,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28637,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28638,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28639,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,28640,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,28654,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,timeout,28687,timeout 60 sudo ss -tnap,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,iostat,28694,iostat -xk 1 2,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,28696,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,timeout,28697,timeout 60 ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,28702,"bash -c timeout 60 echo ""===SECTION:resolv==="" cat /run/systemd/resolve/resolv.conf 2>/dev/null || cat /etc/resolv.conf echo ""===SECTION:gateway_json==="" ip -j route show default 2>/dev/null || /sbin/ip -j route show default 2>/dev/null echo ""===SECTION:gateway_text==="" ip route show default 2>/dev/null || /sbin/ip route show default echo ""===SECTION:addrs_json==="" ip -j -d addr 2>/dev/null || /sbin/ip -j -d addr 2>/dev/null echo ""===SECTION:addrs_text==="" ip addr show 2>/dev/null || /sbin/ip addr show",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,28709,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,top,28722,top -bn1,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sudo,28782,sudo ss -tnap,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ps,28783,ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:1-kvfree_rcu_reclaim],26,[kworker/u8:1-kvfree_rcu_reclaim],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:0-events_unbound],26652,[kworker/u8:0-events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:0-cgroup_release],27919,[kworker/1:0-cgroup_release],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:1-cgroup_release],28040,[kworker/0:1-cgroup_release],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:0-cgroup_release],28476,[kworker/0:0-cgroup_release],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:3-events_unbound],28807,[kworker/u8:3-events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:2-rcu_gp],29060,[kworker/0:2-rcu_gp],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,29341,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,29342,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,29346,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:2-events],29413,[kworker/1:2-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29417,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29418,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29420,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29423,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29424,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29425,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd,29443,/usr/lib/systemd/systemd --user,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,(sd-pam),29463,(sd-pam),ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29505,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29506,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29507,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29508,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29509,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,29510,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29512,"bash -c timeout 60 echo ""===SECTION:top==="" top -bn1 echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:free==="" free -m echo ""===SECTION:meminfo==="" cat /proc/meminfo echo ""===SECTION:net_before==="" cat /proc/net/dev echo ""===SECTION:stat_before==="" cat /proc/stat",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29513,"bash -c timeout 60 echo ""===SECTION:iostat==="" iostat -xk 1 2 echo ""===SECTION:lsblk==="" lsblk -J -o NAME,MOUNTPOINT,FSTYPE 2>/dev/null echo ""===SECTION:df==="" df -k echo ""===SECTION:diskstats_before==="" cat /proc/diskstats echo ""===SECTION:proc_mounts==="" cat /proc/mounts",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,timeout,29514,timeout 60 sudo ss -tnap,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29534,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,timeout,29548,timeout 60 ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,top,29609,top -bn1,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,iostat,29611,iostat -xk 1 2,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sudo,29620,sudo ss -tnap,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29651,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,grep,29652,grep inet ,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29653,"bash -c timeout 60 echo ""===SECTION:hostname==="" hostname echo ""===SECTION:fqdn==="" hostname -f 2>/dev/null || hostname echo ""===SECTION:os_release==="" cat /etc/os-release 2>/dev/null || cat /etc/*-release 2>/dev/null || uname -a echo ""===SECTION:nproc==="" nproc 2>/dev/null || grep -c ^processor /proc/cpuinfo echo ""===SECTION:meminfo==="" grep MemTotal /proc/meminfo echo ""===SECTION:primary_ip==="" result=$(hostname -I 2>/dev/null | awk '{print $1}'); [ -n ""$result"" ] && echo ""$result"" || (ip -4 addr show scope global 2>/dev/null || /sbin/ip -4 addr show scope global) | grep inet | awk '{print $2}' | cut -d/ -f1 | head -1 echo ""===SECTION:netmask==="" (ip addr show $(ip route 2>/dev/null | grep default | awk '{print $5}') 2>/dev/null || /sbin/ip addr show $(/sbin/ip route | grep default | awk '{print $5}')) | grep 'inet ' | awk '{print $2}' | cut -d'/' -f2 echo ""===SECTION:nic_count==="" (ip link show 2>/dev/null || /sbin/ip link show) | grep -E ""^[0-9]:"" | grep -v ""lo:"" | wc -l echo ""===SECTION:lsblk==="" lsblk -d -n 2>/dev/null echo ""===SECTION:virt==="" systemd-detect-virt 2>/dev/null",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[grep],29655,[grep] <defunct>,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,awk,29656,awk {print $5},ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,awk,29657,awk {print $2},ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,cut,29658,cut -d/ -f2,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,bash,29663,"bash -c timeout 60 sudo echo ""===SECTION:lvdisplay==="" lvdisplay 2>/dev/null echo ""===SECTION:mdstat==="" cat /proc/mdstat",ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ps,29675,ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:0H-events_highpri],10,[kworker/0:0H-events_highpri],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:1-cgroup_free],11,[kworker/0:1-cgroup_free],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:0-cgroup_release],23,[kworker/1:0-cgroup_release],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:0H-events_highpri],24,[kworker/1:0H-events_highpri],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:1-events_unbound],26,[kworker/u8:1-events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:1H-xfs-log/nvme0n1p1],50,[kworker/1:1H-xfs-log/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfsalloc],78,[kworker/R-xfsalloc],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-mld],170,[kworker/R-mld],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-ipv6_addrconf],171,[kworker/R-ipv6_addrconf],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-kstrp],172,[kworker/R-kstrp],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u9:0],253,[kworker/u9:0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:1H-kblockd],560,[kworker/0:1H-kblockd],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:2-cgroup_offline],668,[kworker/0:2-cgroup_offline],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-buf/nvme0n1p1],1069,[kworker/R-xfs-buf/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-conv/nvme0n1p1],1070,[kworker/R-xfs-conv/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-reclaim/nvme0n1p1],1071,[kworker/R-xfs-reclaim/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-blockgc/nvme0n1p1],1072,[kworker/R-xfs-blockgc/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-inodegc/nvme0n1p1],1073,[kworker/R-xfs-inodegc/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-log/nvme0n1p1],1074,[kworker/R-xfs-log/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xfs-cil/nvme0n1p1],1075,[kworker/R-xfs-cil/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[xfsaild/nvme0n1p1],1076,[xfsaild/nvme0n1p1],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-journald,1123,/usr/lib/systemd/systemd-journald,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-udevd,1563,/usr/lib/systemd/systemd-udevd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-resolved,1592,/usr/lib/systemd/systemd-resolved,systemd+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,auditd,1594,/sbin/auditd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-rpciod],1598,[kworker/R-rpciod],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-xprtiod],1599,[kworker/R-xprtiod],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/R-ena],1601,[kworker/R-ena],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-inhibit,1718,/usr/bin/systemd-inhibit --what=handle-suspend-key:handle-hibernate-key --who=ec2-hibinit-agent --why=acpid-sleep-handler --mode=block /usr/sbin/acpid -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,irqbalance,1721,/usr/sbin/irqbalance --foreground,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,lsmd,1722,/usr/bin/lsmd -d,libstor+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-homed,1725,/usr/lib/systemd/systemd-homed,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-logind,1726,/usr/lib/systemd/systemd-logind,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,dbus-broker-launch,1728,/usr/bin/dbus-broker-launch --scope system --audit,dbus
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-networkd,1729,/usr/lib/systemd/systemd-networkd,systemd+
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,dbus-broker,1735,dbus-broker --log 4 --controller 9 --machine-id ec232ee890c14563cbfd73406c172245 --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit,dbus
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,acpid,1753,/usr/sbin/acpid -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,gssproxy,1756,/usr/sbin/gssproxy -D,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,amazon-ssm-agent,1885,/usr/bin/amazon-ssm-agent,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,java,1886,/usr/lib/jvm/java-1.8.0-amazon-corretto/bin/java -jar /opt/catalog/catalog.jar,catalog
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd,1891,sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,atd,1897,/usr/sbin/atd -f,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,agetty,1898,/sbin/agetty -o -p -- \u --noclear - linux,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,agetty,1899,"/sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220",root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,chronyd,1932,/usr/sbin/chronyd -F 2,chrony
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ssm-agent-worker,1949,/usr/bin/ssm-agent-worker,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userdbd,2067,/usr/lib/systemd/systemd-userdbd,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:2-writeback],3967,[kworker/u8:2-writeback],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:3-flush-259:0],5638,[kworker/u8:3-flush-259:0],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:1-events],5822,[kworker/1:1-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/1:3-events],5988,[kworker/1:3-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:0-events],6074,[kworker/0:0-events],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:3-cgroup_bpf_destroy],6281,[kworker/0:3-cgroup_bpf_destroy],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/0:4-rcu_gp],7084,[kworker/0:4-rcu_gp],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,7156,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,7193,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd-userwork,7199,systemd-userwork: waiting...,root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,[kworker/u8:0-events_unbound],7434,[kworker/u8:0-events_unbound],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,7436,sshd-session: ec2-user [priv],root
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,systemd,7441,/usr/lib/systemd/systemd --user,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,(sd-pam),7443,(sd-pam),ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,sshd-session,7450,sshd-session: ec2-user@notty,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,timeout,7451,timeout 60 ps aux -ww --no-headers,ec2-user
+import_bf97cd90-d6c9-550e-9ca9-4bea1c402677,ps,7469,ps aux -ww --no-headers,ec2-user
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,amazon-ssm-agent,4164,C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,conhost,1188,C:\Windows\system32\conhost.exe,EC2AMAZ-K9LQ97Q\Administrator
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,conhost,2840,C:\Windows\system32\conhost.exe,NT SERVICE\MSSQLFDLauncher
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,conhost,3352,C:\Windows\system32\conhost.exe,EC2AMAZ-K9LQ97Q\Administrator
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,conhost,4448,C:\Windows\system32\conhost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,csrss,448,csrss,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,csrss,520,csrss,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,dllhost,3020,C:\Windows\system32\DllHost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,dwm,1052,C:\Windows\system32\dwm.exe,Window Manager\DWM-1
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,fdhost,3536,C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\fdhost.exe,NT SERVICE\MSSQLFDLauncher
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,fdlauncher,2008,C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\fdlauncher.exe,NT SERVICE\MSSQLFDLauncher
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,fontdrvhost,816,C:\Windows\system32\fontdrvhost.exe,Font Driver Host\UMFD-0
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,fontdrvhost,820,C:\Windows\system32\fontdrvhost.exe,Font Driver Host\UMFD-1
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,Idle,0,Idle,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,Launchpad,3596,C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\launchpad.exe,NT SERVICE\MSSQLLaunchpad
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,LogonUI,3168,C:\Windows\system32\LogonUI.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,lsass,680,C:\Windows\system32\lsass.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,MpDefenderCoreService,2000,MpDefenderCoreService,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,msdtc,3576,C:\Windows\System32\msdtc.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,MsMpEng,1988,MsMpEng,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,NisSrv,3980,NisSrv,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,powershell,2768,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,EC2AMAZ-K9LQ97Q\Administrator
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,powershell,2804,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,EC2AMAZ-K9LQ97Q\Administrator
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,Registry,96,Registry,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,RSHostingService,2776,C:\Program Files\Microsoft SQL Server Reporting Services\SSRS\RSHostingService\RSHostingService.exe,NT SERVICE\SQLServerReportingServices
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,services,660,services,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,smss,328,smss,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,spoolsv,1664,C:\Windows\System32\spoolsv.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,sqlceip,4000,C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlceip.exe,NT SERVICE\SQLTELEMETRY
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,sqlservr,800,C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlservr.exe,NT SERVICE\MSSQLSERVER
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,sqlwriter,1880,C:\Program Files\Microsoft SQL Server\90\Shared\sqlwriter.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,ssm-agent-worker,4440,C:\Program Files\Amazon\SSM\ssm-agent-worker.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,380,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,444,C:\Windows\System32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,516,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,676,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,788,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,900,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1004,C:\Windows\System32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1012,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1084,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1212,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1220,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1252,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1268,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1584,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1704,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1716,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1752,C:\Windows\System32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,1812,C:\Windows\system32\svchost.exe,NT AUTHORITY\LOCAL SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,2720,C:\Windows\system32\svchost.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,svchost,3916,C:\Windows\system32\svchost.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,System,4,System,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,vds,2120,C:\Windows\System32\vds.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wininit,572,wininit,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,winlogon,592,C:\Windows\system32\winlogon.exe,NT AUTHORITY\SYSTEM
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,WmiPrvSE,4668,C:\Windows\system32\wbem\wmiprvse.exe,NT AUTHORITY\NETWORK SERVICE
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,1172,wsmprovhost,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,1828,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,3032,wsmprovhost,
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,3240,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4060,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4584,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4680,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,4956,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
+import_0b6b01c5-d120-5bce-8c8f-d8a57805bc35,wsmprovhost,3852,C:\Windows\system32\wsmprovhost.exe,EC2AMAZ-K9LQ97Q\discovery
