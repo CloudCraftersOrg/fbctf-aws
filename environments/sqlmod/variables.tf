@@ -82,3 +82,9 @@ variable "transform_ro_password" {
     error_message = "transform_ro_password must be 12-64 printable ASCII characters with no whitespace."
   }
 }
+
+variable "discovery_cidr" {
+  description = "CIDR of the AWS Transform discovery collector VPC - opens SSH / WinRM inbound so its peered collector can reach these hosts. Empty disables."
+  type        = string
+  default     = "10.70.0.0/16"
+}

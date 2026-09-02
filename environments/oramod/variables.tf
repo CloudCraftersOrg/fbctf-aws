@@ -48,3 +48,9 @@ variable "app_instance_type" {
   type    = string
   default = "t3.small"
 }
+
+variable "discovery_cidr" {
+  description = "CIDR of the AWS Transform discovery collector VPC - opens SSH / 1521 inbound so its peered collector can reach these hosts. Empty disables."
+  type        = string
+  default     = "10.70.0.0/16"
+}

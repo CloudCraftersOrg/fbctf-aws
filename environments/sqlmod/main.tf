@@ -53,6 +53,17 @@ resource "aws_security_group" "sqlserver" {
     cidr_blocks = [var.vpc_cidr]
   }
 
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "SSH from the AWS Transform discovery collector"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -247,6 +258,16 @@ resource "aws_security_group" "app" {
     protocol    = "tcp"
     cidr_blocks = [var.app_allow_cidr]
   }
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "WinRM from the AWS Transform discovery collector"
+      from_port   = 5985
+      to_port     = 5986
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
+  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -404,6 +425,16 @@ resource "aws_security_group" "wordpress" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = [var.wordpress_allow_cidr]
+  }
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "SSH from the AWS Transform discovery collector"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
   }
   egress {
     from_port   = 0

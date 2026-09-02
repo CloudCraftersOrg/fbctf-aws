@@ -119,6 +119,26 @@ resource "aws_security_group" "oracle" {
     protocol    = "tcp"
     cidr_blocks = [var.vpc_cidr]
   }
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "SSH + Oracle Net from the AWS Transform discovery collector"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
+  }
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "Oracle Net from the AWS Transform discovery collector"
+      from_port   = 1521
+      to_port     = 1521
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
+  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -213,6 +233,16 @@ resource "aws_security_group" "app" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = [var.app_allow_cidr]
+  }
+  dynamic "ingress" {
+    for_each = var.discovery_cidr == "" ? [] : [var.discovery_cidr]
+    content {
+      description = "SSH from the AWS Transform discovery collector"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = [ingress.value]
+    }
   }
   egress {
     from_port   = 0
