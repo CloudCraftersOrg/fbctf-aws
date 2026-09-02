@@ -114,6 +114,10 @@ locals {
       { name = "sqlmod-sqlserver", ip = data.aws_instance.sqlmod_sqlserver[0].private_ip },
       { name = "sqlmod-app", ip = data.aws_instance.sqlmod_app[0].private_ip },
       { name = "sqlmod-wordpress", ip = data.aws_instance.sqlmod_wordpress[0].private_ip },
+    ] : [],
+    var.discover_oramod ? [
+      { name = "oramod-oracle", ip = data.aws_instance.oramod_oracle[0].private_ip },
+      { name = "oramod-app", ip = data.aws_instance.oramod_app[0].private_ip },
     ] : []
   )
 }
@@ -560,4 +564,141 @@ resource "aws_security_group_rule" "sqlmod_app_winrm" {
   description              = "fbctf-discovery: collector WinRM for the AWS Transform discovery tool"
 
   depends_on = [aws_vpc_peering_connection.sqlmod]
+}
+
+
+data "aws_vpc" "oramod" {
+  count = var.discover_oramod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-oramod"]
+  }
+}
+
+data "aws_route_table" "oramod_public" {
+  count  = var.discover_oramod ? 1 : 0
+  vpc_id = data.aws_vpc.oramod[0].id
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-oramod-public"]
+  }
+}
+
+data "aws_route_table" "oramod_app" {
+  count  = var.discover_oramod ? 1 : 0
+  vpc_id = data.aws_vpc.oramod[0].id
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-oramod-app"]
+  }
+}
+
+data "aws_instance" "oramod_oracle" {
+  count = var.discover_oramod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-oramod-oracle"]
+  }
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+}
+
+data "aws_instance" "oramod_app" {
+  count = var.discover_oramod ? 1 : 0
+  filter {
+    name   = "tag:Name"
+    values = ["fbctf-oramod-app"]
+  }
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+}
+
+data "aws_security_group" "oramod_oracle" {
+  count  = var.discover_oramod ? 1 : 0
+  vpc_id = data.aws_vpc.oramod[0].id
+  filter {
+    name   = "group-name"
+    values = ["fbctf-oramod-oracle"]
+  }
+}
+
+data "aws_security_group" "oramod_app" {
+  count  = var.discover_oramod ? 1 : 0
+  vpc_id = data.aws_vpc.oramod[0].id
+  filter {
+    name   = "group-name"
+    values = ["fbctf-oramod-app"]
+  }
+}
+
+resource "aws_vpc_peering_connection" "oramod" {
+  count       = var.discover_oramod ? 1 : 0
+  vpc_id      = aws_vpc.this.id
+  peer_vpc_id = data.aws_vpc.oramod[0].id
+  auto_accept = true
+  tags        = { Name = "fbctf-discovery-to-oramod" }
+}
+
+resource "aws_route" "collector_to_oramod" {
+  count                     = var.discover_oramod ? 1 : 0
+  route_table_id            = aws_route_table.public.id
+  destination_cidr_block    = data.aws_vpc.oramod[0].cidr_block
+  vpc_peering_connection_id = aws_vpc_peering_connection.oramod[0].id
+}
+
+resource "aws_route" "oramod_public_to_collector" {
+  count                     = var.discover_oramod ? 1 : 0
+  route_table_id            = data.aws_route_table.oramod_public[0].id
+  destination_cidr_block    = var.vpc_cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.oramod[0].id
+}
+
+resource "aws_route" "oramod_app_to_collector" {
+  count                     = var.discover_oramod ? 1 : 0
+  route_table_id            = data.aws_route_table.oramod_app[0].id
+  destination_cidr_block    = var.vpc_cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.oramod[0].id
+}
+
+resource "aws_security_group_rule" "oramod_oracle_ssh" {
+  count                    = var.discover_oramod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.oramod_oracle[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.oramod]
+}
+
+resource "aws_security_group_rule" "oramod_oracle_1521" {
+  count                    = var.discover_oramod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 1521
+  to_port                  = 1521
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.oramod_oracle[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector Oracle Net for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.oramod]
+}
+
+resource "aws_security_group_rule" "oramod_app_ssh" {
+  count                    = var.discover_oramod ? 1 : 0
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  security_group_id        = data.aws_security_group.oramod_app[0].id
+  source_security_group_id = aws_security_group.collector.id
+  description              = "fbctf-discovery: collector SSH for the AWS Transform discovery tool"
+
+  depends_on = [aws_vpc_peering_connection.oramod]
 }

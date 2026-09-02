@@ -50,6 +50,12 @@ variable "discover_sqlmod" {
   default     = true
 }
 
+variable "discover_oramod" {
+  description = "Also peer to the fbctf-oramod VPC and add its 2 hosts (Oracle XE, Contoso Catalog / Java) to the import list"
+  type        = bool
+  default     = true
+}
+
 variable "enable_windows" {
   description = "Add a Windows Server + SQL Server Express host so the discovery tool exercises WinRM, the SQL Server module, and Windows OS discovery"
   type        = bool
